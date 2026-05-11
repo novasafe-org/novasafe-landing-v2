@@ -3,7 +3,7 @@ import { Hero } from "@/components/landing/Hero";
 import { TrustBar } from "@/components/landing/TrustBar";
 import { EncryptionFlow } from "@/components/landing/EncryptionFlow";
 import { Features } from "@/components/landing/Features";
-import { Platforms } from "@/components/landing/Platforms";
+import { Ecosystem } from "@/components/landing/Ecosystem";
 import { Compliance } from "@/components/landing/Compliance";
 import { Developers } from "@/components/landing/Developers";
 import { Stats } from "@/components/landing/Stats";
@@ -19,7 +19,7 @@ const Index = () => {
         <TrustBar />
         <EncryptionFlow />
         <Features />
-        <Platforms />
+        <Ecosystem />
         <Compliance />
         <Developers />
         <Stats />

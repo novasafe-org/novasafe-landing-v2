@@ -260,6 +260,10 @@
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+@keyframes shimmerCore {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(220%); }
+}
 @keyframes accordion-down {
   from { height: 0; }
   to { height: var(--radix-accordion-content-height); }

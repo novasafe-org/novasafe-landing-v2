@@ -514,38 +514,47 @@ const ModuleCard = ({
   m,
   index,
   style,
+  tiltX = 0,
+  tiltY = 0,
 }: {
   m: Module;
   index: number;
   style: React.CSSProperties;
+  tiltX?: number;
+  tiltY?: number;
 }) => {
   const Icon = m.icon;
   const scale = 0.94 + (m.depth / 90) * 0.10;
   const opacity = 0.86 + (m.depth / 90) * 0.14;
+  // depth-based parallax — closer cards (higher depth) move more
+  const par = 6 + (m.depth / 90) * 10;
+  const px = -tiltX * par;
+  const py = -tiltY * par;
 
   return (
     <div
       className="group absolute"
       style={{
         ...style,
-        transform: `translate(-50%, -50%) translateZ(${m.depth}px) scale(${scale})`,
+        transform: `translate(calc(-50% + ${px}px), calc(-50% + ${py}px)) translateZ(${m.depth}px) scale(${scale})`,
         opacity,
-        width: 196,
+        width: 208,
+        transition: "transform 700ms cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
       <div
-        className="relative animate-float overflow-hidden rounded-2xl transition-all duration-500 ease-out group-hover:-translate-y-1.5"
+        className="relative animate-float overflow-hidden rounded-2xl transition-all duration-500 ease-out group-hover:-translate-y-1.5 group-hover:scale-[1.025]"
         style={{
           animationDuration: `${8 + (index % 4)}s`,
           animationDelay: `${index * 0.4}s`,
           background:
-            "linear-gradient(160deg, hsl(224 45% 11% / 0.82), hsl(224 55% 6% / 0.86))",
-          border: "1px solid hsl(220 60% 70% / 0.16)",
+            "linear-gradient(160deg, hsl(224 42% 13% / 0.86), hsl(224 55% 7% / 0.9))",
+          border: "1px solid hsl(220 60% 75% / 0.20)",
           backdropFilter: "blur(24px) saturate(160%)",
           WebkitBackdropFilter: "blur(24px) saturate(160%)",
           boxShadow: [
-            "inset 0 1px 0 hsl(220 100% 96% / 0.07)",
-            "0 28px 56px -22px hsl(224 60% 2% / 0.95)",
+            "inset 0 1px 0 hsl(220 100% 96% / 0.09)",
+            "0 32px 64px -22px hsl(224 60% 2% / 0.95)",
             "0 2px 8px hsl(224 60% 2% / 0.4)",
           ].join(", "),
         }}
@@ -585,7 +594,7 @@ const ModuleCard = ({
           </div>
           <div className="min-w-0 flex-1 pt-0.5">
             <div className="flex items-center gap-1.5">
-              <div className="truncate text-[13px] font-semibold tracking-tight text-[hsl(210_40%_98%)]">
+              <div className="truncate text-[13.5px] font-semibold tracking-tight text-[hsl(210_40%_99%)]">
                 {m.label}
               </div>
               {m.status === "soon" && (
@@ -594,7 +603,7 @@ const ModuleCard = ({
                 </span>
               )}
             </div>
-            <div className="mt-0.5 truncate text-[10.5px] text-[hsl(215_18%_72%)]">
+            <div className="mt-0.5 truncate text-[10.5px] text-[hsl(218_22%_82%)]">
               {m.desc}
             </div>
           </div>

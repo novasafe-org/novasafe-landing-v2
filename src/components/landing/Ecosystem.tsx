@@ -100,15 +100,27 @@ export const Ecosystem = () => {
     <section
       ref={sectionRef}
       id="ecosystem"
-      className="relative flex min-h-[820px] flex-col overflow-hidden bg-[hsl(224_55%_4%)] text-[hsl(210_40%_98%)] lg:h-screen lg:max-h-[1100px]"
+      className="relative flex min-h-[780px] flex-col overflow-hidden bg-[hsl(224_55%_4%)] text-[hsl(210_40%_98%)] lg:h-screen lg:max-h-[1040px]"
     >
       <Atmosphere lightX={light.x} lightY={light.y} />
 
-      {/* gradient transitions in/out of the dark scene */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-background to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* atmospheric, multi-stop transitions in/out of the dark scene */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 z-10 h-48"
+        style={{
+          background:
+            "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.85) 22%, hsl(224 55% 6% / 0.55) 55%, transparent 100%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-44"
+        style={{
+          background:
+            "linear-gradient(to top, hsl(var(--background)) 0%, hsl(var(--background) / 0.85) 25%, hsl(224 55% 6% / 0.45) 60%, transparent 100%)",
+        }}
+      />
 
-      <div className="container relative z-20 flex flex-1 flex-col pt-16 pb-12 lg:pt-20 lg:pb-16">
+      <div className="container relative z-20 flex flex-1 flex-col pt-14 pb-10 lg:pt-16 lg:pb-12">
         {/* ---------------------------------- Header ---------------------------------- */}
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(220_95%_75%/0.18)] bg-[hsl(222_89%_55%/0.10)] px-3 py-1 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[hsl(220_100%_88%)] backdrop-blur">
@@ -133,10 +145,10 @@ export const Ecosystem = () => {
         </div>
 
         {/* ---------------------------------- Stage ----------------------------------- */}
-        <div className="relative mt-6 flex flex-1 items-center justify-center lg:mt-2">
+        <div className="relative mt-4 flex flex-1 items-center justify-center lg:mt-0">
           <div
             ref={stageRef}
-            className="relative aspect-[16/10] w-full max-w-[1180px]"
+            className="relative aspect-[16/9] w-full max-w-[1320px]"
             style={{ perspective: "1800px" }}
           >
             <div
@@ -163,9 +175,9 @@ export const Ecosystem = () => {
 
               {/* Modules */}
               {modules.map((m, i) => {
-                // elliptical orbit — wider horizontal radius, narrower vertical for spatial feel
-                const rx = 42; // % of stage width from center
-                const ry = 36; // % of stage height from center
+                // wider elliptical orbit — give every node room to breathe
+                const rx = 47; // % of stage width from center
+                const ry = 41; // % of stage height from center
                 const rad = (m.angle * Math.PI) / 180;
                 const x = 50 + Math.cos(rad) * rx;
                 const y = 50 + Math.sin(rad) * ry;
@@ -174,6 +186,8 @@ export const Ecosystem = () => {
                     key={i}
                     m={m}
                     index={i}
+                    tiltX={tilt.x}
+                    tiltY={tilt.y}
                     style={{ left: `${x}%`, top: `${y}%` }}
                   />
                 );

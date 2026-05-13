@@ -100,15 +100,27 @@ export const Ecosystem = () => {
     <section
       ref={sectionRef}
       id="ecosystem"
-      className="relative flex min-h-[820px] flex-col overflow-hidden bg-[hsl(224_55%_4%)] text-[hsl(210_40%_98%)] lg:h-screen lg:max-h-[1100px]"
+      className="relative flex min-h-[780px] flex-col overflow-hidden bg-[hsl(224_55%_4%)] text-[hsl(210_40%_98%)] lg:h-screen lg:max-h-[1040px]"
     >
       <Atmosphere lightX={light.x} lightY={light.y} />
 
-      {/* gradient transitions in/out of the dark scene */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-background to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* atmospheric, multi-stop transitions in/out of the dark scene */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 z-10 h-48"
+        style={{
+          background:
+            "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.85) 22%, hsl(224 55% 6% / 0.55) 55%, transparent 100%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-44"
+        style={{
+          background:
+            "linear-gradient(to top, hsl(var(--background)) 0%, hsl(var(--background) / 0.85) 25%, hsl(224 55% 6% / 0.45) 60%, transparent 100%)",
+        }}
+      />
 
-      <div className="container relative z-20 flex flex-1 flex-col pt-16 pb-12 lg:pt-20 lg:pb-16">
+      <div className="container relative z-20 flex flex-1 flex-col pt-14 pb-10 lg:pt-16 lg:pb-12">
         {/* ---------------------------------- Header ---------------------------------- */}
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(220_95%_75%/0.18)] bg-[hsl(222_89%_55%/0.10)] px-3 py-1 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[hsl(220_100%_88%)] backdrop-blur">
@@ -133,10 +145,10 @@ export const Ecosystem = () => {
         </div>
 
         {/* ---------------------------------- Stage ----------------------------------- */}
-        <div className="relative mt-6 flex flex-1 items-center justify-center lg:mt-2">
+        <div className="relative mt-4 flex flex-1 items-center justify-center lg:mt-0">
           <div
             ref={stageRef}
-            className="relative aspect-[16/10] w-full max-w-[1180px]"
+            className="relative aspect-[16/9] w-full max-w-[1320px]"
             style={{ perspective: "1800px" }}
           >
             <div
@@ -163,9 +175,9 @@ export const Ecosystem = () => {
 
               {/* Modules */}
               {modules.map((m, i) => {
-                // elliptical orbit — wider horizontal radius, narrower vertical for spatial feel
-                const rx = 42; // % of stage width from center
-                const ry = 36; // % of stage height from center
+                // wider elliptical orbit — give every node room to breathe
+                const rx = 47; // % of stage width from center
+                const ry = 41; // % of stage height from center
                 const rad = (m.angle * Math.PI) / 180;
                 const x = 50 + Math.cos(rad) * rx;
                 const y = 50 + Math.sin(rad) * ry;
@@ -174,6 +186,8 @@ export const Ecosystem = () => {
                     key={i}
                     m={m}
                     index={i}
+                    tiltX={tilt.x}
+                    tiltY={tilt.y}
                     style={{ left: `${x}%`, top: `${y}%` }}
                   />
                 );
@@ -311,43 +325,48 @@ const ConnectionField = () => {
     >
       <defs>
         <radialGradient id="streamGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="hsl(220 100% 90%)" stopOpacity="0.55" />
+          <stop offset="0%" stopColor="hsl(220 100% 92%)" stopOpacity="0.6" />
           <stop offset="100%" stopColor="hsl(220 95% 75%)" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="packetGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="hsl(220 100% 98%)" stopOpacity="1" />
+          <stop offset="100%" stopColor="hsl(220 100% 80%)" stopOpacity="0" />
         </radialGradient>
       </defs>
 
       {modules.map((m, i) => {
-        const rx = 168;
-        const ry = 90;
+        // match wider orbit radii (rx 47%, ry 41% of stage; stage viewBox is 400x250)
+        const rx = 188;
+        const ry = 102;
         const rad = (m.angle * Math.PI) / 180;
         const x = Math.cos(rad) * rx;
         const y = Math.sin(rad) * ry;
         // curved path via quadratic with perpendicular offset
-        const cx = x * 0.5 + -y * 0.15;
-        const cy = y * 0.5 + x * 0.15;
+        const cx = x * 0.5 + -y * 0.18;
+        const cy = y * 0.5 + x * 0.18;
         const d = `M 0 0 Q ${cx} ${cy} ${x} ${y}`;
-        const dur = 3.2 + (i % 5) * 0.55;
+        const dur = 3.6 + (i % 5) * 0.55;
         return (
           <g key={i}>
             {/* base path */}
-            <path d={d} stroke="url(#streamGrad)" strokeWidth="0.8" strokeLinecap="round" opacity="0.55" />
+            <path d={d} stroke="url(#streamGrad)" strokeWidth="0.7" strokeLinecap="round" opacity="0.5" />
             {/* outbound traveling pulse (core → node) */}
             <path
               d={d}
-              stroke="hsl(220 100% 95%)"
-              strokeWidth="1.4"
+              stroke="hsl(220 100% 96%)"
+              strokeWidth="1.3"
               strokeLinecap="round"
               strokeDasharray="4 600"
               style={{
                 animation: `flow ${dur}s linear ${i * 0.32}s infinite`,
-                filter: "drop-shadow(0 0 4px hsl(220 100% 90%))",
+                filter: "drop-shadow(0 0 5px hsl(220 100% 90%))",
               }}
             />
             {/* secondary slower glint */}
             <path
               d={d}
               stroke="hsl(220 95% 80%)"
-              strokeWidth="0.8"
+              strokeWidth="0.7"
               strokeLinecap="round"
               strokeDasharray="2 600"
               style={{
@@ -355,6 +374,11 @@ const ConnectionField = () => {
                 opacity: 0.7,
               }}
             />
+            {/* encrypted packet — small bright dot traveling along path */}
+            <circle r="1.6" fill="url(#packetGrad)" style={{ filter: "drop-shadow(0 0 4px hsl(220 100% 92%))" }}>
+              <animateMotion dur={`${dur * 1.4}s`} begin={`${i * 0.45}s`} repeatCount="indefinite" path={d} rotate="auto" />
+              <animate attributeName="opacity" values="0;1;1;0" dur={`${dur * 1.4}s`} begin={`${i * 0.45}s`} repeatCount="indefinite" />
+            </circle>
           </g>
         );
       })}
@@ -490,38 +514,47 @@ const ModuleCard = ({
   m,
   index,
   style,
+  tiltX = 0,
+  tiltY = 0,
 }: {
   m: Module;
   index: number;
   style: React.CSSProperties;
+  tiltX?: number;
+  tiltY?: number;
 }) => {
   const Icon = m.icon;
   const scale = 0.94 + (m.depth / 90) * 0.10;
   const opacity = 0.86 + (m.depth / 90) * 0.14;
+  // depth-based parallax — closer cards (higher depth) move more
+  const par = 6 + (m.depth / 90) * 10;
+  const px = -tiltX * par;
+  const py = -tiltY * par;
 
   return (
     <div
       className="group absolute"
       style={{
         ...style,
-        transform: `translate(-50%, -50%) translateZ(${m.depth}px) scale(${scale})`,
+        transform: `translate(calc(-50% + ${px}px), calc(-50% + ${py}px)) translateZ(${m.depth}px) scale(${scale})`,
         opacity,
-        width: 196,
+        width: 208,
+        transition: "transform 700ms cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
       <div
-        className="relative animate-float overflow-hidden rounded-2xl transition-all duration-500 ease-out group-hover:-translate-y-1.5"
+        className="relative animate-float overflow-hidden rounded-2xl transition-all duration-500 ease-out group-hover:-translate-y-1.5 group-hover:scale-[1.025]"
         style={{
           animationDuration: `${8 + (index % 4)}s`,
           animationDelay: `${index * 0.4}s`,
           background:
-            "linear-gradient(160deg, hsl(224 45% 11% / 0.82), hsl(224 55% 6% / 0.86))",
-          border: "1px solid hsl(220 60% 70% / 0.16)",
+            "linear-gradient(160deg, hsl(224 42% 13% / 0.86), hsl(224 55% 7% / 0.9))",
+          border: "1px solid hsl(220 60% 75% / 0.20)",
           backdropFilter: "blur(24px) saturate(160%)",
           WebkitBackdropFilter: "blur(24px) saturate(160%)",
           boxShadow: [
-            "inset 0 1px 0 hsl(220 100% 96% / 0.07)",
-            "0 28px 56px -22px hsl(224 60% 2% / 0.95)",
+            "inset 0 1px 0 hsl(220 100% 96% / 0.09)",
+            "0 32px 64px -22px hsl(224 60% 2% / 0.95)",
             "0 2px 8px hsl(224 60% 2% / 0.4)",
           ].join(", "),
         }}
@@ -561,7 +594,7 @@ const ModuleCard = ({
           </div>
           <div className="min-w-0 flex-1 pt-0.5">
             <div className="flex items-center gap-1.5">
-              <div className="truncate text-[13px] font-semibold tracking-tight text-[hsl(210_40%_98%)]">
+              <div className="truncate text-[13.5px] font-semibold tracking-tight text-[hsl(210_40%_99%)]">
                 {m.label}
               </div>
               {m.status === "soon" && (
@@ -570,7 +603,7 @@ const ModuleCard = ({
                 </span>
               )}
             </div>
-            <div className="mt-0.5 truncate text-[10.5px] text-[hsl(215_18%_72%)]">
+            <div className="mt-0.5 truncate text-[10.5px] text-[hsl(218_22%_82%)]">
               {m.desc}
             </div>
           </div>
@@ -614,24 +647,37 @@ const MiniPreview = ({ kind }: { kind: Preview }) => {
       );
     case "extension":
       return (
-        <div className="space-y-1 p-2" style={previewBase}>
+        <div className="space-y-1.5 p-2" style={previewBase}>
           <div className="flex items-center justify-between">
-            <span className="text-[9px] text-[hsl(215_18%_72%)]">Autofill · github.com</span>
-            <Check className="h-2.5 w-2.5 text-[hsl(152_85%_55%)]" />
+            <span className="flex items-center gap-1 text-[9px] text-[hsl(218_22%_82%)]">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(152_85%_55%)] opacity-70" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[hsl(152_85%_55%)]" />
+              </span>
+              Autofill · github.com
+            </span>
+            <Check className="h-2.5 w-2.5 text-[hsl(152_85%_60%)]" />
           </div>
-          <div className="rounded bg-[hsl(224_30%_15%/0.7)] px-1.5 py-1 font-mono text-[9px] tracking-widest text-[hsl(220_100%_92%)]">
-            ••••••••••••
+          <div className="space-y-0.5 rounded bg-[hsl(224_30%_14%/0.8)] px-1.5 py-1">
+            <div className="font-mono text-[8px] text-[hsl(218_22%_72%)]">user@novasafe.app</div>
+            <div className="font-mono text-[9px] tracking-[0.2em] text-[hsl(220_100%_94%)]">••••••••••••</div>
           </div>
-          <div className="font-mono text-[8px] text-[hsl(215_18%_60%)]">passkey ready</div>
+          <div className="font-mono text-[8px] text-[hsl(218_22%_72%)]">passkey · ready</div>
         </div>
       );
     case "mobile":
       return (
         <div className="flex items-center justify-between p-2" style={previewBase}>
-          <Fingerprint className="h-6 w-6 text-[hsl(220_100%_85%)]" strokeWidth={1.4} />
-          <div className="space-y-1 text-right">
-            <div className="text-[9px] font-semibold text-[hsl(220_100%_92%)]">Face ID</div>
-            <div className="font-mono text-[8px] text-[hsl(152_85%_60%)]">authorized · 2s</div>
+          <div className="relative">
+            <span className="absolute inset-0 -m-1 rounded-full bg-[hsl(152_85%_55%/0.18)] blur-sm" />
+            <Fingerprint className="relative h-6 w-6 text-[hsl(152_85%_70%)]" strokeWidth={1.5} />
+          </div>
+          <div className="space-y-0.5 text-right">
+            <div className="text-[9.5px] font-semibold text-[hsl(220_100%_96%)]">Face ID</div>
+            <div className="flex items-center justify-end gap-1 font-mono text-[8.5px] text-[hsl(152_85%_65%)]">
+              <span className="h-1 w-1 rounded-full bg-[hsl(152_85%_60%)]" />
+              authorized · 2s
+            </div>
           </div>
         </div>
       );
@@ -639,46 +685,60 @@ const MiniPreview = ({ kind }: { kind: Preview }) => {
       return (
         <div className="space-y-1.5 p-2" style={previewBase}>
           <div className="flex items-center justify-between">
-            <span className="text-[9px] text-[hsl(215_18%_72%)]">Local vault</span>
-            <span className="font-mono text-[8px] text-[hsl(152_85%_60%)]">offline ready</span>
+            <span className="text-[9.5px] text-[hsl(218_22%_84%)]">Local vault</span>
+            <span className="flex items-center gap-1 font-mono text-[8.5px] text-[hsl(152_85%_65%)]">
+              <span className="h-1 w-1 rounded-full bg-[hsl(152_85%_60%)]" /> offline ready
+            </span>
           </div>
-          <div className="flex h-5 items-center justify-between rounded bg-[hsl(224_30%_12%/0.6)] px-1.5">
-            <span className="font-mono text-[8.5px] text-[hsl(220_100%_88%)]">42 items</span>
-            <Lock className="h-2.5 w-2.5 text-[hsl(220_100%_85%)]" strokeWidth={1.8} />
+          <div className="flex h-5 items-center justify-between rounded bg-[hsl(224_30%_12%/0.7)] px-1.5">
+            <span className="font-mono text-[9px] text-[hsl(220_100%_92%)]">42 items · sealed</span>
+            <Lock className="h-2.5 w-2.5 text-[hsl(220_100%_88%)]" strokeWidth={1.8} />
           </div>
         </div>
       );
     case "cli":
       return (
-        <div className="space-y-0.5 p-2 font-mono text-[9px] leading-tight" style={previewBase}>
-          <div className="text-[hsl(152_85%_60%)]">$ novasafe run --env prod</div>
-          <div className="text-[hsl(215_18%_65%)]">↳ injected 12 secrets · 0 on disk</div>
+        <div className="space-y-0.5 p-2 font-mono text-[9.5px] leading-tight" style={previewBase}>
+          <div>
+            <span className="text-[hsl(152_85%_65%)]">$</span>{" "}
+            <span className="text-[hsl(220_100%_94%)]">novasafe</span>{" "}
+            <span className="text-[hsl(220_100%_85%)]">run</span>{" "}
+            <span className="text-[hsl(40_90%_70%)]">--env prod</span>
+          </div>
+          <div className="text-[hsl(218_22%_78%)]">↳ injected 12 secrets · 0 on disk</div>
         </div>
       );
     case "api":
       return (
-        <div className="space-y-0.5 p-2 font-mono text-[9px] leading-tight" style={previewBase}>
-          <div className="text-[hsl(220_100%_85%)]">POST /v1/secrets/inject</div>
-          <div className="text-[hsl(152_85%_60%)]">200 · 38ms · ci/cd</div>
+        <div className="space-y-0.5 p-2 font-mono text-[9.5px] leading-tight" style={previewBase}>
+          <div>
+            <span className="text-[hsl(40_90%_70%)]">POST</span>{" "}
+            <span className="text-[hsl(220_100%_92%)]">/v1/secrets/inject</span>
+          </div>
+          <div className="text-[hsl(152_85%_65%)]">200 · 38ms · ci/cd</div>
         </div>
       );
     case "admin":
       return (
         <div className="space-y-1 p-2" style={previewBase}>
-          <div className="flex items-end gap-0.5">
+          <div className="flex items-end gap-[3px]">
             {[6, 10, 8, 14, 11, 16, 12, 9].map((h, i) => (
               <span
                 key={i}
-                className="w-1.5 rounded-sm"
+                className="w-1.5 rounded-[2px]"
                 style={{
                   height: h,
-                  background: "linear-gradient(180deg, hsl(220 100% 75%), hsl(222 89% 50%))",
+                  background:
+                    "linear-gradient(180deg, hsl(220 100% 82%), hsl(222 89% 55%))",
+                  boxShadow: "0 0 6px hsl(222 89% 55% / 0.45)",
                 }}
               />
             ))}
-            <span className="ml-auto font-mono text-[8.5px] text-[hsl(152_85%_60%)]">142 ↑</span>
+            <span className="ml-auto font-mono text-[9px] text-[hsl(152_85%_65%)]">142 ↑</span>
           </div>
-          <div className="text-[8.5px] text-[hsl(215_18%_68%)]">Active sessions · SSO + RBAC</div>
+          <div className="flex items-center gap-1 text-[9px] text-[hsl(218_22%_82%)]">
+            <ShieldCheck className="h-2.5 w-2.5 text-[hsl(220_100%_88%)]" strokeWidth={1.8} /> SSO · RBAC · audit
+          </div>
         </div>
       );
     case "sync":

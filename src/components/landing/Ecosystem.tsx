@@ -647,24 +647,37 @@ const MiniPreview = ({ kind }: { kind: Preview }) => {
       );
     case "extension":
       return (
-        <div className="space-y-1 p-2" style={previewBase}>
+        <div className="space-y-1.5 p-2" style={previewBase}>
           <div className="flex items-center justify-between">
-            <span className="text-[9px] text-[hsl(215_18%_72%)]">Autofill · github.com</span>
-            <Check className="h-2.5 w-2.5 text-[hsl(152_85%_55%)]" />
+            <span className="flex items-center gap-1 text-[9px] text-[hsl(218_22%_82%)]">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(152_85%_55%)] opacity-70" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[hsl(152_85%_55%)]" />
+              </span>
+              Autofill · github.com
+            </span>
+            <Check className="h-2.5 w-2.5 text-[hsl(152_85%_60%)]" />
           </div>
-          <div className="rounded bg-[hsl(224_30%_15%/0.7)] px-1.5 py-1 font-mono text-[9px] tracking-widest text-[hsl(220_100%_92%)]">
-            ••••••••••••
+          <div className="space-y-0.5 rounded bg-[hsl(224_30%_14%/0.8)] px-1.5 py-1">
+            <div className="font-mono text-[8px] text-[hsl(218_22%_72%)]">user@novasafe.app</div>
+            <div className="font-mono text-[9px] tracking-[0.2em] text-[hsl(220_100%_94%)]">••••••••••••</div>
           </div>
-          <div className="font-mono text-[8px] text-[hsl(215_18%_60%)]">passkey ready</div>
+          <div className="font-mono text-[8px] text-[hsl(218_22%_72%)]">passkey · ready</div>
         </div>
       );
     case "mobile":
       return (
         <div className="flex items-center justify-between p-2" style={previewBase}>
-          <Fingerprint className="h-6 w-6 text-[hsl(220_100%_85%)]" strokeWidth={1.4} />
-          <div className="space-y-1 text-right">
-            <div className="text-[9px] font-semibold text-[hsl(220_100%_92%)]">Face ID</div>
-            <div className="font-mono text-[8px] text-[hsl(152_85%_60%)]">authorized · 2s</div>
+          <div className="relative">
+            <span className="absolute inset-0 -m-1 rounded-full bg-[hsl(152_85%_55%/0.18)] blur-sm" />
+            <Fingerprint className="relative h-6 w-6 text-[hsl(152_85%_70%)]" strokeWidth={1.5} />
+          </div>
+          <div className="space-y-0.5 text-right">
+            <div className="text-[9.5px] font-semibold text-[hsl(220_100%_96%)]">Face ID</div>
+            <div className="flex items-center justify-end gap-1 font-mono text-[8.5px] text-[hsl(152_85%_65%)]">
+              <span className="h-1 w-1 rounded-full bg-[hsl(152_85%_60%)]" />
+              authorized · 2s
+            </div>
           </div>
         </div>
       );
@@ -672,46 +685,60 @@ const MiniPreview = ({ kind }: { kind: Preview }) => {
       return (
         <div className="space-y-1.5 p-2" style={previewBase}>
           <div className="flex items-center justify-between">
-            <span className="text-[9px] text-[hsl(215_18%_72%)]">Local vault</span>
-            <span className="font-mono text-[8px] text-[hsl(152_85%_60%)]">offline ready</span>
+            <span className="text-[9.5px] text-[hsl(218_22%_84%)]">Local vault</span>
+            <span className="flex items-center gap-1 font-mono text-[8.5px] text-[hsl(152_85%_65%)]">
+              <span className="h-1 w-1 rounded-full bg-[hsl(152_85%_60%)]" /> offline ready
+            </span>
           </div>
-          <div className="flex h-5 items-center justify-between rounded bg-[hsl(224_30%_12%/0.6)] px-1.5">
-            <span className="font-mono text-[8.5px] text-[hsl(220_100%_88%)]">42 items</span>
-            <Lock className="h-2.5 w-2.5 text-[hsl(220_100%_85%)]" strokeWidth={1.8} />
+          <div className="flex h-5 items-center justify-between rounded bg-[hsl(224_30%_12%/0.7)] px-1.5">
+            <span className="font-mono text-[9px] text-[hsl(220_100%_92%)]">42 items · sealed</span>
+            <Lock className="h-2.5 w-2.5 text-[hsl(220_100%_88%)]" strokeWidth={1.8} />
           </div>
         </div>
       );
     case "cli":
       return (
-        <div className="space-y-0.5 p-2 font-mono text-[9px] leading-tight" style={previewBase}>
-          <div className="text-[hsl(152_85%_60%)]">$ novasafe run --env prod</div>
-          <div className="text-[hsl(215_18%_65%)]">↳ injected 12 secrets · 0 on disk</div>
+        <div className="space-y-0.5 p-2 font-mono text-[9.5px] leading-tight" style={previewBase}>
+          <div>
+            <span className="text-[hsl(152_85%_65%)]">$</span>{" "}
+            <span className="text-[hsl(220_100%_94%)]">novasafe</span>{" "}
+            <span className="text-[hsl(220_100%_85%)]">run</span>{" "}
+            <span className="text-[hsl(40_90%_70%)]">--env prod</span>
+          </div>
+          <div className="text-[hsl(218_22%_78%)]">↳ injected 12 secrets · 0 on disk</div>
         </div>
       );
     case "api":
       return (
-        <div className="space-y-0.5 p-2 font-mono text-[9px] leading-tight" style={previewBase}>
-          <div className="text-[hsl(220_100%_85%)]">POST /v1/secrets/inject</div>
-          <div className="text-[hsl(152_85%_60%)]">200 · 38ms · ci/cd</div>
+        <div className="space-y-0.5 p-2 font-mono text-[9.5px] leading-tight" style={previewBase}>
+          <div>
+            <span className="text-[hsl(40_90%_70%)]">POST</span>{" "}
+            <span className="text-[hsl(220_100%_92%)]">/v1/secrets/inject</span>
+          </div>
+          <div className="text-[hsl(152_85%_65%)]">200 · 38ms · ci/cd</div>
         </div>
       );
     case "admin":
       return (
         <div className="space-y-1 p-2" style={previewBase}>
-          <div className="flex items-end gap-0.5">
+          <div className="flex items-end gap-[3px]">
             {[6, 10, 8, 14, 11, 16, 12, 9].map((h, i) => (
               <span
                 key={i}
-                className="w-1.5 rounded-sm"
+                className="w-1.5 rounded-[2px]"
                 style={{
                   height: h,
-                  background: "linear-gradient(180deg, hsl(220 100% 75%), hsl(222 89% 50%))",
+                  background:
+                    "linear-gradient(180deg, hsl(220 100% 82%), hsl(222 89% 55%))",
+                  boxShadow: "0 0 6px hsl(222 89% 55% / 0.45)",
                 }}
               />
             ))}
-            <span className="ml-auto font-mono text-[8.5px] text-[hsl(152_85%_60%)]">142 ↑</span>
+            <span className="ml-auto font-mono text-[9px] text-[hsl(152_85%_65%)]">142 ↑</span>
           </div>
-          <div className="text-[8.5px] text-[hsl(215_18%_68%)]">Active sessions · SSO + RBAC</div>
+          <div className="flex items-center gap-1 text-[9px] text-[hsl(218_22%_82%)]">
+            <ShieldCheck className="h-2.5 w-2.5 text-[hsl(220_100%_88%)]" strokeWidth={1.8} /> SSO · RBAC · audit
+          </div>
         </div>
       );
     case "sync":

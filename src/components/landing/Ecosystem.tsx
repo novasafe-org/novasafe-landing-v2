@@ -325,43 +325,48 @@ const ConnectionField = () => {
     >
       <defs>
         <radialGradient id="streamGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="hsl(220 100% 90%)" stopOpacity="0.55" />
+          <stop offset="0%" stopColor="hsl(220 100% 92%)" stopOpacity="0.6" />
           <stop offset="100%" stopColor="hsl(220 95% 75%)" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="packetGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="hsl(220 100% 98%)" stopOpacity="1" />
+          <stop offset="100%" stopColor="hsl(220 100% 80%)" stopOpacity="0" />
         </radialGradient>
       </defs>
 
       {modules.map((m, i) => {
-        const rx = 168;
-        const ry = 90;
+        // match wider orbit radii (rx 47%, ry 41% of stage; stage viewBox is 400x250)
+        const rx = 188;
+        const ry = 102;
         const rad = (m.angle * Math.PI) / 180;
         const x = Math.cos(rad) * rx;
         const y = Math.sin(rad) * ry;
         // curved path via quadratic with perpendicular offset
-        const cx = x * 0.5 + -y * 0.15;
-        const cy = y * 0.5 + x * 0.15;
+        const cx = x * 0.5 + -y * 0.18;
+        const cy = y * 0.5 + x * 0.18;
         const d = `M 0 0 Q ${cx} ${cy} ${x} ${y}`;
-        const dur = 3.2 + (i % 5) * 0.55;
+        const dur = 3.6 + (i % 5) * 0.55;
         return (
           <g key={i}>
             {/* base path */}
-            <path d={d} stroke="url(#streamGrad)" strokeWidth="0.8" strokeLinecap="round" opacity="0.55" />
+            <path d={d} stroke="url(#streamGrad)" strokeWidth="0.7" strokeLinecap="round" opacity="0.5" />
             {/* outbound traveling pulse (core → node) */}
             <path
               d={d}
-              stroke="hsl(220 100% 95%)"
-              strokeWidth="1.4"
+              stroke="hsl(220 100% 96%)"
+              strokeWidth="1.3"
               strokeLinecap="round"
               strokeDasharray="4 600"
               style={{
                 animation: `flow ${dur}s linear ${i * 0.32}s infinite`,
-                filter: "drop-shadow(0 0 4px hsl(220 100% 90%))",
+                filter: "drop-shadow(0 0 5px hsl(220 100% 90%))",
               }}
             />
             {/* secondary slower glint */}
             <path
               d={d}
               stroke="hsl(220 95% 80%)"
-              strokeWidth="0.8"
+              strokeWidth="0.7"
               strokeLinecap="round"
               strokeDasharray="2 600"
               style={{
@@ -369,6 +374,11 @@ const ConnectionField = () => {
                 opacity: 0.7,
               }}
             />
+            {/* encrypted packet — small bright dot traveling along path */}
+            <circle r="1.6" fill="url(#packetGrad)" style={{ filter: "drop-shadow(0 0 4px hsl(220 100% 92%))" }}>
+              <animateMotion dur={`${dur * 1.4}s`} begin={`${i * 0.45}s`} repeatCount="indefinite" path={d} rotate="auto" />
+              <animate attributeName="opacity" values="0;1;1;0" dur={`${dur * 1.4}s`} begin={`${i * 0.45}s`} repeatCount="indefinite" />
+            </circle>
           </g>
         );
       })}

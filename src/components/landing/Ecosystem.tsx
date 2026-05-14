@@ -100,27 +100,35 @@ export const Ecosystem = () => {
     <section
       ref={sectionRef}
       id="ecosystem"
-      className="relative flex min-h-[780px] flex-col overflow-hidden bg-[hsl(224_55%_4%)] text-[hsl(210_40%_98%)] lg:h-screen lg:max-h-[1040px]"
+      className="relative flex min-h-[900px] flex-col overflow-hidden bg-[hsl(224_55%_4%)] text-[hsl(210_40%_98%)] lg:min-h-[1040px] lg:max-h-[1180px]"
     >
       <Atmosphere lightX={light.x} lightY={light.y} />
 
-      {/* atmospheric, multi-stop transitions in/out of the dark scene */}
+      {/* Cinematic atmospheric transitions — long, soft, radial blends.
+          Designed to feel like the page slowly enters a dark environment
+          rather than crossing a hard edge. */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 z-10 h-48"
+        className="pointer-events-none absolute inset-x-0 -top-px z-10 h-[280px]"
         style={{
-          background:
-            "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.85) 22%, hsl(224 55% 6% / 0.55) 55%, transparent 100%)",
+          background: [
+            // long vertical fade from light bg → dark scene
+            "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.92) 18%, hsl(220 40% 16% / 0.55) 48%, hsl(224 55% 6% / 0.22) 78%, transparent 100%)",
+            // soft radial blue bloom emerging through the seam
+            "radial-gradient(ellipse 80% 70% at 50% 0%, hsl(222 89% 55% / 0.18), transparent 70%)",
+          ].join(", "),
         }}
       />
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-44"
+        className="pointer-events-none absolute inset-x-0 -bottom-px z-10 h-[260px]"
         style={{
-          background:
-            "linear-gradient(to top, hsl(var(--background)) 0%, hsl(var(--background) / 0.85) 25%, hsl(224 55% 6% / 0.45) 60%, transparent 100%)",
+          background: [
+            "linear-gradient(to top, hsl(var(--background)) 0%, hsl(var(--background) / 0.92) 20%, hsl(220 40% 16% / 0.5) 50%, hsl(224 55% 6% / 0.2) 80%, transparent 100%)",
+            "radial-gradient(ellipse 80% 70% at 50% 100%, hsl(222 89% 55% / 0.14), transparent 70%)",
+          ].join(", "),
         }}
       />
 
-      <div className="container relative z-20 flex flex-1 flex-col pt-14 pb-10 lg:pt-16 lg:pb-12">
+      <div className="container relative z-20 flex flex-1 flex-col pt-24 pb-24 lg:pt-28 lg:pb-28">
         {/* ---------------------------------- Header ---------------------------------- */}
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(220_95%_75%/0.18)] bg-[hsl(222_89%_55%/0.10)] px-3 py-1 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[hsl(220_100%_88%)] backdrop-blur">
@@ -145,10 +153,10 @@ export const Ecosystem = () => {
         </div>
 
         {/* ---------------------------------- Stage ----------------------------------- */}
-        <div className="relative mt-4 flex flex-1 items-center justify-center lg:mt-0">
+        <div className="relative mt-6 flex flex-1 items-center justify-center lg:mt-2">
           <div
             ref={stageRef}
-            className="relative aspect-[16/9] w-full max-w-[1320px]"
+            className="relative aspect-[16/8.6] w-full max-w-[1280px]"
             style={{ perspective: "1800px" }}
           >
             <div
@@ -176,8 +184,8 @@ export const Ecosystem = () => {
               {/* Modules */}
               {modules.map((m, i) => {
                 // wider elliptical orbit — give every node room to breathe
-                const rx = 47; // % of stage width from center
-                const ry = 41; // % of stage height from center
+                const rx = 44; // % of stage width from center
+                const ry = 38; // % of stage height from center
                 const rad = (m.angle * Math.PI) / 180;
                 const x = 50 + Math.cos(rad) * rx;
                 const y = 50 + Math.sin(rad) * ry;
@@ -237,7 +245,7 @@ const Atmosphere = ({ lightX, lightY }: { lightX: number; lightY: number }) => {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 70% 55% at 50% 42%, hsl(222 89% 55% / 0.30), transparent 60%), radial-gradient(ellipse 60% 50% at 50% 100%, hsl(220 95% 65% / 0.10), transparent 70%), linear-gradient(180deg, hsl(224 55% 4%) 0%, hsl(224 60% 3%) 100%)",
+            "radial-gradient(ellipse 85% 65% at 50% 45%, hsl(222 89% 55% / 0.32), transparent 70%), radial-gradient(ellipse 120% 80% at 50% 50%, hsl(220 80% 40% / 0.10), transparent 80%), radial-gradient(ellipse 70% 55% at 50% 100%, hsl(220 95% 65% / 0.10), transparent 75%), linear-gradient(180deg, hsl(224 50% 6%) 0%, hsl(224 58% 4%) 50%, hsl(224 50% 6%) 100%)",
         }}
       />
       {/* mouse-reactive bloom */}
@@ -249,15 +257,24 @@ const Atmosphere = ({ lightX, lightY }: { lightX: number; lightY: number }) => {
       />
       {/* faint grid with vignette mask */}
       <div
-        className="absolute inset-0 opacity-[0.05]"
+        className="absolute inset-0 opacity-[0.045]"
         style={{
           backgroundImage:
             "linear-gradient(to right, hsl(210 40% 98%) 1px, transparent 1px), linear-gradient(to bottom, hsl(210 40% 98%) 1px, transparent 1px)",
-          backgroundSize: "72px 72px",
+          backgroundSize: "78px 78px",
           maskImage:
-            "radial-gradient(ellipse 65% 60% at 50% 48%, #000 30%, transparent 80%)",
+            "radial-gradient(ellipse 60% 55% at 50% 50%, #000 18%, transparent 90%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 65% 60% at 50% 48%, #000 30%, transparent 80%)",
+            "radial-gradient(ellipse 60% 55% at 50% 50%, #000 18%, transparent 90%)",
+        }}
+      />
+      {/* soft outer atmosphere — extends blue glow toward edges,
+          dissolves the dark rectangle into infinite space */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 55%, hsl(220 60% 20% / 0.18) 80%, hsl(224 60% 4% / 0.55) 100%)",
         }}
       />
       {/* particles */}
@@ -335,9 +352,9 @@ const ConnectionField = () => {
       </defs>
 
       {modules.map((m, i) => {
-        // match wider orbit radii (rx 47%, ry 41% of stage; stage viewBox is 400x250)
-        const rx = 188;
-        const ry = 102;
+        // match orbit radii (rx 44%, ry 38% of stage; stage viewBox is 400x250)
+        const rx = 176;
+        const ry = 95;
         const rad = (m.angle * Math.PI) / 180;
         const x = Math.cos(rad) * rx;
         const y = Math.sin(rad) * ry;

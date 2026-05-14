@@ -245,7 +245,7 @@ const Atmosphere = ({ lightX, lightY }: { lightX: number; lightY: number }) => {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 70% 55% at 50% 42%, hsl(222 89% 55% / 0.30), transparent 60%), radial-gradient(ellipse 60% 50% at 50% 100%, hsl(220 95% 65% / 0.10), transparent 70%), linear-gradient(180deg, hsl(224 55% 4%) 0%, hsl(224 60% 3%) 100%)",
+            "radial-gradient(ellipse 85% 65% at 50% 45%, hsl(222 89% 55% / 0.32), transparent 70%), radial-gradient(ellipse 120% 80% at 50% 50%, hsl(220 80% 40% / 0.10), transparent 80%), radial-gradient(ellipse 70% 55% at 50% 100%, hsl(220 95% 65% / 0.10), transparent 75%), linear-gradient(180deg, hsl(224 50% 6%) 0%, hsl(224 58% 4%) 50%, hsl(224 50% 6%) 100%)",
         }}
       />
       {/* mouse-reactive bloom */}
@@ -257,15 +257,24 @@ const Atmosphere = ({ lightX, lightY }: { lightX: number; lightY: number }) => {
       />
       {/* faint grid with vignette mask */}
       <div
-        className="absolute inset-0 opacity-[0.05]"
+        className="absolute inset-0 opacity-[0.045]"
         style={{
           backgroundImage:
             "linear-gradient(to right, hsl(210 40% 98%) 1px, transparent 1px), linear-gradient(to bottom, hsl(210 40% 98%) 1px, transparent 1px)",
-          backgroundSize: "72px 72px",
+          backgroundSize: "78px 78px",
           maskImage:
-            "radial-gradient(ellipse 65% 60% at 50% 48%, #000 30%, transparent 80%)",
+            "radial-gradient(ellipse 60% 55% at 50% 50%, #000 18%, transparent 90%)",
           WebkitMaskImage:
-            "radial-gradient(ellipse 65% 60% at 50% 48%, #000 30%, transparent 80%)",
+            "radial-gradient(ellipse 60% 55% at 50% 50%, #000 18%, transparent 90%)",
+        }}
+      />
+      {/* soft outer atmosphere — extends blue glow toward edges,
+          dissolves the dark rectangle into infinite space */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 55%, hsl(220 60% 20% / 0.18) 80%, hsl(224 60% 4% / 0.55) 100%)",
         }}
       />
       {/* particles */}

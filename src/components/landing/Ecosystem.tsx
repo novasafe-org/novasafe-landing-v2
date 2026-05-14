@@ -352,9 +352,9 @@ const ConnectionField = () => {
       </defs>
 
       {modules.map((m, i) => {
-        // match wider orbit radii (rx 47%, ry 41% of stage; stage viewBox is 400x250)
-        const rx = 188;
-        const ry = 102;
+        // match orbit radii (rx 44%, ry 38% of stage; stage viewBox is 400x250)
+        const rx = 176;
+        const ry = 95;
         const rad = (m.angle * Math.PI) / 180;
         const x = Math.cos(rad) * rx;
         const y = Math.sin(rad) * ry;

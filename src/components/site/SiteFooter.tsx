@@ -9,65 +9,25 @@ const cols: { t: string; l: { label: string; href: string }[] }[] = [
       { label: "Features", href: "/features" },
       { label: "Pricing", href: "/pricing" },
       { label: "Security", href: "/security" },
-      { label: "Password Manager", href: "/features/password-manager" },
-      { label: "Passkeys", href: "/features/passkeys" },
-      { label: "Secure Sharing", href: "/features/secure-sharing" },
-      { label: "Secrets Management", href: "/features/secrets-management" },
-      { label: "Authenticator", href: "/features/authenticator" },
     ],
   },
   {
-    t: "Solutions",
+    t: "Resources",
     l: [
-      { label: "Personal", href: "/personal" },
-      { label: "Teams", href: "/teams" },
-      { label: "Enterprise", href: "/enterprise" },
-      { label: "Business Vaults", href: "/features/business-vaults" },
-      { label: "Cross-platform Sync", href: "/features/cross-platform-sync" },
-      { label: "Zero-knowledge", href: "/features/zero-knowledge" },
-      { label: "Customers", href: "/customers" },
-      { label: "Case Studies", href: "/case-studies" },
-    ],
-  },
-  {
-    t: "Developers",
-    l: [
-      { label: "Overview", href: "/developers" },
-      { label: "API Reference", href: "/developers/api" },
-      { label: "SDKs", href: "/developers/sdks" },
-      { label: "CLI", href: "/developers/cli" },
-      { label: "Webhooks", href: "/developers/webhooks" },
-      { label: "Integrations", href: "/developers/integrations" },
+      { label: "Documentation", href: "/docs" },
+      { label: "Help Center", href: "/help" },
       { label: "Changelog", href: "/changelog" },
-      { label: "System Status", href: "/status" },
-      { label: "Open source", href: "/open-source" },
+      { label: "Status", href: "/status" },
+      { label: "Blog", href: "/blog" },
     ],
   },
   {
     t: "Company",
     l: [
       { label: "About", href: "/about" },
-      { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
-      { label: "Press Kit", href: "/press" },
-      { label: "Brand Guidelines", href: "/brand" },
-      { label: "Blog", href: "/blog" },
-      { label: "Help Center", href: "/help" },
-      { label: "Documentation", href: "/docs" },
-    ],
-  },
-  {
-    t: "Legal",
-    l: [
-      { label: "Privacy Policy", href: "/legal/privacy" },
-      { label: "Terms of Service", href: "/legal/terms" },
-      { label: "Security Policy", href: "/legal/security" },
-      { label: "Cookie Policy", href: "/legal/cookies" },
-      { label: "Data Processing", href: "/legal/dpa" },
-      { label: "Compliance", href: "/compliance" },
-      { label: "GDPR", href: "/legal/gdpr" },
-      { label: "SOC 2", href: "/legal/soc2" },
-      { label: "Responsible Disclosure", href: "/legal/responsible-disclosure" },
+      { label: "Privacy", href: "/legal/privacy" },
+      { label: "Terms", href: "/legal/terms" },
     ],
   },
 ];
@@ -92,7 +52,7 @@ export const SiteFooter = () => (
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           {cols.map((c) => (
             <div key={c.t}>
               <div className="text-[11.5px] font-semibold uppercase tracking-wider text-ink">{c.t}</div>
@@ -118,11 +78,7 @@ export const SiteFooter = () => (
             All systems operational
           </Link>
           <span className="text-border">·</span>
-          <span>SOC 2 Type II</span>
-          <span className="text-border">·</span>
-          <span>ISO 27001</span>
-          <span className="text-border">·</span>
-          <span>GDPR</span>
+          <Link to="/sitemap" className="hover:text-ink">Sitemap</Link>
         </div>
       </div>
     </div>

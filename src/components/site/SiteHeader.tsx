@@ -11,50 +11,27 @@ const NAV: Group[] = [
     label: "Product",
     items: [
       { label: "Features", href: "/features", desc: "Everything in NovaSafe" },
+      { label: "Security", href: "/security", desc: "Zero-knowledge architecture" },
       { label: "Password Manager", href: "/features/password-manager", desc: "Sealed credentials, instantly" },
       { label: "Passkeys", href: "/features/passkeys", desc: "Phishing-resistant sign-in" },
       { label: "Secure Sharing", href: "/features/secure-sharing", desc: "Send secrets, not screenshots" },
-      { label: "Secrets Management", href: "/features/secrets-management", desc: "For engineering teams" },
-      { label: "Authenticator", href: "/features/authenticator", desc: "Built-in OTP, encrypted" },
-      { label: "Cross-platform Sync", href: "/features/cross-platform-sync", desc: "Every device, in step" },
-      { label: "Zero-knowledge", href: "/features/zero-knowledge", desc: "Only you hold the keys" },
-      { label: "Business Vaults", href: "/features/business-vaults", desc: "Org-wide encrypted spaces" },
-    ],
-  },
-  {
-    label: "Solutions",
-    items: [
-      { label: "Personal", href: "/personal", desc: "For individuals & families" },
-      { label: "Teams", href: "/teams", desc: "For modern teams up to 250" },
-      { label: "Enterprise", href: "/enterprise", desc: "Compliance, SSO, audit" },
-      { label: "Customers", href: "/customers", desc: "Loved by 12,000+ orgs" },
-      { label: "Case Studies", href: "/case-studies", desc: "Real-world deployments" },
     ],
   },
   {
     label: "Developers",
     items: [
-      { label: "Overview", href: "/developers", desc: "Build on NovaSafe" },
-      { label: "API Reference", href: "/developers/api", desc: "REST + GraphQL" },
-      { label: "SDKs", href: "/developers/sdks", desc: "JS, Python, Go, Rust" },
+      { label: "API Reference", href: "/developers/api", desc: "REST endpoints" },
+      { label: "Documentation", href: "/docs", desc: "Guides & references" },
       { label: "CLI", href: "/developers/cli", desc: "Vault from terminal" },
-      { label: "Webhooks", href: "/developers/webhooks", desc: "Event-driven secrets" },
-      { label: "Integrations", href: "/developers/integrations", desc: "120+ providers" },
       { label: "Changelog", href: "/changelog", desc: "What's new" },
-      { label: "System Status", href: "/status", desc: "Live uptime" },
-      { label: "Open source", href: "/open-source", desc: "Research & libraries" },
     ],
   },
   {
     label: "Resources",
     items: [
-      { label: "Security", href: "/security", desc: "Architecture & audits" },
-      { label: "Compliance", href: "/compliance", desc: "SOC2, ISO, GDPR" },
-      { label: "Documentation", href: "/docs", desc: "Guides & references" },
       { label: "Help Center", href: "/help", desc: "Get unblocked" },
-      { label: "Blog", href: "/blog", desc: "Engineering & research" },
-      { label: "About", href: "/about", desc: "Our mission" },
-      { label: "Careers", href: "/careers", desc: "Join the team" },
+      { label: "Blog", href: "/blog", desc: "Notes from the team" },
+      { label: "Status", href: "/status", desc: "Live system uptime" },
       { label: "Contact", href: "/contact", desc: "Talk to us" },
     ],
   },
@@ -120,15 +97,22 @@ export const SiteHeader = () => {
           </button>
         </div>
 
-        {/* Mega panel */}
+        {/* Floating dropdown panel */}
         {open && (
-          <div className="absolute left-0 right-0 top-full mt-2 hidden lg:block">
-            <div className="glass-strong mx-auto max-w-5xl rounded-2xl border border-border/70 p-6 shadow-elevated animate-fade-in">
-              <div className="grid grid-cols-3 gap-x-6 gap-y-1">
+          <div className="absolute left-1/2 top-full mt-2 hidden -translate-x-1/2 lg:block">
+            <div
+              className="w-[360px] rounded-2xl border border-border bg-card p-2 shadow-elevated ring-1 ring-black/5 animate-fade-in backdrop-blur-xl"
+              style={{ backgroundColor: "hsl(var(--card))" }}
+            >
+              <div className="flex flex-col">
                 {NAV.find((n) => n.label === open)?.items.map((it) => (
-                  <Link key={it.href} to={it.href} className="group rounded-xl p-3 transition-colors hover:bg-secondary">
+                  <Link
+                    key={it.href}
+                    to={it.href}
+                    className="group rounded-xl px-3 py-2.5 transition-colors hover:bg-secondary"
+                  >
                     <div className="text-[13.5px] font-semibold text-ink group-hover:text-primary">{it.label}</div>
-                    {it.desc && <div className="mt-0.5 text-[12.5px] text-ink-soft">{it.desc}</div>}
+                    {it.desc && <div className="mt-0.5 text-[12px] text-ink-soft">{it.desc}</div>}
                   </Link>
                 ))}
               </div>

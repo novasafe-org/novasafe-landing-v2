@@ -80,13 +80,28 @@ export const GhostButton = ({ to, href, children, className }: { to?: string; hr
   return <a href={href || "#"} className={cls}>{children}</a>;
 };
 
-export const FeatureCard = ({ icon: Icon, title, desc }: { icon: any; title: string; desc: string }) => (
-  <div className="group relative overflow-hidden rounded-2xl border border-border/70 bg-card/70 p-6 shadow-sm backdrop-blur transition-all hover:border-primary/30 hover:shadow-card">
-    <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/5 blur-2xl transition-opacity group-hover:opacity-100" />
+export const FeatureCard = ({ icon: Icon, title, desc, comingSoon }: { icon: any; title: string; desc: string; comingSoon?: boolean }) => (
+  <div className={cn(
+    "group relative overflow-hidden rounded-2xl border bg-card/70 p-6 shadow-sm backdrop-blur transition-all",
+    comingSoon
+      ? "border-border/40 opacity-80"
+      : "border-border/70 hover:border-primary/30 hover:shadow-card",
+  )}>
+    <div className={cn(
+      "pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/5 blur-2xl transition-opacity",
+      !comingSoon && "group-hover:opacity-100",
+    )} />
     <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20">
       <Icon className="h-5 w-5" />
     </div>
-    <h3 className="mt-5 text-[16px] font-semibold text-ink">{title}</h3>
+    <div className="mt-5 flex items-center gap-2">
+      <h3 className="text-[16px] font-semibold text-ink">{title}</h3>
+      {comingSoon && (
+        <span className="inline-flex items-center rounded-full border border-border/80 bg-secondary/60 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-widest text-muted-foreground">
+          Coming soon
+        </span>
+      )}
+    </div>
     <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">{desc}</p>
   </div>
 );

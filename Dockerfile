@@ -23,15 +23,24 @@ RUN corepack enable && corepack prepare pnpm@10.18.2 --activate
 
 WORKDIR /app
 
-ARG VITE_LANDING_URL=https://novasafe.io
-ARG VITE_AUTH_URL=https://start.novasafe.io
-ARG VITE_APP_URL=https://app.novasafe.io
+# Public URLs the landing site links to. These are NOT secrets — they're
+# the marketing site, the auth subdomain, and the app subdomain, all of
+# which a browser DevTools panel would show anyway. Hardcoding them here
+# means:
+#   - No GitHub Actions secret dance for a new server.
+#   - One single place to update if a domain ever changes (this file +
+#     a `git push` triggers a rebuild via the workflow).
+#   - The compose file stays declarative-only (no build-args to plumb).
+#
+# Compose's `environment:` block cannot override these — Vite inlines
+# `VITE_*` values into the JS bundle at build time, so they must be set
+# in the build environment (here), not the runtime container.
 ARG VITE_APP_VERSION=0.0.0
 
 ENV NODE_ENV=production \
-    VITE_LANDING_URL=${VITE_LANDING_URL} \
-    VITE_AUTH_URL=${VITE_AUTH_URL} \
-    VITE_APP_URL=${VITE_APP_URL} \
+    VITE_LANDING_URL=https://novasafe.io \
+    VITE_AUTH_URL=https://start.novasafe.io \
+    VITE_APP_URL=https://app.novasafe.io \
     VITE_APP_VERSION=${VITE_APP_VERSION}
 
 COPY package.json pnpm-lock.yaml .npmrc ./

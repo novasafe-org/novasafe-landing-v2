@@ -47,10 +47,11 @@ jobs:
             ghcr.io/${{ github.repository }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          # Public URLs (VITE_LANDING_URL / VITE_AUTH_URL / VITE_APP_URL)
+          # live as ENV in the Dockerfile — not as build-args — because
+          # they are not secrets and we don't want empty repo secrets to
+          # blank them out. See novasafe-landing-v2/Dockerfile for details.
           build-args: |
-            VITE_LANDING_URL=${{ secrets.VITE_LANDING_URL }}
-            VITE_AUTH_URL=${{ secrets.VITE_AUTH_URL }}
-            VITE_APP_URL=${{ secrets.VITE_APP_URL }}
             VITE_APP_VERSION=${{ github.sha }}
 
   deploy:

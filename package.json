@@ -6,10 +6,12 @@
   "packageManager": "pnpm@10.18.2",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/generate-seo.mjs",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
+    "seo:generate": "node scripts/generate-seo.mjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },

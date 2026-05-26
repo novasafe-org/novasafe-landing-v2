@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Logo } from "@/components/landing/Logo";
 import { cn } from "@/lib/utils";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { LANDING_ROUTES, buildLoginUrl } from "@/config";
 
 type Group = { label: string; items: { label: string; href: string; desc?: string }[] };
 
@@ -78,17 +79,20 @@ export const SiteHeader = () => {
             </li>
           ))}
           <li>
-            <Link to="/pricing" className="rounded-lg px-3 py-1.5 text-[13.5px] font-medium text-ink-soft hover:bg-secondary hover:text-ink">
+            <Link to={LANDING_ROUTES.pricing} className="rounded-lg px-3 py-1.5 text-[13.5px] font-medium text-ink-soft hover:bg-secondary hover:text-ink">
               Pricing
             </Link>
           </li>
         </ul>
 
         <div className="flex items-center gap-2">
-          <Link to="/contact" className="hidden rounded-lg px-3 py-1.5 text-[13.5px] font-medium text-ink-soft hover:text-ink sm:block">
+          <a
+            href={buildLoginUrl({ ref: "header" })}
+            className="hidden rounded-lg px-3 py-1.5 text-[13.5px] font-medium text-ink-soft hover:text-ink sm:block"
+          >
             Sign in
-          </Link>
-          <Link to="/pricing" className="group inline-flex items-center gap-1.5 rounded-lg bg-ink px-3.5 py-2 text-[13px] font-semibold text-background shadow-sm transition-all hover:bg-ink/90">
+          </a>
+          <Link to={LANDING_ROUTES.pricing} className="group inline-flex items-center gap-1.5 rounded-lg bg-ink px-3.5 py-2 text-[13px] font-semibold text-background shadow-sm transition-all hover:bg-ink/90">
             Get started
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </Link>
@@ -137,7 +141,8 @@ export const SiteHeader = () => {
                 </div>
               </div>
             ))}
-            <Link to="/pricing" className="block rounded-lg px-2 py-3 text-[14px] font-semibold text-primary">Pricing</Link>
+            <Link to={LANDING_ROUTES.pricing} className="block rounded-lg px-2 py-3 text-[14px] font-semibold text-primary">Pricing</Link>
+            <a href={buildLoginUrl({ ref: "header_mobile" })} className="block rounded-lg px-2 py-3 text-[14px] font-semibold text-ink-soft">Sign in</a>
           </div>
         </div>
       )}

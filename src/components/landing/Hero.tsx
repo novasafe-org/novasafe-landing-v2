@@ -1,5 +1,7 @@
 import { ArrowRight, Play, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 import { VaultPreview } from "./VaultPreview";
+import { LANDING_ROUTES } from "@/config";
 
 export const Hero = () => {
   return (
@@ -43,13 +45,13 @@ export const Hero = () => {
             className="animate-fade-up mt-9 flex flex-wrap items-center justify-center gap-3"
             style={{ animationDelay: "0.25s" }}
           >
-            <a
-              href="#cta"
+            <Link
+              to={LANDING_ROUTES.pricing}
               className="group inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-background shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
             >
               Get started — free
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
+            </Link>
             <a
               href="#demo"
               className="group inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-ink shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"

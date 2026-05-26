@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 import { ChevronDown, ArrowRight } from "lucide-react";
+import { LANDING_ROUTES, buildLoginUrl } from "@/config";
 
 const links = [
   { label: "Product", href: "#features" },
   { label: "Security", href: "#security" },
   { label: "Platforms", href: "#platforms" },
   { label: "Developers", href: "#developers" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Pricing", href: LANDING_ROUTES.pricing },
 ];
 
 export const Navbar = () => {
@@ -52,18 +54,18 @@ export const Navbar = () => {
         </ul>
         <div className="flex items-center gap-2">
           <a
-            href="#"
+            href={buildLoginUrl({ ref: "navbar" })}
             className="hidden rounded-lg px-3 py-1.5 text-[13.5px] font-medium text-ink-soft transition-colors hover:text-ink sm:block"
           >
             Sign in
           </a>
-          <a
-            href="#cta"
+          <Link
+            to={LANDING_ROUTES.pricing}
             className="group inline-flex items-center gap-1.5 rounded-lg bg-ink px-3.5 py-2 text-[13px] font-semibold text-background shadow-sm transition-all hover:bg-ink/90 hover:shadow-md"
           >
             Get started
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-          </a>
+          </Link>
         </div>
       </nav>
     </header>

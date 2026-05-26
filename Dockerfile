@@ -1,0 +1,58 @@
+# syntax=docker/dockerfile:1.7
+#
+# NovaSafe Landing (novasafe.io) — production image.
+#
+# The landing surface is a fully static SPA built by Vite: there is no
+# SSR, no server functions, and no need for Node at runtime. We build the
+# bundle with pnpm and copy `dist/` into a tiny `nginx:alpine` image.
+#
+# Build-time `VITE_*` envs are baked into the JS bundle. CI passes them
+# as `--build-arg` from GitHub Actions secrets.
+
+# -----------------------------------------------------------------------------
+# Stage 1 — builder
+# -----------------------------------------------------------------------------
+FROM node:22-alpine AS builder
+
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+WORKDIR /app
+
+ARG VITE_LANDING_URL=https://novasafe.io
+ARG VITE_AUTH_URL=https://start.novasafe.io
+ARG VITE_APP_URL=https://app.novasafe.io
+ARG VITE_APP_VERSION=0.0.0
+
+ENV NODE_ENV=production \
+    VITE_LANDING_URL=${VITE_LANDING_URL} \
+    VITE_AUTH_URL=${VITE_AUTH_URL} \
+    VITE_APP_URL=${VITE_APP_URL} \
+    VITE_APP_VERSION=${VITE_APP_VERSION}
+
+COPY package.json pnpm-lock.yaml ./
+RUN --mount=type=cache,id=pnpm-store-landing,target=/root/.local/share/pnpm/store \
+    pnpm install --frozen-lockfile
+
+COPY . .
+RUN pnpm build
+
+# -----------------------------------------------------------------------------
+# Stage 2 — runner (nginx)
+# -----------------------------------------------------------------------------
+FROM nginx:alpine AS runner
+
+RUN apk add --no-cache wget && rm /etc/nginx/conf.d/default.conf
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Port 3100 is the cluster-wide convention for this service: the shared
+# nginx reverse-proxy uses `proxy_pass http://landing:3100;` and the
+# docker-compose maps the same port through to the host
+# (127.0.0.1:3100) for on-box debugging.
+EXPOSE 3100
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget --quiet --spider --method=HEAD http://localhost:3100/health || exit 1
+
+CMD ["nginx", "-g", "daemon off;"]

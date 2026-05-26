@@ -3,6 +3,7 @@ import { PageShell } from "@/components/site/PageShell";
 import { PageHero, Section, SectionHead, PrimaryButton, GhostButton, CTASection, FAQ, CheckList } from "@/components/site/primitives";
 import { Check, Minus, Shield, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { buildSignupUrl, buildSignupProUrl } from "@/config";
 
 type Cycle = "monthly" | "yearly";
 
@@ -94,7 +95,7 @@ const Pricing = () => {
               <div className="text-[13px] text-ink-soft">/forever</div>
             </div>
             <div className="text-[13px] text-ink-soft">For getting started</div>
-            <GhostButton to="/contact" className="mt-6 w-full justify-center">Create free account</GhostButton>
+            <GhostButton href={buildSignupUrl({ ref: "pricing_free" })} className="mt-6 w-full justify-center">Create free account</GhostButton>
             <div className="mt-8 h-px bg-border/60" />
             <div className="mt-6"><CheckList items={freeFeatures} /></div>
           </div>
@@ -111,7 +112,7 @@ const Pricing = () => {
                 <div className="text-[13px] text-ink-soft">{p.per}</div>
               </div>
               <div className="text-[13px] text-ink-soft">{p.sub}</div>
-              <PrimaryButton to="/contact" className="mt-6 w-full justify-center">Start with Pro</PrimaryButton>
+              <PrimaryButton href={buildSignupProUrl({ ref: "pricing_pro" })} className="mt-6 w-full justify-center">Start with Pro</PrimaryButton>
               <div className="mt-8 h-px bg-border/60" />
               <div className="mt-6"><CheckList items={proFeatures} /></div>
             </div>

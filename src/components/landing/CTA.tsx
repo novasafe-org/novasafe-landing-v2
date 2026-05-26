@@ -1,4 +1,6 @@
 import { ArrowRight, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
+import { LANDING_ROUTES } from "@/config";
 
 export const CTA = () => (
   <section id="cta" className="relative py-32">
@@ -24,19 +26,19 @@ export const CTA = () => (
             Three minutes to set up. A lifetime of peace of mind.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#"
+            <Link
+              to={LANDING_ROUTES.pricing}
               className="group inline-flex items-center gap-2 rounded-xl bg-background px-6 py-3.5 text-[14.5px] font-semibold text-ink shadow-lg transition-all hover:-translate-y-0.5"
             >
               Create your vault
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to={LANDING_ROUTES.contact}
               className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-[14.5px] font-semibold text-background transition-all hover:bg-white/10"
             >
               Talk to security team
-            </a>
+            </Link>
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-[12px] text-white/50">
             <span>Free for individuals</span>

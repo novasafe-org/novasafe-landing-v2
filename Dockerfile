@@ -14,7 +14,12 @@
 # -----------------------------------------------------------------------------
 FROM node:22-alpine AS builder
 
-RUN corepack enable && corepack prepare pnpm@latest --activate
+# Pin to the same pnpm major/minor that generated `pnpm-lock.yaml`. Using
+# `@latest` here previously pulled pnpm 11+, which (a) silently bypasses
+# the legacy `package.json#pnpm` block and (b) ships a stricter default
+# `minimumReleaseAge` than the lockfile-generation environment, both of
+# which break a frozen-lockfile install.
+RUN corepack enable && corepack prepare pnpm@10.18.2 --activate
 
 WORKDIR /app
 
@@ -29,7 +34,7 @@ ENV NODE_ENV=production \
     VITE_APP_URL=${VITE_APP_URL} \
     VITE_APP_VERSION=${VITE_APP_VERSION}
 
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml .npmrc ./
 RUN --mount=type=cache,id=pnpm-store-landing,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile
 

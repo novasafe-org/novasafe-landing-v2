@@ -3,6 +3,17 @@ import { PageHero, Section } from "@/components/site/primitives";
 
 const entries = [
   {
+    v: "2026.6.1",
+    d: "May 28, 2026",
+    title: "Brand logo unification and vault detail polish",
+    items: [
+      "Moved web logo source to landing (`/logo.svg`) and wired auth + app to consume it.",
+      "Refined vault detail layout: title bar stays full-width while field content remains centered.",
+      "Increased responsive side spacing for detail fields on large screens.",
+      "Fixed view-mode hover flicker by reserving action-icon space for copy/reveal controls.",
+    ],
+  },
+  {
     v: "2026.6",
     d: "May 28, 2026",
     title: "Faster vault UX and stricter session handling",

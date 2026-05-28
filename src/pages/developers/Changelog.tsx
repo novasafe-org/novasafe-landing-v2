@@ -2,6 +2,18 @@ import { PageShell } from "@/components/site/PageShell";
 import { PageHero, Section } from "@/components/site/primitives";
 
 const entries = [
+  {
+    v: "2026.6",
+    d: "May 28, 2026",
+    title: "Faster vault UX and stricter session handling",
+    items: [
+      "Removed dummy-data flashes and added first-load skeletons in Vault.",
+      "Prevented cross-account data flashes by clearing persisted vault state on logout/user switch.",
+      "Auth routes are now guest-only when already signed in (redirect to app).",
+      "Web sessions now expire after 30 minutes with forced logout redirect.",
+      "Improved item creation UX: save button now shows loading and is disabled while API is pending.",
+    ],
+  },
   { v: "2026.5", d: "May 18, 2026", title: "Reproducible client builds", items: ["macOS & Linux clients now reproducible bit-for-bit","New transparency log at transparency.novasafe.app","SDK 4.2: streaming secret reads"] },
   { v: "2026.4", d: "Apr 02, 2026", title: "Passkey sharing GA", items: ["Share passkeys with teammates (still phishing-resistant)","Audit log retention extended to 7 years on Enterprise","New: APAC region (ap-southeast-1)"] },
   { v: "2026.3", d: "Mar 10, 2026", title: "Hardware key fallback", items: ["YubiKey 5 & Titan as secondary unlock factor","Faster sync — 38% median latency reduction","CLI 1.8: novasafe diff for env files"] },

@@ -14,10 +14,10 @@ const entries = [
       "Improved item creation UX: save button now shows loading and is disabled while API is pending.",
     ],
   },
-  { v: "2026.5", d: "May 18, 2026", title: "Reproducible client builds", items: ["macOS & Linux clients now reproducible bit-for-bit","New transparency log at transparency.novasafe.app","SDK 4.2: streaming secret reads"] },
-  { v: "2026.4", d: "Apr 02, 2026", title: "Passkey sharing GA", items: ["Share passkeys with teammates (still phishing-resistant)","Audit log retention extended to 7 years on Enterprise","New: APAC region (ap-southeast-1)"] },
-  { v: "2026.3", d: "Mar 10, 2026", title: "Hardware key fallback", items: ["YubiKey 5 & Titan as secondary unlock factor","Faster sync — 38% median latency reduction","CLI 1.8: novasafe diff for env files"] },
-  { v: "2026.2", d: "Feb 04, 2026", title: "SOC 2 Type II 2025 report", items: ["No findings, second consecutive year","New compliance portal at /compliance","ISO 27017 cloud-services scope added"] },
+  // { v: "2026.5", d: "May 18, 2026", title: "Reproducible client builds", items: ["macOS & Linux clients now reproducible bit-for-bit","New transparency log at transparency.novasafe.app","SDK 4.2: streaming secret reads"] },
+  // { v: "2026.4", d: "Apr 02, 2026", title: "Passkey sharing GA", items: ["Share passkeys with teammates (still phishing-resistant)","Audit log retention extended to 7 years on Enterprise","New: APAC region (ap-southeast-1)"] },
+  // { v: "2026.3", d: "Mar 10, 2026", title: "Hardware key fallback", items: ["YubiKey 5 & Titan as secondary unlock factor","Faster sync — 38% median latency reduction","CLI 1.8: novasafe diff for env files"] },
+  // { v: "2026.2", d: "Feb 04, 2026", title: "SOC 2 Type II 2025 report", items: ["No findings, second consecutive year","New compliance portal at /compliance","ISO 27017 cloud-services scope added"] },
 ];
 
 export default () => (

@@ -1,12 +1,39 @@
-import { PageShell } from "@/components/site/PageShell";
-import { PageHero, Section } from "@/components/site/primitives";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Rss } from "lucide-react";
 
-const entries = [
+import { PageShell } from "@/components/site/PageShell";
+import { GhostButton, PageHero, Section } from "@/components/site/primitives";
+import { cn } from "@/lib/utils";
+
+type Release = {
+  v: string;
+  date: string;
+  displayDate: string;
+  title: string;
+  notes: string[];
+};
+
+const releases: Release[] = [
+  {
+    v: "2026.6.2",
+    date: "2026-05-30",
+    displayDate: "May 30, 2026",
+    title: "Extension autofill and inline credential suggestions",
+    notes: [
+      "Browser extension now detects login forms and credential fields (username, email, password) on websites you visit.",
+      "Matched logins are resolved locally from your synced vault — no extra API calls at autofill time.",
+      "Inline suggestion popup appears when you focus a login field; choose a credential before anything is filled.",
+      "Even a single matching login requires explicit selection, matching modern password manager behavior.",
+      "Keyboard support: Arrow Up/Down to navigate, Enter to fill, Escape to dismiss.",
+      "Suggestion UI supports light and dark themes with NovaSafe styling; passwords are never shown in the list.",
+    ],
+  },
   {
     v: "2026.6.1",
-    d: "May 28, 2026",
+    date: "2026-05-28",
+    displayDate: "May 28, 2026",
     title: "Brand logo unification and vault detail polish",
-    items: [
+    notes: [
       "Moved web logo source to landing (`/logo.svg`) and wired auth + app to consume it.",
       "Refined vault detail layout: title bar stays full-width while field content remains centered.",
       "Increased responsive side spacing for detail fields on large screens.",
@@ -15,40 +42,178 @@ const entries = [
   },
   {
     v: "2026.6",
-    d: "May 28, 2026",
+    date: "2026-05-28",
+    displayDate: "May 28, 2026",
     title: "Faster vault UX and stricter session handling",
-    items: [
+    notes: [
       "Removed dummy-data flashes and added first-load skeletons in Vault.",
-      "Prevented cross-account data flashes by clearing persisted vault state on logout/user switch.",
+      "Improved item creation UX: save button now shows loading and is disabled while API is pending.",
       "Auth routes are now guest-only when already signed in (redirect to app).",
       "Web sessions now expire after 30 minutes with forced logout redirect.",
-      "Improved item creation UX: save button now shows loading and is disabled while API is pending.",
+      "Prevented cross-account data flashes by clearing persisted vault state on logout/user switch.",
     ],
   },
-  // { v: "2026.5", d: "May 18, 2026", title: "Reproducible client builds", items: ["macOS & Linux clients now reproducible bit-for-bit","New transparency log at transparency.novasafe.app","SDK 4.2: streaming secret reads"] },
-  // { v: "2026.4", d: "Apr 02, 2026", title: "Passkey sharing GA", items: ["Share passkeys with teammates (still phishing-resistant)","Audit log retention extended to 7 years on Enterprise","New: APAC region (ap-southeast-1)"] },
-  // { v: "2026.3", d: "Mar 10, 2026", title: "Hardware key fallback", items: ["YubiKey 5 & Titan as secondary unlock factor","Faster sync — 38% median latency reduction","CLI 1.8: novasafe diff for env files"] },
-  // { v: "2026.2", d: "Feb 04, 2026", title: "SOC 2 Type II 2025 report", items: ["No findings, second consecutive year","New compliance portal at /compliance","ISO 27017 cloud-services scope added"] },
+  {
+    v: "2025.34",
+    date: "2025-05-28",
+    displayDate: "May 28, 2026",
+    title: "Faster vault UX and stricter session handling",
+    notes: [
+      "Removed dummy-data flashes and added first-load skeletons in Vault.",
+      "Improved item creation UX: save button now shows loading and is disabled while API is pending.",
+      "Auth routes are now guest-only when already signed in (redirect to app).",
+      "Web sessions now expire after 30 minutes with forced logout redirect.",
+      "Prevented cross-account data flashes by clearing persisted vault state on logout/user switch.",
+    ],
+  }
 ];
 
-export default () => (
-  <PageShell>
-    <PageHero eyebrow="Changelog" title={<>What's new in <span className="text-gradient-primary">NovaSafe.</span></>} lede="Shipped, not promised. Subscribe via RSS or follow @novasafe for live updates." />
-    <Section className="!pt-0">
-      <div className="mx-auto max-w-3xl space-y-10">
-        {entries.map((e) => (
-          <article key={e.v} className="rounded-2xl border border-border/70 bg-card/70 p-8 backdrop-blur">
-            <div className="flex items-center gap-3 text-[12px] font-mono uppercase tracking-wider text-ink-soft">
-              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-primary">v{e.v}</span>
-              <span>{e.d}</span>
-            </div>
-            <h2 className="mt-3 text-[22px] font-semibold text-ink">{e.title}</h2>
-            <ul className="mt-4 ml-5 list-disc space-y-1.5 text-[14.5px] text-ink-soft">
-              {e.items.map((i) => <li key={i}>{i}</li>)}
-            </ul>
-          </article>
-        ))}
+function groupByYear(data: Release[]): { year: string; items: Release[] }[] {
+  const map = new Map<string, Release[]>();
+  for (const release of data) {
+    const year = release.date.slice(0, 4);
+    const bucket = map.get(year) ?? [];
+    bucket.push(release);
+    map.set(year, bucket);
+  }
+  return [...map.entries()]
+    .sort(([a], [b]) => Number(b) - Number(a))
+    .map(([year, items]) => ({ year, items }));
+}
+
+function useRevealOnScroll() {
+  const ref = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -5% 0px" },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, visible };
+}
+
+function TimelineRelease({ release }: { release: Release }) {
+  const { ref, visible } = useRevealOnScroll();
+
+  return (
+    <article
+      ref={ref}
+      className={cn(
+        "relative grid grid-cols-[1fr] gap-4 transition-all duration-700 ease-out sm:grid-cols-[140px_20px_minmax(0,700px)] sm:gap-x-0 pb-24 sm:pb-28",
+        visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
+      )}
+    >
+      {/* Date */}
+      <time
+        dateTime={release.date}
+        className="shrink-0 pt-0.5 text-[14px] font-medium tabular-nums leading-snug text-ink-soft sm:text-right sm:pr-8"
+      >
+        {release.displayDate}
+      </time>
+
+      {/* Timeline rail — dot sits on the shared spine */}
+      <div className="relative hidden sm:block">
+        <span
+          className="relative z-10 mx-auto mt-2 block size-[7px] rounded-full bg-primary ring-[5px] ring-background"
+          aria-hidden="true"
+        />
       </div>
-    </Section>
-  </PageShell>
-);
+
+      {/* Content */}
+      <div className="min-w-0 sm:pl-10">
+        <div className="mb-4 flex items-center gap-3 sm:hidden">
+          <span
+            className="block size-[7px] shrink-0 rounded-full bg-primary"
+            aria-hidden="true"
+          />
+          <span className="inline-flex rounded-full bg-primary/10 px-2.5 py-0.5 font-mono text-[11px] font-medium tracking-wide text-primary">
+            v{release.v}
+          </span>
+        </div>
+
+        <span className="hidden sm:inline-flex rounded-full bg-primary/10 px-2.5 py-0.5 font-mono text-[11px] font-medium tracking-wide text-primary">
+          v{release.v}
+        </span>
+
+        <h2 className="mt-3 text-[24px] font-semibold leading-snug tracking-tight text-ink">
+          {release.title}
+        </h2>
+
+        <ul className="mt-5 space-y-2.5">
+          {release.notes.map((note) => (
+            <li key={note} className="flex gap-3 text-[16px] leading-relaxed text-ink-soft">
+              <span className="mt-[10px] size-1 shrink-0 rounded-full bg-ink/20" aria-hidden="true" />
+              <span>{note}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  );
+}
+
+export default function ChangelogPage() {
+  const grouped = useMemo(() => groupByYear(releases), []);
+
+  return (
+    <PageShell>
+      <PageHero
+        eyebrow="Changelog"
+        title={
+          <>
+            What&apos;s new in <span className="text-gradient-primary">NovaSafe.</span>
+          </>
+        }
+        lede="Every feature, improvement, and bug fix shipped to NovaSafe. Subscribe via RSS for release updates."
+      >
+        <GhostButton href="/changelog/rss.xml" className="gap-2">
+          <Rss className="size-4" />
+          RSS Feed
+        </GhostButton>
+      </PageHero>
+
+      <Section className="!pt-0">
+          <div className="mx-auto max-w-[900px]">
+            {grouped.map(({ year, items }, groupIndex) => (
+              <div key={year}>
+                <div
+                  className={cn(
+                    "mb-12 flex items-baseline gap-6 sm:grid sm:grid-cols-[140px_20px_minmax(0,700px)] sm:gap-x-0",
+                    groupIndex > 0 && "mt-4",
+                  )}
+                >
+                  <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-ink-soft/70 sm:col-start-3 sm:pl-10">
+                    {year}
+                  </p>
+                </div>
+
+                <div className="relative">
+                  {/* Continuous spine behind timeline column */}
+                  <div
+                    className="pointer-events-none absolute bottom-0 left-[150px] top-0 hidden w-px bg-primary/20 sm:block"
+                    aria-hidden="true"
+                  />
+
+                  {items.map((release) => (
+                    <TimelineRelease key={release.v} release={release} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+      </Section>
+    </PageShell>
+  );
+}

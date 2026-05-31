@@ -51,7 +51,7 @@ export function buildSignupProUrl(options?: BuildOptions): string {
 }
 
 /** Absolute URL pointing at the authenticated app (cross-subdomain). */
-export function buildAppUrl(options?: { path?: string } = {}): string {
+export function buildAppUrl(options: { path?: string } = {}): string {
   const url = new URL(options.path ?? "/", appConfig.urls.app);
   return url.toString();
 }

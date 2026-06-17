@@ -61,7 +61,9 @@ jobs:
             VITE_APP_VERSION=${{ github.sha }}
 
       - name: "━━━ Build complete ━━━"
-        run: echo "  ✔ Image pushed — starting remote deploy (service: landing)..."
+        run: |
+          echo "  OK Image pushed to GHCR"
+          echo "  OK Starting remote deploy for landing"
 
   deploy:
     needs: build

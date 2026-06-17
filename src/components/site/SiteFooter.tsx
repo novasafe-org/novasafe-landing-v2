@@ -14,8 +14,8 @@ const cols: { t: string; l: { label: string; href: string }[] }[] = [
   {
     t: "Resources",
     l: [
-      { label: "Documentation", href: "/docs" },
-      { label: "Help Center", href: "/help" },
+      // { label: "Documentation", href: "/docs" },
+      // { label: "Help Center", href: "/help" },
       { label: "Changelog", href: "/changelog" },
       { label: "Status", href: "/status" },
       { label: "Blog", href: "/blog" },
@@ -25,7 +25,7 @@ const cols: { t: string; l: { label: string; href: string }[] }[] = [
     t: "Company",
     l: [
       { label: "About", href: "/about" },
-      { label: "Contact", href: "/contact" },
+      // { label: "Contact", href: "/contact" },
       { label: "Privacy", href: "/legal/privacy" },
       { label: "Terms", href: "/legal/terms" },
     ],

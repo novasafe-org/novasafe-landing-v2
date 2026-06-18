@@ -1,6 +1,7 @@
 # Build & deploy the NovaSafe Landing (novasafe.io) image.
 #
-# Fresh VPS: first deploy auto-runs initial-setup + first-boot on the server.
+# Env/config: set VITE_* in the server .env at
+# /opt/novasafe-deployment/marketing/landing/.env (not GitHub secrets).
 #
 # Required secrets: SSH_USER, SSH_HOST, SSH_PASSWORD, DEPLOY_PATH
 
@@ -57,8 +58,6 @@ jobs:
             ghcr.io/${{ github.repository }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          build-args: |
-            VITE_APP_VERSION=${{ github.sha }}
 
       - name: "━━━ Build complete ━━━"
         run: |

@@ -21,10 +21,26 @@ const viteEnv: EnvRecord =
 const procEnv: EnvRecord =
   typeof process !== "undefined" && process.env ? (process.env as EnvRecord) : {};
 
+declare global {
+  interface Window {
+    __NS_PUBLIC_ENV__?: Record<string, string>;
+  }
+}
+
+function readRuntimeInjected(key: string): string | undefined {
+  if (typeof window === "undefined") return undefined;
+  const value = window.__NS_PUBLIC_ENV__?.[key];
+  return value != null && value !== "" ? value : undefined;
+}
+
 export function readEnv(key: string, ...aliases: string[]): string | undefined {
   for (const candidate of [key, ...aliases]) {
+    const fromRuntime = readRuntimeInjected(candidate);
+    if (fromRuntime != null) return fromRuntime;
+
     const fromVite = viteEnv[candidate];
     if (fromVite != null && fromVite !== "") return fromVite;
+
     const fromProc = procEnv[candidate];
     if (fromProc != null && fromProc !== "") return fromProc;
   }

@@ -58,6 +58,10 @@ const positiveInt = (fallback: number) =>
 
 const url = z.string().url("must be a fully-qualified URL (http(s)://…)");
 
+const DEFAULT_URLS = Object.freeze({
+  API_URL: "http://localhost:3125",
+});
+
 const PublicEnvSchema = z.object({
   NODE_ENV: z
     .enum(["development", "test", "staging", "production"])
@@ -66,6 +70,7 @@ const PublicEnvSchema = z.object({
   LANDING_URL: url,
   AUTH_URL: url,
   APP_URL: url,
+  API_URL: url,
   APP_VERSION: z.string().min(1).default("0.0.0"),
 });
 
@@ -75,6 +80,7 @@ const rawPublic = {
   LANDING_URL: readEnv("VITE_LANDING_URL"),
   AUTH_URL: readEnv("VITE_AUTH_URL"),
   APP_URL: readEnv("VITE_APP_URL"),
+  API_URL: readEnv("VITE_API_URL", "API_URL") ?? DEFAULT_URLS.API_URL,
   APP_VERSION: readEnv("VITE_APP_VERSION", "APP_VERSION"),
 };
 

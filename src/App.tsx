@@ -18,6 +18,7 @@ import DevApi from "./pages/developers/Api";
 import DevCli from "./pages/developers/Cli";
 import Changelog from "./pages/developers/Changelog";
 import Status from "./pages/developers/Status";
+import IncidentDetailPage from "./pages/status/IncidentDetailPage";
 
 import Privacy from "./pages/legal/Privacy";
 import Terms from "./pages/legal/Terms";
@@ -63,6 +64,7 @@ const App = () => (
           <Route path="/developers/cli" element={<DevCli />} />
           <Route path="/changelog" element={<Changelog />} />
           <Route path="/status" element={<Status />} />
+          <Route path="/status/incidents/:slug" element={<IncidentDetailPage />} />
 
           {/* Legal */}
           <Route path="/legal/privacy" element={<Privacy />} />

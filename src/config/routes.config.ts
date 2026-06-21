@@ -78,6 +78,11 @@ export const LANDING_ROUTES = Object.freeze({
   }),
 });
 
+/** Public status incident detail route. */
+export function statusIncidentPath(slug: string): string {
+  return `/status/incidents/${slug}`;
+}
+
 export const ROUTES = Object.freeze({
   paths: AUTH_PATH,
   buildLoginUrl,

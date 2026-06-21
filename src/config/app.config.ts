@@ -12,6 +12,7 @@ export const appConfig = Object.freeze({
     landing: trimTrailingSlash(env.LANDING_URL),
     auth: trimTrailingSlash(env.AUTH_URL),
     app: trimTrailingSlash(env.APP_URL),
+    api: trimTrailingSlash(env.API_URL),
   }),
   runtime,
 });

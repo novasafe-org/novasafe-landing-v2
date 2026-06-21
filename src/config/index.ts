@@ -14,6 +14,7 @@ export {
 export {
   ROUTES,
   LANDING_ROUTES,
+  statusIncidentPath,
   buildLoginUrl,
   buildSignupUrl,
   buildSignupProUrl,

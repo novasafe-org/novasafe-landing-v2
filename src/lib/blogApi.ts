@@ -1,8 +1,10 @@
+import { readEnv } from "@/config/env";
+
 /**
  * Public blog reads via core API proxy — admin-api is never called from the browser.
  * Core: GET /api/v1/blog/posts, /posts/:slug, /categories
  */
-const CORE_API = (import.meta.env.VITE_API_URL || "http://localhost:3125").replace(/\/$/, "");
+const CORE_API = (readEnv("VITE_API_URL", "API_URL") || "http://localhost:3125").replace(/\/$/, "");
 const BLOG_BASE = `${CORE_API}/api/v1/blog`;
 
 export type PublicPost = {

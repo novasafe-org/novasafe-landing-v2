@@ -58,8 +58,11 @@ const positiveInt = (fallback: number) =>
 
 const url = z.string().url("must be a fully-qualified URL (http(s)://…)");
 
+const isProdBuild =
+  viteEnv.MODE === "production" || procEnv.NODE_ENV === "production";
+
 const DEFAULT_URLS = Object.freeze({
-  API_URL: "http://localhost:3125",
+  API_URL: isProdBuild ? "https://mobile-api.novasafe.io" : "http://localhost:3125",
 });
 
 const PublicEnvSchema = z.object({

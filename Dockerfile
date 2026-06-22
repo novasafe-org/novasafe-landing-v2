@@ -21,6 +21,7 @@ ENV NODE_ENV=production \
     VITE_LANDING_URL=https://novasafe.io \
     VITE_AUTH_URL=https://start.novasafe.io \
     VITE_APP_URL=https://app.novasafe.io \
+    VITE_API_URL=https://mobile-api.novasafe.io \
     VITE_APP_VERSION=0.0.0
 
 COPY package.json pnpm-lock.yaml .npmrc ./

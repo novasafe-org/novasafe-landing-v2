@@ -2,6 +2,7 @@
 #
 # Env/config: set VITE_* in the server .env at
 # /opt/novasafe-deployment/marketing/landing/.env (not GitHub secrets).
+# Required for status page: VITE_API_URL=https://mobile-api.novasafe.io
 #
 # Required secrets: SSH_USER, SSH_HOST, SSH_PASSWORD, DEPLOY_PATH
 

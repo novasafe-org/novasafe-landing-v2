@@ -29,6 +29,7 @@ import ResponsibleDisclosure from "./pages/legal/ResponsibleDisclosure";
 import About from "./pages/company/About";
 import Contact from "./pages/company/Contact";
 import Blog from "./pages/company/Blog";
+import BlogPostPage from "./pages/company/BlogPost";
 
 import Help from "./pages/support/Help";
 
@@ -77,6 +78,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
 
           {/* Support */}
           <Route path="/help" element={<Help />} />

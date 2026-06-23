@@ -1,6 +1,7 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import { formatMonitoringStartLabel } from "@/lib/status-monitoring";
 import { formatUptime, serviceStatusLabel, statusIndicatorClass } from "@/lib/status-utils";
 import type { UptimeDay } from "@/types/status";
 
@@ -19,6 +20,8 @@ function formatDisplayDate(date: string): string {
 }
 
 function UptimeBar({ day }: { day: UptimeDay }) {
+  const unavailable = Boolean(day.unavailable);
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -26,15 +29,25 @@ function UptimeBar({ day }: { day: UptimeDay }) {
           type="button"
           className={cn(
             "h-8 flex-1 min-w-[3px] rounded-sm transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1",
-            statusIndicatorClass(day.status),
+            statusIndicatorClass(day.status, unavailable),
           )}
-          aria-label={`${formatDisplayDate(day.date)}: ${serviceStatusLabel(day.status)}, ${formatUptime(day.uptimePercentage)} uptime`}
+          aria-label={
+            unavailable
+              ? `${formatDisplayDate(day.date)}: No monitoring data`
+              : `${formatDisplayDate(day.date)}: ${serviceStatusLabel(day.status)}, ${formatUptime(day.uptimePercentage)} uptime`
+          }
         />
       </TooltipTrigger>
       <TooltipContent side="top" className="text-xs">
         <p className="font-semibold">{formatDisplayDate(day.date)}</p>
-        <p>{serviceStatusLabel(day.status)}</p>
-        <p className="tabular-nums">{formatUptime(day.uptimePercentage)} uptime</p>
+        {unavailable ? (
+          <p className="text-muted-foreground">No monitoring data</p>
+        ) : (
+          <>
+            <p>{serviceStatusLabel(day.status)}</p>
+            <p className="tabular-nums">{formatUptime(day.uptimePercentage)} uptime</p>
+          </>
+        )}
       </TooltipContent>
     </Tooltip>
   );
@@ -45,6 +58,8 @@ export function UptimeBars({ history, serviceName, uptime90Days }: UptimeBarsPro
     return <UptimeBarsEmptyState />;
   }
 
+  const monitoringSince = formatMonitoringStartLabel();
+
   return (
     <div aria-label={serviceName ? `${serviceName} uptime history` : "Uptime history"}>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
@@ -53,7 +68,7 @@ export function UptimeBars({ history, serviceName, uptime90Days }: UptimeBarsPro
         </p>
         {uptime90Days != null && (
           <p className="text-[13px] font-medium tabular-nums text-ink-soft">
-            {formatUptime(uptime90Days)} uptime (90 days)
+            {formatUptime(uptime90Days)} uptime since {monitoringSince}
           </p>
         )}
       </div>
@@ -62,6 +77,9 @@ export function UptimeBars({ history, serviceName, uptime90Days }: UptimeBarsPro
           <UptimeBar key={day.date} day={day} />
         ))}
       </div>
+      <p className="mt-3 text-[12px] text-ink-soft">
+        Grey bars are before monitoring began ({monitoringSince}). Colored bars reflect actual uptime.
+      </p>
     </div>
   );
 }

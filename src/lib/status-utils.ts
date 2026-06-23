@@ -46,7 +46,8 @@ export function incidentStatusLabel(status: IncidentStatus): string {
   }
 }
 
-export function statusIndicatorClass(status: OperationalStatus): string {
+export function statusIndicatorClass(status: OperationalStatus, unavailable = false): string {
+  if (unavailable) return "bg-muted-foreground/25";
   switch (status) {
     case "operational":
       return "bg-success";

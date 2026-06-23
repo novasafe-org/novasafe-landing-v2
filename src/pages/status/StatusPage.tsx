@@ -10,6 +10,7 @@ import {
 } from "@/components/status/UptimeBars";
 import { useIncidents } from "@/hooks/useIncidents";
 import { useStatus, useStatusHistory } from "@/hooks/useStatus";
+import { averageMonitoredUptime } from "@/lib/status-monitoring";
 
 export default function StatusPage() {
   const statusQuery = useStatus();
@@ -31,7 +32,9 @@ export default function StatusPage() {
   const primaryService = overview?.services[0];
   const history = historyQuery.data?.history;
   const uptime90Days =
-    primaryService?.uptime.last90Days ?? historyQuery.data?.service.uptime.last90Days;
+    (history && averageMonitoredUptime(history)) ??
+    primaryService?.uptime.last90Days ??
+    historyQuery.data?.service.uptime.last90Days;
 
   return (
     <PageShell>

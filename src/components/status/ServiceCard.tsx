@@ -18,7 +18,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
           {serviceStatusLabel(service.status)}
         </span>
         <span className="text-[14px] font-medium tabular-nums text-ink-soft">
-          {formatUptime(service.uptime.last90Days)} uptime (90 days)
+          {formatUptime(service.uptime.last90Days)} uptime since Jun 20, 2026
         </span>
       </div>
     </article>

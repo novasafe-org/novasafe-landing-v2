@@ -75,6 +75,8 @@ export interface UptimeDay {
   date: string;
   status: OperationalStatus;
   uptimePercentage: number;
+  /** Pre-monitoring period — render as grey, not operational. */
+  unavailable?: boolean;
 }
 
 export interface ServiceHistoryResponse {

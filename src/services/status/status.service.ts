@@ -1,4 +1,5 @@
 import { appConfig } from "@/config/app.config";
+import { normalizeUptimeHistory } from "@/lib/status-monitoring";
 import type {
   RecentIncident,
   StatusIncidentDetail,
@@ -150,7 +151,8 @@ export const statusService = {
       days: String(days),
     });
     const data = await statusFetch<ApiHistoryResponse>(`/history?${params.toString()}`);
-    return { history: data.history, service: data.service };
+    const history = normalizeUptimeHistory(data.history);
+    return { history, service: data.service };
   },
 
   async fetchIncidents(limit = 10): Promise<RecentIncident[]> {

@@ -67,6 +67,7 @@ export const LANDING_ROUTES = Object.freeze({
   help: "/help",
   status: "/status",
   changelog: "/changelog",
+  demo: "/demo",
   blog: "/blog",
   docs: "/docs",
   legal: Object.freeze({

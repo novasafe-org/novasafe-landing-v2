@@ -58,6 +58,11 @@ export default {
           DEFAULT: "hsl(var(--ink))",
           soft: "hsl(var(--ink-soft))",
         },
+        "product-hunt": {
+          DEFAULT: "hsl(var(--product-hunt))",
+          foreground: "hsl(var(--product-hunt-foreground))",
+          hover: "hsl(var(--product-hunt-hover))",
+        },
         success: "hsl(var(--success))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

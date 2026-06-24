@@ -1,6 +1,8 @@
 import { PageShell } from "@/components/site/PageShell";
 import { Section } from "@/components/site/primitives";
+import { ActiveIncidentsBanner, ScheduledMaintenanceSection } from "@/components/status/ActiveIncidents";
 import { RecentIncidents, RecentIncidentsSkeleton } from "@/components/status/RecentIncidents";
+import { ServiceCard, ServiceCardSkeleton } from "@/components/status/ServiceCard";
 import { StatusErrorState } from "@/components/status/StatusErrorState";
 import { StatusHero, StatusHeroSkeleton } from "@/components/status/StatusHero";
 import {
@@ -42,11 +44,35 @@ export default function StatusPage() {
 
       {overview && <StatusHero overallStatus={overview.overallStatus} />}
 
+      {overview && overview.activeIncidents.length > 0 && (
+        <ActiveIncidentsBanner incidents={overview.activeIncidents} />
+      )}
+
       <Section className="!pt-0 !pb-10 sm:!pb-12">
         {isError && <StatusErrorState onRetry={retryAll} />}
 
         {!isError && (
           <div className="mx-auto max-w-4xl space-y-10 sm:space-y-12">
+            {overview && overview.services.length > 0 && (
+              <section aria-label="Service status">
+                <h2 className="mb-4 text-[22px] font-semibold tracking-tight text-ink sm:text-2xl">Services</h2>
+                <div className="space-y-3">
+                  {statusQuery.isLoading && !overview.services.length ? (
+                    <>
+                      <ServiceCardSkeleton />
+                      <ServiceCardSkeleton />
+                    </>
+                  ) : (
+                    overview.services.map((service) => <ServiceCard key={service.id} service={service} />)
+                  )}
+                </div>
+              </section>
+            )}
+
+            {overview && overview.scheduledMaintenance.length > 0 && (
+              <ScheduledMaintenanceSection items={overview.scheduledMaintenance} />
+            )}
+
             <section aria-label="90-day uptime history">
               {historyQuery.isLoading && !history ? (
                 <UptimeBarsSkeleton />
@@ -63,7 +89,8 @@ export default function StatusPage() {
               )}
             </section>
 
-            <section aria-labelledby="recent-incidents-heading">
+            {/* Not needed for now, but keeping it here for future reference */}
+            {/* <section aria-labelledby="recent-incidents-heading">
               <h2
                 id="recent-incidents-heading"
                 className="mb-5 text-[22px] font-semibold tracking-tight text-ink sm:text-2xl"
@@ -75,7 +102,7 @@ export default function StatusPage() {
               ) : incidentsQuery.data ? (
                 <RecentIncidents incidents={incidentsQuery.data} />
               ) : null}
-            </section>
+            </section> */}
           </div>
         )}
       </Section>

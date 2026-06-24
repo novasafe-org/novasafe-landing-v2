@@ -34,6 +34,11 @@
 
     --success: 152 70% 42%;
 
+    /* Product Hunt brand — official coral orange (#FF6154) */
+    --product-hunt: 6 100% 66%;
+    --product-hunt-foreground: 0 0% 100%;
+    --product-hunt-hover: 6 90% 58%;
+
     --border: 220 18% 91%;
     --input: 220 18% 91%;
     --ring: 222 89% 55%;
@@ -104,6 +109,10 @@
     --destructive-foreground: 210 40% 98%;
 
     --success: 152 70% 50%;
+
+    --product-hunt: 6 100% 66%;
+    --product-hunt-foreground: 0 0% 100%;
+    --product-hunt-hover: 6 90% 58%;
 
     --border: 224 30% 16%;
     --input: 224 30% 16%;

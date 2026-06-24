@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { PageShell } from "@/components/site/PageShell";
 import { Section } from "@/components/site/primitives";
-import { fetchPostBySlug, type PublicPost } from "@/lib/blogApi";
+import { fetchPostBySlug, recordPostView, type PublicPost } from "@/lib/blogApi";
 
 function formatDate(iso: string | null) {
   if (!iso) return "";
@@ -50,6 +50,14 @@ export default function BlogPostPage() {
       .catch((err) => setError(err instanceof Error ? err.message : "Post not found"))
       .finally(() => setLoading(false));
   }, [slug, navigate]);
+
+  useEffect(() => {
+    if (!slug || !post) return;
+    const sessionKey = `ns:blog:viewed:${slug}`;
+    if (sessionStorage.getItem(sessionKey)) return;
+    sessionStorage.setItem(sessionKey, "1");
+    void recordPostView(slug);
+  }, [slug, post]);
 
   return (
     <PageShell>

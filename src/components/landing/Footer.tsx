@@ -46,7 +46,7 @@ export const Footer = () => (
         <div className="flex items-center gap-3 text-[11.5px] text-muted-foreground">
           <span className="flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse-glow" />
-            All systems operational
+            Status
           </span>
           <span className="text-border">·</span>
           <span>Made with security in mind</span>

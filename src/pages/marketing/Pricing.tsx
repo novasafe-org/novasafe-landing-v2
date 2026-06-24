@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { PageShell } from "@/components/site/PageShell";
-import { PageHero, Section, SectionHead, PrimaryButton, GhostButton, CTASection, FAQ, CheckList } from "@/components/site/primitives";
+import { PageHero, Section, SectionHead, PrimaryButton, GhostButton, CTASection, CheckList } from "@/components/site/primitives";
+import { FaqContent } from "@/components/shared/FaqContent";
+import {
+  WhoItsForSection,
+  IncludedEveryPlanSection,
+  RoadmapSection,
+  PricingSeoContent,
+} from "@/components/pricing/PricingEnhancements";
 import { Check, Minus, Shield, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buildSignupUrl, buildSignupProUrl } from "@/config";
@@ -42,13 +49,6 @@ const matrix: Row[] = [
   { label: "Priority support", free: false, pro: true },
 ];
 
-const faqs = [
-  { q: "Is there a free plan?", a: "Yes. NovaSafe Free includes zero-knowledge encryption, passkeys, and the authenticator on a single device — forever, no credit card required." },
-  { q: "Can I cancel anytime?", a: "Anytime, from your account settings. Yearly subscriptions are fully refundable within the first 30 days." },
-  { q: "What happens to my data if I downgrade?", a: "Your vault stays intact and encrypted. You simply lose access to Pro-only features like unlimited sync and secure sharing." },
-  { q: "Do you offer student discounts?", a: "Yes — 50% off Pro for verified students. Email students@novasafe.app from your school address." },
-];
-
 const Cell = ({ v }: { v: boolean | string }) =>
   typeof v === "string"
     ? <span className="text-[13.5px] text-ink-soft">{v}</span>
@@ -82,6 +82,8 @@ const Pricing = () => {
           ))}
         </div>
       </PageHero>
+
+      <WhoItsForSection />
 
       <Section className="!pt-0">
         <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-2">
@@ -123,6 +125,8 @@ const Pricing = () => {
         </div>
       </Section>
 
+      <IncludedEveryPlanSection />
+
       <Section className="!pt-0">
         <SectionHead title="Compare plans" lede="Everything included, nothing buried." />
         <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-border/70 bg-card">
@@ -147,10 +151,13 @@ const Pricing = () => {
         </div>
       </Section>
 
-      <Section className="!pt-0">
-        <SectionHead title="Frequently asked" />
-        <FAQ items={faqs} />
+      <RoadmapSection />
+
+      <Section className="!pt-0" id="faq">
+        <FaqContent headingId="pricing-faq-heading" />
       </Section>
+
+      <PricingSeoContent />
 
       <CTASection />
     </PageShell>

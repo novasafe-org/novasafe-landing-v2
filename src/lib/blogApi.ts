@@ -57,6 +57,40 @@ function rewriteMarkdownMedia(md: string): string {
   );
 }
 
+function displayAuthorName(author?: { name?: string }): string {
+  const name = author?.name?.trim();
+  if (!name || name.includes("@")) return "NovaSafe Team";
+  return name;
+}
+
+const VISITOR_STORAGE_KEY = "ns:blog:visitor";
+
+export function getOrCreateVisitorId(): string {
+  try {
+    let id = localStorage.getItem(VISITOR_STORAGE_KEY);
+    if (!id) {
+      id = crypto.randomUUID();
+      localStorage.setItem(VISITOR_STORAGE_KEY, id);
+    }
+    return id;
+  } catch {
+    return "anonymous";
+  }
+}
+
+/** Anonymous view tracking — no email, uses a random browser-local visitor id. */
+export async function recordPostView(slug: string): Promise<void> {
+  try {
+    await fetch(`${BLOG_BASE}/posts/${encodeURIComponent(slug)}/view`, {
+      method: "POST",
+      headers: { Accept: "application/json", "Content-Type": "application/json" },
+      body: JSON.stringify({ visitor_id: getOrCreateVisitorId() }),
+    });
+  } catch {
+    // non-blocking
+  }
+}
+
 function mapPost(dto: PostDto, categoryName: string): PublicPost {
   return {
     id: dto.id,
@@ -67,7 +101,7 @@ function mapPost(dto: PostDto, categoryName: string): PublicPost {
     featuredImage: rewriteBlogMediaUrl(dto.featured_image),
     status: dto.status,
     categoryName,
-    authorName: dto.author?.name || "NovaSafe",
+    authorName: displayAuthorName(dto.author),
     publishedAt: dto.published_at,
     updatedAt: dto.updated_at,
     seoTitle: dto.seo_title,

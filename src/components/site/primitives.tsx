@@ -1,7 +1,40 @@
-import { ReactNode } from "react";
+import { ReactNode, type ButtonHTMLAttributes } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+/** Matches SiteHeader "Get started" — solid ink, animated arrow on hover. */
+export const inkCtaButtonClass = (className?: string) =>
+  cn(
+    "group inline-flex items-center gap-1.5 rounded-lg bg-ink px-3.5 py-2 text-[13px] font-semibold text-background shadow-sm transition-all hover:bg-ink/90",
+    className,
+  );
+
+export const InkCtaArrow = () => (
+  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+);
+
+export function InkCtaButton({
+  children,
+  className,
+  disabled,
+  ...props
+}: ButtonHTMLAttributes<HTMLButtonElement>) {
+  return (
+    <button
+      type="button"
+      disabled={disabled}
+      className={cn(
+        inkCtaButtonClass(className),
+        disabled && "pointer-events-none opacity-60",
+      )}
+      {...props}
+    >
+      {children}
+      <InkCtaArrow />
+    </button>
+  );
+}
 
 export const Eyebrow = ({ children }: { children: ReactNode }) => (
   <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-3 py-1 text-[11.5px] font-semibold uppercase tracking-wider text-primary shadow-sm backdrop-blur">

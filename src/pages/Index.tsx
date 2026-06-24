@@ -1,12 +1,14 @@
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Hero } from "@/components/landing/Hero";
-import { TrustBar } from "@/components/landing/TrustBar";
+import { ProductHuntBanner } from "@/components/landing/ProductHuntBanner";
+import { CapabilityShowcase } from "@/components/landing/CapabilityShowcase";
 import { EncryptionFlow } from "@/components/landing/EncryptionFlow";
 import { Features } from "@/components/landing/Features";
 import { Ecosystem } from "@/components/landing/Ecosystem";
+import { JournalSection } from "@/components/landing/JournalSection";
 import { Compliance } from "@/components/landing/Compliance";
-import { Developers } from "@/components/landing/Developers";
+import { FaqSection } from "@/components/landing/FaqSection";
 import { Stats } from "@/components/landing/Stats";
 import { CTA } from "@/components/landing/CTA";
 
@@ -16,12 +18,14 @@ const Index = () => {
       <SiteHeader />
       <main>
         <Hero />
-        <TrustBar />
+        <ProductHuntBanner />
+        <CapabilityShowcase />
         <EncryptionFlow />
         <Features />
         <Ecosystem />
+        <JournalSection />
         <Compliance />
-        <Developers />
+        <FaqSection />
         <Stats />
         <CTA />
       </main>

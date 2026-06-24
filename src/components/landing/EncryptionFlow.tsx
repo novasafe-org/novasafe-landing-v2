@@ -1,113 +1,240 @@
-import { Smartphone, Cloud, Monitor, Lock, KeyRound } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Cloud,
+  KeyRound,
+  Lock,
+  Monitor,
+  Server,
+  Shield,
+  Smartphone,
+} from "lucide-react";
 
-const Node = ({
-  icon: Icon,
-  label,
-  sub,
-  accent,
+import { cn } from "@/lib/utils";
+
+const TRUST_CARDS = [
+  {
+    title: "Encrypted Storage",
+    description: "NovaSafe stores encrypted data only — your password manager vault never holds readable secrets.",
+    icon: Shield,
+  },
+  {
+    title: "Zero Knowledge",
+    description: "NovaSafe cannot read your vault contents. Passkeys, secure notes, and cards stay private.",
+    icon: Lock,
+  },
+  {
+    title: "You Own The Keys",
+    description: "Only you control access to your secure vault, authenticator codes, and recovery codes.",
+    icon: KeyRound,
+  },
+  {
+    title: "Breach Protection",
+    description: "Even if servers are compromised, your vault remains unreadable thanks to end-to-end encryption.",
+    icon: Server,
+  },
+] as const;
+
+const flowSteps = [
+  { label: "Your Data", icon: Smartphone, sub: "Passwords, passkeys, notes & cards" },
+  { label: "Encrypted", icon: null, sub: "Locked before it leaves you" },
+  { label: "NovaSafe Cloud", icon: Cloud, sub: "Encrypted data only" },
+  { label: "Your Devices", icon: Monitor, sub: "Unlocked by you alone" },
+];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
+function FlowStepCard({
+  step,
+  isLock,
+  compact,
 }: {
-  icon: typeof Smartphone;
-  label: string;
-  sub: string;
-  accent?: boolean;
-}) => (
-  <div className="relative flex flex-col items-center gap-3">
-    <div
-      className={`relative flex h-20 w-20 items-center justify-center rounded-2xl border ${
-        accent
-          ? "border-primary/40 bg-gradient-to-br from-primary to-primary-deep text-primary-foreground shadow-glow-primary"
-          : "border-border bg-card text-ink shadow-card"
-      }`}
-    >
-      <Icon className="h-8 w-8" strokeWidth={1.6} />
-      {accent && (
-        <span className="absolute -inset-1 -z-10 rounded-2xl bg-primary/30 blur-xl animate-pulse-glow" />
-      )}
-    </div>
-    <div className="text-center">
-      <div className="text-[13px] font-semibold text-ink">{label}</div>
-      <div className="font-mono text-[11px] text-muted-foreground">{sub}</div>
-    </div>
-  </div>
-);
+  step: (typeof flowSteps)[number];
+  isLock?: boolean;
+  compact?: boolean;
+}) {
+  if (isLock) {
+    return (
+      <div className="relative flex shrink-0 flex-col items-center px-1 py-2">
+        <motion.div
+          className={cn(
+            "relative flex items-center justify-center rounded-3xl border border-primary/30 bg-gradient-to-br from-primary to-primary-deep text-primary-foreground shadow-lg",
+            compact ? "h-20 w-20" : "h-24 w-24",
+          )}
+          animate={{
+            boxShadow: [
+              "0 0 40px hsl(var(--primary) / 0.25)",
+              "0 0 64px hsl(var(--primary) / 0.4)",
+              "0 0 40px hsl(var(--primary) / 0.25)",
+            ],
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Lock className={compact ? "h-9 w-9" : "h-11 w-11"} strokeWidth={1.75} />
+          <span className="pointer-events-none absolute -inset-3 -z-10 rounded-3xl bg-primary/25 blur-2xl" />
+        </motion.div>
+        <p className="mt-3 text-center text-sm font-semibold text-ink">{step.label}</p>
+        <p className="mt-0.5 max-w-[140px] text-center text-[11px] leading-snug text-muted-foreground sm:text-xs">
+          {step.sub}
+        </p>
+      </div>
+    );
+  }
 
-const FlowLine = ({ label }: { label: string }) => (
-  <div className="relative flex flex-1 flex-col items-center justify-center pt-2">
-    <svg className="w-full" height="40" viewBox="0 0 200 40" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="flow-grad" x1="0" x2="1">
-          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
-          <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
-        </linearGradient>
-      </defs>
-      <line x1="0" y1="20" x2="200" y2="20" stroke="hsl(var(--border))" strokeWidth="1.5" strokeDasharray="3 4" />
-      <line
-        x1="0"
-        y1="20"
-        x2="200"
-        y2="20"
-        stroke="url(#flow-grad)"
-        strokeWidth="2"
-        strokeDasharray="40 200"
-        className="animate-flow"
-      />
-    </svg>
-    <span className="absolute top-9 rounded-full border border-border bg-card px-2 py-0.5 font-mono text-[10px] text-muted-foreground shadow-xs">
-      {label}
-    </span>
-  </div>
-);
+  const Icon = step.icon!;
+  return (
+    <motion.div
+      whileHover={{ y: -2 }}
+      className={cn(
+        "flex shrink-0 flex-col items-center rounded-2xl border border-border/70 bg-card/80 px-4 py-4 text-center shadow-sm backdrop-blur-md",
+        compact ? "w-[148px]" : "w-full max-w-[200px] sm:w-[168px]",
+      )}
+    >
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary sm:h-11 sm:w-11">
+        <Icon className="h-5 w-5" strokeWidth={1.75} />
+      </div>
+      <p className="mt-3 text-sm font-semibold text-ink">{step.label}</p>
+      <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground sm:text-xs">{step.sub}</p>
+    </motion.div>
+  );
+}
+
+function FlowConnector({ direction }: { direction: "horizontal" | "vertical" }) {
+  if (direction === "horizontal") {
+    return (
+      <div className="hidden shrink-0 items-center px-1 md:flex" aria-hidden>
+        <div className="h-px w-6 bg-gradient-to-r from-border via-primary/40 to-border lg:w-10" />
+        <div className="text-primary/60">
+          <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor">
+            <path d="M8 6L0 0v12L8 6z" />
+          </svg>
+        </div>
+        <div className="h-px w-6 bg-gradient-to-r from-border via-primary/40 to-border lg:w-10" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col items-center py-1 md:hidden" aria-hidden>
+      <div className="h-6 w-px bg-gradient-to-b from-border via-primary/40 to-border" />
+      <div className="my-0.5 text-primary/60">
+        <svg width="12" height="8" viewBox="0 0 12 8" fill="currentColor">
+          <path d="M6 8L0 0h12L6 8z" />
+        </svg>
+      </div>
+      <div className="h-6 w-px bg-gradient-to-b from-border via-primary/40 to-border" />
+    </div>
+  );
+}
 
 export const EncryptionFlow = () => {
   return (
-    <section id="security" className="relative py-28">
+    <section id="security" className="relative overflow-hidden py-20 sm:py-28" aria-labelledby="trust-layer-heading">
+      {/* Ambient background */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-1/4 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-primary/[0.06] blur-[100px]" />
+        <motion.div
+          className="absolute right-[10%] top-[20%] h-64 w-64 rounded-full bg-primary-glow/10 blur-3xl"
+          animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute left-[8%] bottom-[15%] h-48 w-48 rounded-full bg-primary/8 blur-3xl"
+          animate={{ x: [0, -15, 0], y: [0, 10, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+      </div>
+
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/60 px-3 py-1 text-[11.5px] font-semibold uppercase tracking-wider text-primary">
-            <Lock className="h-3 w-3" /> The Trust Layer
-          </span>
-          <h2 className="mt-5 text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl">
-            Your data is sealed before it ever leaves your device.
-          </h2>
-          <p className="mt-5 text-lg text-ink-soft">
-            Encryption happens locally with keys derived from your master password.
-            We see ciphertext — and nothing else.
+        <motion.header
+          className="mx-auto max-w-2xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="flex justify-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary shadow-sm">
+              <Lock className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden />
+              Zero-knowledge security
+            </span>
           </p>
-        </div>
+          <h2
+            id="trust-layer-heading"
+            className="mt-5 text-balance text-[32px] font-semibold leading-[1.08] tracking-tight text-ink sm:text-5xl"
+          >
+            Only you can unlock your vault.
+          </h2>
+          <p className="mt-5 text-balance text-[16px] leading-relaxed text-ink-soft sm:text-lg">
+            Your passwords, passkeys, secure notes, payment cards, SSH keys, recovery codes, and
+            authenticator secrets are protected with end-to-end encryption before they leave your device.
+            NovaSafe cannot see, access, or recover your data — a true zero-knowledge password manager
+            and secure vault built for digital security you control.
+          </p>
+        </motion.header>
 
-        <div className="relative mx-auto mt-16 max-w-5xl rounded-3xl border border-border bg-card/40 p-8 shadow-card backdrop-blur sm:p-12">
-          <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-primary/5 via-transparent to-primary-glow/5" />
+        {/* Centered trust visual */}
+        <motion.div
+          className="relative mx-auto mt-14 max-w-6xl sm:mt-16"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.55, delay: 0.1 }}
+        >
+          <div className="relative rounded-[2rem] border border-border/60 bg-card/50 p-6 shadow-card backdrop-blur-sm sm:p-10">
+            <div className="pointer-events-none absolute inset-0 rounded-[2rem] bg-gradient-to-r from-primary/[0.04] via-transparent to-primary/[0.06]" />
 
-          <div className="flex flex-col items-stretch gap-6 md:flex-row md:items-center">
-            <Node icon={Smartphone} label="Your device" sub="plaintext" />
-            <FlowLine label="encrypt · argon2id" />
-            <Node icon={Lock} label="Sealed" sub="ciphertext only" accent />
-            <FlowLine label="sync · TLS 1.3" />
-            <Node icon={Cloud} label="NovaSafe cloud" sub="opaque blob" />
-            <FlowLine label="decrypt · local" />
-            <Node icon={Monitor} label="Other devices" sub="plaintext" />
+            <div className="relative flex flex-col items-center md:flex-row md:items-center md:justify-center">
+              <FlowStepCard step={flowSteps[0]} compact />
+              <FlowConnector direction="vertical" />
+              <FlowConnector direction="horizontal" />
+              <FlowStepCard step={flowSteps[1]} isLock compact />
+              <FlowConnector direction="vertical" />
+              <FlowConnector direction="horizontal" />
+              <FlowStepCard step={flowSteps[2]} compact />
+              <FlowConnector direction="vertical" />
+              <FlowConnector direction="horizontal" />
+              <FlowStepCard step={flowSteps[3]} compact />
+            </div>
+
+            <p className="relative mt-8 text-center text-[13px] font-medium text-ink-soft">
+              Your data travels securely — only you hold the key.
+            </p>
           </div>
+        </motion.div>
 
-          <div className="mt-10 grid gap-4 border-t border-border/70 pt-8 sm:grid-cols-3">
-            {[
-              { k: "What we store", v: "Encrypted blobs", icon: Cloud },
-              { k: "What we can read", v: "Nothing", icon: Lock },
-              { k: "Who holds the key", v: "Only you", icon: KeyRound },
-            ].map((i) => (
-              <div key={i.k} className="flex items-start gap-3">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <i.icon className="h-4 w-4" />
+        {/* Trust cards */}
+        <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:mt-16">
+          {TRUST_CARDS.map((card, i) => {
+            const Icon = card.icon;
+            return (
+              <motion.article
+                key={card.title}
+                custom={i}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className={cn(
+                  "group rounded-2xl border border-border/60 bg-card p-5",
+                  "transition-shadow duration-300 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/[0.06]",
+                )}
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/15">
+                  <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <div>
-                  <div className="text-[11.5px] font-medium uppercase tracking-wider text-muted-foreground">
-                    {i.k}
-                  </div>
-                  <div className="text-[15px] font-semibold text-ink">{i.v}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+                <h3 className="mt-4 text-[15px] font-semibold tracking-tight text-ink">{card.title}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-ink-soft">{card.description}</p>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

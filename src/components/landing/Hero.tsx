@@ -37,8 +37,8 @@ export const Hero = () => {
             className="animate-fade-up mx-auto mt-6 max-w-2xl text-balance text-lg leading-relaxed text-ink-soft sm:text-xl"
             style={{ animationDelay: "0.15s" }}
           >
-            NovaSafe is the encrypted vault for passwords, secrets and sensitive data —
-            sealed on your device with keys only you can hold.
+            A modern password manager built around privacy,
+            security and complete ownership of your data.
           </p>
 
           <div
@@ -52,15 +52,15 @@ export const Hero = () => {
               Get started — free
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
-            <a
-              href="#demo"
+            <Link
+              to={LANDING_ROUTES.demo}
               className="group inline-flex items-center gap-2 rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold text-ink shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
             >
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <Play className="h-2.5 w-2.5 fill-current" />
               </span>
               Live demo
-            </a>
+            </Link>
           </div>
 
           <div

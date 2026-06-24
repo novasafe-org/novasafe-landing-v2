@@ -1,56 +1,114 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
-  Globe,
-  Puzzle,
-  Smartphone,
-  Monitor,
-  Terminal,
-  Code2,
-  ShieldCheck,
-  Cloud,
-  Lock,
-  Sparkles,
-  Check,
-  Wifi,
+  CreditCard,
+  FileText,
   Fingerprint,
+  Globe,
+  KeyRound,
+  Lock,
+  Monitor,
+  Puzzle,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+  Terminal,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Module data                               */
 /* -------------------------------------------------------------------------- */
 
-type Preview =
-  | "browser"
-  | "extension"
-  | "mobile"
-  | "desktop"
-  | "cli"
-  | "api"
-  | "admin"
-  | "sync";
-
-type Module = {
+type EcosystemNode = {
   icon: typeof Globe;
   label: string;
-  desc: string;
-  status?: "live" | "soon";
-  /** angle on the orbit (degrees, 0=right, 90=down) */
+  platforms: string;
+  description: string;
   angle: number;
-  /** depth z-translation in px */
   depth: number;
-  preview: Preview;
 };
 
-/** 8 ecosystem nodes evenly distributed around the encrypted core */
-const modules: Module[] = [
-  { icon: Globe,       label: "Web App",           desc: "Access anywhere",          angle: -90,  depth: 30,  preview: "browser"   },
-  { icon: Puzzle,      label: "Browser Extension", desc: "Chrome · Edge · Firefox",  angle: -45,  depth: 60,  preview: "extension" },
-  { icon: Smartphone,  label: "Mobile Apps",       desc: "iOS · Android · Face ID",  angle: 0,    depth: 90,  preview: "mobile"    },
-  { icon: Cloud,       label: "Encrypted Sync",    desc: "End-to-end · real-time",   angle: 45,   depth: 60,  preview: "sync"      },
-  { icon: Monitor,     label: "Desktop App",       desc: "macOS · Windows · Linux",  angle: 90,   depth: 30,  preview: "desktop", status: "soon" },
-  { icon: Terminal,    label: "CLI",               desc: "Secure env injection",     angle: 135,  depth: 60,  preview: "cli"       },
-  { icon: Code2,       label: "Secrets API",       desc: "REST · SDK · Webhooks",    angle: 180,  depth: 90,  preview: "api"       },
-  { icon: ShieldCheck, label: "Admin Console",     desc: "SSO · audit · RBAC",       angle: 225,  depth: 60,  preview: "admin"     },
+/** 10 user-facing ecosystem nodes — no internal infra / dev tooling */
+const nodes: EcosystemNode[] = [
+  {
+    icon: Puzzle,
+    label: "Browser Extension",
+    platforms: "Chrome · Edge · Firefox · Brave",
+    description: "Autofill passwords and passkeys instantly.",
+    angle: -90,
+    depth: 70,
+  },
+  {
+    icon: Globe,
+    label: "Web Vault",
+    platforms: "Access anywhere",
+    description: "Secure access from any modern browser.",
+    angle: -54,
+    depth: 55,
+  },
+  {
+    icon: Smartphone,
+    label: "Mobile Apps",
+    platforms: "iPhone · Android",
+    description: "Unlock with Face ID and biometrics.",
+    angle: -18,
+    depth: 85,
+  },
+  {
+    icon: Monitor,
+    label: "Desktop Apps",
+    platforms: "Windows · macOS · Linux",
+    description: "Offline access and secure local storage.",
+    angle: 18,
+    depth: 55,
+  },
+  {
+    icon: KeyRound,
+    label: "Passwords",
+    platforms: "Password manager",
+    description: "Store and autofill passwords across devices.",
+    angle: 54,
+    depth: 40,
+  },
+  {
+    icon: Fingerprint,
+    label: "Passkeys",
+    platforms: "Passkey manager",
+    description: "Create and manage passwordless logins.",
+    angle: 90,
+    depth: 70,
+  },
+  {
+    icon: ShieldCheck,
+    label: "Authenticator",
+    platforms: "2FA codes",
+    description: "Generate secure verification codes.",
+    angle: 126,
+    depth: 55,
+  },
+  {
+    icon: FileText,
+    label: "Secure Notes",
+    platforms: "Encrypted notes",
+    description: "Protect documents and sensitive information.",
+    angle: 162,
+    depth: 40,
+  },
+  {
+    icon: CreditCard,
+    label: "Cards",
+    platforms: "Payment storage",
+    description: "Store payment information securely.",
+    angle: 198,
+    depth: 70,
+  },
+  {
+    icon: Terminal,
+    label: "SSH Keys",
+    platforms: "Infrastructure",
+    description: "Protect infrastructure credentials.",
+    angle: 234,
+    depth: 55,
+  },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -78,9 +136,10 @@ export const Ecosystem = () => {
           y: ((e.clientY - sr.top) / sr.height) * 100,
         });
         const r = stage.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        setTilt({ x, y });
+        setTilt({
+          x: (e.clientX - r.left) / r.width - 0.5,
+          y: (e.clientY - r.top) / r.height - 0.5,
+        });
       });
     };
     const onLeave = () => {
@@ -100,20 +159,16 @@ export const Ecosystem = () => {
     <section
       ref={sectionRef}
       id="ecosystem"
-      className="relative flex min-h-[900px] flex-col overflow-hidden bg-[hsl(224_55%_4%)] text-[hsl(210_40%_98%)] lg:min-h-[1040px] lg:max-h-[1180px]"
+      className="relative flex min-h-[900px] flex-col overflow-hidden bg-[hsl(224_55%_4%)] text-[hsl(210_40%_98%)] lg:min-h-[1000px]"
+      aria-labelledby="ecosystem-heading"
     >
       <Atmosphere lightX={light.x} lightY={light.y} />
 
-      {/* Cinematic atmospheric transitions — long, soft, radial blends.
-          Designed to feel like the page slowly enters a dark environment
-          rather than crossing a hard edge. */}
       <div
         className="pointer-events-none absolute inset-x-0 -top-px z-10 h-[280px]"
         style={{
           background: [
-            // long vertical fade from light bg → dark scene
             "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.92) 18%, hsl(220 40% 16% / 0.55) 48%, hsl(224 55% 6% / 0.22) 78%, transparent 100%)",
-            // soft radial blue bloom emerging through the seam
             "radial-gradient(ellipse 80% 70% at 50% 0%, hsl(222 89% 55% / 0.18), transparent 70%)",
           ].join(", "),
         }}
@@ -128,14 +183,17 @@ export const Ecosystem = () => {
         }}
       />
 
-      <div className="container relative z-20 flex flex-1 flex-col pt-24 pb-24 lg:pt-28 lg:pb-28">
-        {/* ---------------------------------- Header ---------------------------------- */}
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="container relative z-20 flex flex-1 flex-col pt-24 pb-20 lg:pt-28 lg:pb-24">
+        <header className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(220_95%_75%/0.18)] bg-[hsl(222_89%_55%/0.10)] px-3 py-1 text-[10.5px] font-semibold uppercase tracking-[0.22em] text-[hsl(220_100%_88%)] backdrop-blur">
-            <Sparkles className="h-3 w-3" /> The Ecosystem
+            <Sparkles className="h-3 w-3" aria-hidden />
+            Your digital identity hub
           </span>
-          <h2 className="mt-5 text-balance text-[34px] font-semibold leading-[1.02] tracking-[-0.035em] sm:text-[44px] lg:text-[52px]">
-            <span className="text-[hsl(210_40%_98%)]">The encrypted nervous system</span>
+          <h2
+            id="ecosystem-heading"
+            className="mt-5 text-balance text-[32px] font-semibold leading-[1.06] tracking-[-0.035em] sm:text-[44px] lg:text-[52px]"
+          >
+            <span className="text-[hsl(210_40%_98%)]">One encrypted vault.</span>
             <br />
             <span
               className="bg-clip-text text-transparent"
@@ -144,55 +202,54 @@ export const Ecosystem = () => {
                   "linear-gradient(180deg, hsl(220 100% 92%) 0%, hsl(220 95% 70%) 60%, hsl(222 89% 50%) 100%)",
               }}
             >
-              of your digital life.
+              Every credential. Every device.
             </span>
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-[14.5px] leading-relaxed text-[hsl(215_18%_72%)]">
-            One zero-knowledge core. Every surface in sync. Every byte sealed end-to-end.
+          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-relaxed text-[hsl(215_18%_72%)] sm:text-base">
+            Passwords, passkeys, authenticator codes, cards, secure notes, SSH keys and recovery codes —
+            securely available wherever you work. One password manager and encrypted vault that keeps your
+            entire digital identity in sync across browser extension, web vault, mobile app, and desktop app.
           </p>
-        </div>
+        </header>
 
-        {/* ---------------------------------- Stage ----------------------------------- */}
-        <div className="relative mt-6 flex flex-1 items-center justify-center lg:mt-2">
+        {/* Desktop / tablet — orbital stage */}
+        <div className="relative mt-8 hidden flex-1 items-center justify-center md:mt-4 md:flex">
           <div
             ref={stageRef}
-            className="relative aspect-[16/8.6] w-full max-w-[1280px]"
+            className="relative aspect-[16/9] w-full max-w-[1280px] min-h-[520px]"
             style={{ perspective: "1800px" }}
           >
             <div
               className="relative h-full w-full transition-transform duration-700 ease-out will-change-transform"
               style={{
-                transform: `rotateX(${tilt.y * -5}deg) rotateY(${tilt.x * 7}deg)`,
+                transform: `rotateX(${tilt.y * -4}deg) rotateY(${tilt.x * 6}deg)`,
                 transformStyle: "preserve-3d",
               }}
             >
-              {/* horizon plane glow */}
               <div
-                className="pointer-events-none absolute left-1/2 top-1/2 h-[110%] w-[110%] rounded-full"
+                className="pointer-events-none absolute left-1/2 top-1/2 h-[115%] w-[115%] rounded-full"
                 style={{
                   background:
-                    "radial-gradient(ellipse 50% 36% at 50% 50%, hsl(222 89% 55% / 0.36), transparent 70%)",
-                  filter: "blur(24px)",
+                    "radial-gradient(ellipse 50% 40% at 50% 50%, hsl(222 89% 55% / 0.4), transparent 72%)",
+                  filter: "blur(28px)",
                   transform: "translate(-50%, -50%) translateZ(-140px)",
                 }}
               />
 
               <Orbits />
               <ConnectionField />
-              <Core />
+              <VaultCore />
 
-              {/* Modules */}
-              {modules.map((m, i) => {
-                // wider elliptical orbit — give every node room to breathe
-                const rx = 44; // % of stage width from center
-                const ry = 38; // % of stage height from center
-                const rad = (m.angle * Math.PI) / 180;
+              {nodes.map((node, i) => {
+                const rx = 46;
+                const ry = 40;
+                const rad = (node.angle * Math.PI) / 180;
                 const x = 50 + Math.cos(rad) * rx;
                 const y = 50 + Math.sin(rad) * ry;
                 return (
-                  <ModuleCard
-                    key={i}
-                    m={m}
+                  <EcosystemCard
+                    key={node.label}
+                    node={node}
                     index={i}
                     tiltX={tilt.x}
                     tiltY={tilt.y}
@@ -204,13 +261,21 @@ export const Ecosystem = () => {
           </div>
         </div>
 
-        {/* Footer signal row */}
-        <div className="relative z-20 mx-auto mt-6 flex max-w-3xl flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[11.5px] text-[hsl(215_18%_72%)]">
-          <Pill dot>Live · end-to-end encrypted sync</Pill>
-          <Pill>AES-256 · ChaCha20-Poly1305</Pill>
-          <Pill>Zero-knowledge by design</Pill>
-          <Pill>SOC 2 · ISO 27001</Pill>
+        {/* Mobile — stacked grid */}
+        <div className="relative z-20 mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 md:hidden">
+          <div className="col-span-full mb-4 flex justify-center">
+            <MobileVaultCore />
+          </div>
+          {nodes.map((node, i) => (
+            <MobileEcosystemCard key={node.label} node={node} index={i} />
+          ))}
         </div>
+
+        <footer className="relative z-20 mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11.5px] text-[hsl(215_18%_72%)]">
+          <Pill dot>One vault · every device</Pill>
+          <Pill>Password manager &amp; passkey manager</Pill>
+          <Pill>Authenticator · secure notes · cards</Pill>
+        </footer>
       </div>
     </section>
   );
@@ -223,61 +288,45 @@ export default Ecosystem;
 /* -------------------------------------------------------------------------- */
 
 const Atmosphere = ({ lightX, lightY }: { lightX: number; lightY: number }) => {
-  // memoized particle positions to avoid re-shuffling
   const particles = useMemo(
     () =>
-      Array.from({ length: 42 }).map((_, i) => ({
+      Array.from({ length: 36 }).map((_, i) => ({
         left: (i * 41) % 100,
         top: (i * 67) % 100,
         size: 1 + (i % 3 === 0 ? 1.5 : 0),
         delay: (i * 0.18) % 6,
         dur: 7 + (i % 6),
         bright: i % 4 === 0,
-        opacity: 0.18 + (i % 5) * 0.08,
+        opacity: 0.16 + (i % 5) * 0.07,
       })),
-    []
+    [],
   );
 
   return (
     <div className="pointer-events-none absolute inset-0">
-      {/* base aurora */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 85% 65% at 50% 45%, hsl(222 89% 55% / 0.32), transparent 70%), radial-gradient(ellipse 120% 80% at 50% 50%, hsl(220 80% 40% / 0.10), transparent 80%), radial-gradient(ellipse 70% 55% at 50% 100%, hsl(220 95% 65% / 0.10), transparent 75%), linear-gradient(180deg, hsl(224 50% 6%) 0%, hsl(224 58% 4%) 50%, hsl(224 50% 6%) 100%)",
+            "radial-gradient(ellipse 85% 65% at 50% 45%, hsl(222 89% 55% / 0.32), transparent 70%), radial-gradient(ellipse 120% 80% at 50% 50%, hsl(220 80% 40% / 0.10), transparent 80%), linear-gradient(180deg, hsl(224 50% 6%) 0%, hsl(224 58% 4%) 50%, hsl(224 50% 6%) 100%)",
         }}
       />
-      {/* mouse-reactive bloom */}
       <div
         className="absolute inset-0 transition-all duration-700"
         style={{
           background: `radial-gradient(circle 720px at ${lightX}% ${lightY}%, hsl(220 100% 70% / 0.10), transparent 60%)`,
         }}
       />
-      {/* faint grid with vignette mask */}
       <div
-        className="absolute inset-0 opacity-[0.045]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
             "linear-gradient(to right, hsl(210 40% 98%) 1px, transparent 1px), linear-gradient(to bottom, hsl(210 40% 98%) 1px, transparent 1px)",
           backgroundSize: "78px 78px",
-          maskImage:
-            "radial-gradient(ellipse 60% 55% at 50% 50%, #000 18%, transparent 90%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 60% 55% at 50% 50%, #000 18%, transparent 90%)",
+          maskImage: "radial-gradient(ellipse 60% 55% at 50% 50%, #000 18%, transparent 90%)",
+          WebkitMaskImage: "radial-gradient(ellipse 60% 55% at 50% 50%, #000 18%, transparent 90%)",
         }}
       />
-      {/* soft outer atmosphere — extends blue glow toward edges,
-          dissolves the dark rectangle into infinite space */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 100% 80% at 50% 50%, transparent 55%, hsl(220 60% 20% / 0.18) 80%, hsl(224 60% 4% / 0.55) 100%)",
-        }}
-      />
-      {/* particles */}
       {particles.map((p, i) => (
         <span
           key={i}
@@ -289,30 +338,18 @@ const Atmosphere = ({ lightX, lightY }: { lightX: number; lightY: number }) => {
             height: p.size,
             background: p.bright ? "hsl(220 100% 92%)" : "hsl(220 95% 75%)",
             opacity: p.opacity,
-            boxShadow: `0 0 ${4 + (i % 4) * 2}px hsl(220 95% 75% / 0.7)`,
+            boxShadow: `0 0 ${4 + (i % 4) * 2}px hsl(220 95% 75% / 0.6)`,
             animation: `float ${p.dur}s ease-in-out ${p.delay}s infinite`,
           }}
         />
       ))}
-      {/* noise */}
-      <div
-        className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
-        }}
-      />
     </div>
   );
 };
 
-/* -------------------------------------------------------------------------- */
-/*                                    Orbits                                  */
-/* -------------------------------------------------------------------------- */
-
 const Orbits = () => (
   <>
-    {[100, 72, 46].map((s, i) => (
+    {[100, 72, 48].map((s, i) => (
       <div
         key={s}
         className="pointer-events-none absolute left-1/2 top-1/2 rounded-full"
@@ -328,462 +365,220 @@ const Orbits = () => (
   </>
 );
 
-/* -------------------------------------------------------------------------- */
-/*                          Connection / data streams                         */
-/* -------------------------------------------------------------------------- */
-
-const ConnectionField = () => {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-0 h-full w-full"
-      viewBox="-200 -125 400 250"
-      preserveAspectRatio="none"
-      fill="none"
-    >
-      <defs>
-        <radialGradient id="streamGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="hsl(220 100% 92%)" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="hsl(220 95% 75%)" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient id="packetGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="hsl(220 100% 98%)" stopOpacity="1" />
-          <stop offset="100%" stopColor="hsl(220 100% 80%)" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-
-      {modules.map((m, i) => {
-        // match orbit radii (rx 44%, ry 38% of stage; stage viewBox is 400x250)
-        const rx = 176;
-        const ry = 95;
-        const rad = (m.angle * Math.PI) / 180;
-        const x = Math.cos(rad) * rx;
-        const y = Math.sin(rad) * ry;
-        // curved path via quadratic with perpendicular offset
-        const cx = x * 0.5 + -y * 0.18;
-        const cy = y * 0.5 + x * 0.18;
-        const d = `M 0 0 Q ${cx} ${cy} ${x} ${y}`;
-        const dur = 3.6 + (i % 5) * 0.55;
-        return (
-          <g key={i}>
-            {/* base path */}
-            <path d={d} stroke="url(#streamGrad)" strokeWidth="0.7" strokeLinecap="round" opacity="0.5" />
-            {/* outbound traveling pulse (core → node) */}
-            <path
-              d={d}
-              stroke="hsl(220 100% 96%)"
-              strokeWidth="1.3"
-              strokeLinecap="round"
-              strokeDasharray="4 600"
-              style={{
-                animation: `flow ${dur}s linear ${i * 0.32}s infinite`,
-                filter: "drop-shadow(0 0 5px hsl(220 100% 90%))",
-              }}
-            />
-            {/* secondary slower glint */}
-            <path
-              d={d}
-              stroke="hsl(220 95% 80%)"
-              strokeWidth="0.7"
-              strokeLinecap="round"
-              strokeDasharray="2 600"
-              style={{
-                animation: `flow ${dur * 1.7}s linear ${i * 0.22 + 1.5}s infinite`,
-                opacity: 0.7,
-              }}
-            />
-            {/* encrypted packet — small bright dot traveling along path */}
-            <circle r="1.6" fill="url(#packetGrad)" style={{ filter: "drop-shadow(0 0 4px hsl(220 100% 92%))" }}>
-              <animateMotion dur={`${dur * 1.4}s`} begin={`${i * 0.45}s`} repeatCount="indefinite" path={d} rotate="auto" />
-              <animate attributeName="opacity" values="0;1;1;0" dur={`${dur * 1.4}s`} begin={`${i * 0.45}s`} repeatCount="indefinite" />
-            </circle>
-          </g>
-        );
-      })}
-    </svg>
-  );
-};
-
-/* -------------------------------------------------------------------------- */
-/*                                Encrypted Core                              */
-/* -------------------------------------------------------------------------- */
-
-const Core = () => (
-  <div
-    className="absolute left-1/2 top-1/2"
-    style={{ transform: "translate(-50%, -50%) translateZ(140px)" }}
+const ConnectionField = () => (
+  <svg
+    className="pointer-events-none absolute inset-0 h-full w-full"
+    viewBox="-200 -125 400 250"
+    preserveAspectRatio="none"
+    fill="none"
+    aria-hidden
   >
-    {/* outer volumetric halo */}
+    <defs>
+      <radialGradient id="ecoStream" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor="hsl(220 100% 92%)" stopOpacity="0.5" />
+        <stop offset="100%" stopColor="hsl(220 95% 75%)" stopOpacity="0" />
+      </radialGradient>
+    </defs>
+    {nodes.map((node, i) => {
+      const rx = 184;
+      const ry = 100;
+      const rad = (node.angle * Math.PI) / 180;
+      const x = Math.cos(rad) * rx;
+      const y = Math.sin(rad) * ry;
+      const cx = x * 0.5 + -y * 0.15;
+      const cy = y * 0.5 + x * 0.15;
+      const d = `M 0 0 Q ${cx} ${cy} ${x} ${y}`;
+      const dur = 4 + (i % 5) * 0.5;
+      return (
+        <g key={node.label}>
+          <path d={d} stroke="url(#ecoStream)" strokeWidth="0.6" strokeLinecap="round" opacity="0.45" />
+          <path
+            d={d}
+            stroke="hsl(220 100% 96%)"
+            strokeWidth="1.1"
+            strokeLinecap="round"
+            strokeDasharray="3 500"
+            style={{
+              animation: `flow ${dur}s linear ${i * 0.28}s infinite`,
+              filter: "drop-shadow(0 0 4px hsl(220 100% 90%))",
+            }}
+          />
+        </g>
+      );
+    })}
+  </svg>
+);
+
+const VaultCore = () => (
+  <div className="absolute left-1/2 top-1/2" style={{ transform: "translate(-50%, -50%) translateZ(140px)" }}>
     <div
-      className="absolute -inset-44 rounded-full"
+      className="absolute -inset-40 rounded-full"
       style={{
-        background:
-          "radial-gradient(circle, hsl(222 89% 55% / 0.55), transparent 60%)",
-        filter: "blur(50px)",
+        background: "radial-gradient(circle, hsl(222 89% 55% / 0.5), transparent 62%)",
+        filter: "blur(48px)",
         animation: "pulse-glow 5s ease-in-out infinite",
       }}
     />
-    {/* spinning conic ring (large) */}
     <div
-      className="absolute -inset-12 rounded-full opacity-70"
+      className="absolute -inset-10 rounded-full opacity-60"
       style={{
         background:
-          "conic-gradient(from 0deg, transparent 0deg, hsl(220 100% 90% / 0.55) 60deg, transparent 120deg, transparent 240deg, hsl(220 95% 70% / 0.45) 300deg, transparent 360deg)",
+          "conic-gradient(from 0deg, transparent 0deg, hsl(220 100% 90% / 0.5) 60deg, transparent 120deg, transparent 240deg, hsl(220 95% 70% / 0.4) 300deg, transparent 360deg)",
         mask: "radial-gradient(circle, transparent 58%, #000 60%, #000 64%, transparent 66%)",
         WebkitMask: "radial-gradient(circle, transparent 58%, #000 60%, #000 64%, transparent 66%)",
-        animation: "spin 14s linear infinite",
-      }}
-    />
-    {/* counter-rotating thin ring */}
-    <div
-      className="absolute -inset-2 rounded-full opacity-80"
-      style={{
-        background:
-          "conic-gradient(from 180deg, transparent, hsl(220 100% 95% / 0.6), transparent 30%)",
-        mask: "radial-gradient(circle, transparent 70%, #000 72%, #000 73%, transparent 74%)",
-        WebkitMask: "radial-gradient(circle, transparent 70%, #000 72%, #000 73%, transparent 74%)",
-        animation: "spin 9s linear infinite reverse",
+        animation: "spin 16s linear infinite",
       }}
     />
 
-    {/* glass orb */}
     <div
-      className="relative flex h-44 w-44 items-center justify-center rounded-[2rem] sm:h-52 sm:w-52 sm:rounded-[2.25rem]"
+      className="relative flex h-48 w-48 flex-col items-center justify-center rounded-[2rem] px-4 text-center sm:h-52 sm:w-52"
       style={{
         background:
-          "linear-gradient(160deg, hsl(220 95% 70% / 0.85) 0%, hsl(222 89% 45% / 0.95) 45%, hsl(224 76% 22% / 0.95) 100%)",
+          "linear-gradient(160deg, hsl(220 95% 70% / 0.2) 0%, hsl(222 89% 45% / 0.35) 45%, hsl(224 76% 22% / 0.55) 100%)",
+        backdropFilter: "blur(20px) saturate(150%)",
+        WebkitBackdropFilter: "blur(20px) saturate(150%)",
+        border: "1px solid hsl(220 95% 80% / 0.22)",
         boxShadow: [
-          "inset 0 1.5px 0 hsl(220 100% 96% / 0.55)",
-          "inset 0 -30px 60px hsl(224 80% 14% / 0.7)",
-          "inset 0 0 60px hsl(220 100% 80% / 0.18)",
-          "0 40px 120px -10px hsl(222 89% 55% / 0.65)",
-          "0 0 0 1px hsl(220 95% 80% / 0.18)",
+          "inset 0 1px 0 hsl(220 100% 96% / 0.35)",
+          "0 40px 100px -12px hsl(222 89% 55% / 0.55)",
         ].join(", "),
         animation: "float 7s ease-in-out infinite",
       }}
     >
-      {/* facet highlights */}
       <div
-        className="absolute inset-3 rounded-[1.6rem] sm:rounded-[1.75rem]"
-        style={{
-          border: "1px solid hsl(220 100% 96% / 0.18)",
-          background:
-            "linear-gradient(140deg, hsl(220 100% 96% / 0.22) 0%, transparent 45%)",
-        }}
-      />
-      {/* moving sheen */}
-      <div className="absolute inset-0 overflow-hidden rounded-[2rem] sm:rounded-[2.25rem]">
-        <div
-          className="absolute -inset-y-2 w-1/2"
-          style={{
-            background:
-              "linear-gradient(115deg, transparent 30%, hsl(220 100% 96% / 0.35) 50%, transparent 70%)",
-            animation: "shimmerCore 6s ease-in-out infinite",
-          }}
-        />
+        className="rounded-2xl border border-[hsl(220_100%_92%/0.25)] bg-[hsl(224_60%_5%/0.35)] p-3 backdrop-blur-md"
+        style={{ boxShadow: "inset 0 1px 0 hsl(220 100% 96% / 0.2)" }}
+      >
+        <Lock className="h-7 w-7 text-[hsl(220_100%_96%)]" strokeWidth={1.5} />
       </div>
-      {/* bottom inner glow */}
-      <div
-        className="absolute inset-x-6 bottom-3 h-10 rounded-full opacity-80"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, hsl(220 100% 80% / 0.45), transparent 70%)",
-          filter: "blur(8px)",
-        }}
-      />
-
-      {/* center content */}
-      <div className="relative z-10 flex flex-col items-center text-center">
-        <div
-          className="rounded-2xl border border-[hsl(220_100%_92%/0.28)] bg-[hsl(224_60%_5%/0.45)] p-3 backdrop-blur-md"
-          style={{
-            boxShadow:
-              "inset 0 1px 0 hsl(220 100% 96% / 0.25), 0 8px 24px hsl(224 60% 4% / 0.5)",
-          }}
-        >
-          <Lock className="h-6 w-6 text-[hsl(220_100%_96%)] sm:h-7 sm:w-7" strokeWidth={1.5} />
-        </div>
-        <div className="mt-3 text-[12.5px] font-semibold tracking-tight text-[hsl(220_100%_98%)] sm:text-[13px]">
-          Encrypted Core
-        </div>
-        <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.24em] text-[hsl(220_100%_90%/0.7)]">
-          zero · knowledge
-        </div>
-        {/* live indicator */}
-        <div className="mt-2.5 flex items-center gap-1.5 rounded-full border border-[hsl(220_100%_92%/0.18)] bg-[hsl(224_60%_5%/0.4)] px-2 py-0.5 backdrop-blur">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(152_85%_60%)] opacity-70" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[hsl(152_85%_55%)]" />
-          </span>
-          <span className="text-[8.5px] font-semibold uppercase tracking-[0.18em] text-[hsl(220_100%_92%)]">
-            Sealed
-          </span>
-        </div>
+      <p className="mt-4 text-[15px] font-semibold tracking-tight text-[hsl(220_100%_98%)]">NovaSafe Vault</p>
+      <p className="mt-1 max-w-[180px] text-[11px] leading-snug text-[hsl(220_100%_90%/0.75)]">
+        Single encrypted source of truth
+      </p>
+      <div className="mt-3 flex items-center gap-1.5 rounded-full border border-[hsl(220_100%_92%/0.2)] bg-[hsl(224_60%_5%/0.35)] px-2.5 py-1 backdrop-blur">
+        <span className="relative flex h-1.5 w-1.5">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(152_85%_60%)] opacity-70" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[hsl(152_85%_55%)]" />
+        </span>
+        <span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[hsl(220_100%_92%)]">
+          Protected
+        </span>
       </div>
     </div>
   </div>
 );
 
-/* -------------------------------------------------------------------------- */
-/*                                 Module card                                */
-/* -------------------------------------------------------------------------- */
+const MobileVaultCore = () => (
+  <div
+    className="flex w-full max-w-sm flex-col items-center rounded-2xl border border-[hsl(220_60%_75%/0.2)] px-6 py-8 text-center"
+    style={{
+      background: "linear-gradient(160deg, hsl(224 42% 13% / 0.9), hsl(224 55% 7% / 0.95))",
+      boxShadow: "0 24px 48px -16px hsl(222 89% 55% / 0.35)",
+    }}
+  >
+    <div className="rounded-xl border border-[hsl(220_100%_92%/0.2)] bg-[hsl(222_89%_55%/0.15)] p-3">
+      <Lock className="h-6 w-6 text-[hsl(220_100%_96%)]" />
+    </div>
+    <p className="mt-4 text-lg font-semibold text-[hsl(210_40%_98%)]">NovaSafe Vault</p>
+    <p className="mt-1 text-sm text-[hsl(215_18%_72%)]">Single encrypted source of truth</p>
+    <span className="mt-3 rounded-full border border-[hsl(152_85%_55%/0.3)] bg-[hsl(152_85%_55%/0.1)] px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[hsl(152_85%_65%)]">
+      Protected
+    </span>
+  </div>
+);
 
-const ModuleCard = ({
-  m,
+const EcosystemCard = ({
+  node,
   index,
   style,
   tiltX = 0,
   tiltY = 0,
 }: {
-  m: Module;
+  node: EcosystemNode;
   index: number;
   style: React.CSSProperties;
   tiltX?: number;
   tiltY?: number;
 }) => {
-  const Icon = m.icon;
-  const scale = 0.94 + (m.depth / 90) * 0.10;
-  const opacity = 0.86 + (m.depth / 90) * 0.14;
-  // depth-based parallax — closer cards (higher depth) move more
-  const par = 6 + (m.depth / 90) * 10;
-  const px = -tiltX * par;
-  const py = -tiltY * par;
+  const Icon = node.icon;
+  const scale = 0.92 + (node.depth / 85) * 0.08;
+  const opacity = 0.88 + (node.depth / 85) * 0.12;
+  const par = 5 + (node.depth / 85) * 8;
 
   return (
     <div
-      className="group absolute"
+      className="group absolute w-[200px] lg:w-[212px]"
       style={{
         ...style,
-        transform: `translate(calc(-50% + ${px}px), calc(-50% + ${py}px)) translateZ(${m.depth}px) scale(${scale})`,
+        transform: `translate(calc(-50% + ${-tiltX * par}px), calc(-50% + ${-tiltY * par}px)) translateZ(${node.depth}px) scale(${scale})`,
         opacity,
-        width: 208,
         transition: "transform 700ms cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
       <div
-        className="relative animate-float overflow-hidden rounded-2xl transition-all duration-500 ease-out group-hover:-translate-y-1.5 group-hover:scale-[1.025]"
+        className="relative animate-float overflow-hidden rounded-2xl p-4 transition-all duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.02]"
         style={{
           animationDuration: `${8 + (index % 4)}s`,
-          animationDelay: `${index * 0.4}s`,
-          background:
-            "linear-gradient(160deg, hsl(224 42% 13% / 0.86), hsl(224 55% 7% / 0.9))",
-          border: "1px solid hsl(220 60% 75% / 0.20)",
-          backdropFilter: "blur(24px) saturate(160%)",
-          WebkitBackdropFilter: "blur(24px) saturate(160%)",
-          boxShadow: [
-            "inset 0 1px 0 hsl(220 100% 96% / 0.09)",
-            "0 32px 64px -22px hsl(224 60% 2% / 0.95)",
-            "0 2px 8px hsl(224 60% 2% / 0.4)",
-          ].join(", "),
+          animationDelay: `${index * 0.35}s`,
+          background: "linear-gradient(160deg, hsl(224 42% 13% / 0.88), hsl(224 55% 7% / 0.92))",
+          border: "1px solid hsl(220 60% 75% / 0.18)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          boxShadow: "inset 0 1px 0 hsl(220 100% 96% / 0.08), 0 24px 48px -20px hsl(224 60% 2% / 0.9)",
         }}
       >
-        {/* hover edge glow */}
         <div
           className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{
-            background:
-              "linear-gradient(160deg, hsl(220 100% 80% / 0.18), transparent 50%)",
-            boxShadow:
-              "inset 0 0 0 1px hsl(220 95% 75% / 0.45), 0 0 30px hsl(222 89% 55% / 0.3)",
+            boxShadow: "inset 0 0 0 1px hsl(220 95% 75% / 0.35), 0 0 24px hsl(222 89% 55% / 0.25)",
           }}
         />
-        {/* top sheen */}
-        <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, hsl(220 100% 95% / 0.55), transparent)",
-          }}
-        />
-
-        {/* Header */}
-        <div className="flex items-start gap-3 px-3.5 pt-3.5">
+        <div className="flex items-start gap-3">
           <div
-            className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
             style={{
-              background:
-                "linear-gradient(160deg, hsl(220 95% 65% / 0.45), hsl(224 76% 30% / 0.55))",
-              border: "1px solid hsl(220 95% 80% / 0.28)",
-              boxShadow:
-                "inset 0 1px 0 hsl(220 100% 96% / 0.3), 0 0 18px hsl(222 89% 55% / 0.4)",
+              background: "linear-gradient(160deg, hsl(220 95% 65% / 0.4), hsl(224 76% 30% / 0.5))",
+              border: "1px solid hsl(220 95% 80% / 0.25)",
             }}
           >
             <Icon className="h-[18px] w-[18px] text-[hsl(220_100%_94%)]" strokeWidth={1.6} />
           </div>
-          <div className="min-w-0 flex-1 pt-0.5">
-            <div className="flex items-center gap-1.5">
-              <div className="truncate text-[13.5px] font-semibold tracking-tight text-[hsl(210_40%_99%)]">
-                {m.label}
-              </div>
-              {m.status === "soon" && (
-                <span className="rounded-full border border-[hsl(220_95%_75%/0.3)] bg-[hsl(222_89%_55%/0.15)] px-1.5 py-px text-[8.5px] font-semibold uppercase tracking-wider text-[hsl(220_100%_88%)]">
-                  Soon
-                </span>
-              )}
-            </div>
-            <div className="mt-0.5 truncate text-[10.5px] text-[hsl(218_22%_82%)]">
-              {m.desc}
-            </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-[13px] font-semibold tracking-tight text-[hsl(210_40%_99%)]">{node.label}</h3>
+            <p className="mt-0.5 text-[10px] text-[hsl(218_22%_78%)]">{node.platforms}</p>
           </div>
         </div>
-
-        {/* Mini preview */}
-        <div className="px-3.5 pb-3.5 pt-2.5">
-          <MiniPreview kind={m.preview} />
-        </div>
+        <p className="mt-3 text-[11.5px] leading-relaxed text-[hsl(215_18%_72%)]">{node.description}</p>
       </div>
     </div>
   );
 };
 
-/* -------------------------------------------------------------------------- */
-/*                                Mini previews                               */
-/* -------------------------------------------------------------------------- */
-
-const previewBase: React.CSSProperties = {
-  background:
-    "linear-gradient(180deg, hsl(224 45% 7% / 0.7), hsl(224 55% 4% / 0.7))",
-  border: "1px solid hsl(220 60% 70% / 0.10)",
-  borderRadius: 10,
+const MobileEcosystemCard = ({ node, index }: { node: EcosystemNode; index: number }) => {
+  const Icon = node.icon;
+  return (
+    <article
+      className="rounded-xl border border-[hsl(220_60%_75%/0.15)] p-4"
+      style={{
+        background: "linear-gradient(160deg, hsl(224 42% 13% / 0.9), hsl(224 55% 7% / 0.95))",
+        animationDelay: `${index * 0.05}s`,
+      }}
+    >
+      <div className="flex items-start gap-3">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[hsl(222_89%_55%/0.2)] text-[hsl(220_100%_94%)]">
+          <Icon className="h-4 w-4" />
+        </div>
+        <div>
+          <h3 className="text-sm font-semibold text-[hsl(210_40%_98%)]">{node.label}</h3>
+          <p className="text-[11px] text-[hsl(218_22%_78%)]">{node.platforms}</p>
+          <p className="mt-2 text-xs leading-relaxed text-[hsl(215_18%_72%)]">{node.description}</p>
+        </div>
+      </div>
+    </article>
+  );
 };
 
-const MiniPreview = ({ kind }: { kind: Preview }) => {
-  switch (kind) {
-    case "browser":
-      return (
-        <div className="space-y-1.5 p-2" style={previewBase}>
-          <div className="flex items-center gap-1">
-            <span className="h-1.5 w-1.5 rounded-full bg-[hsl(0_60%_55%)]" />
-            <span className="h-1.5 w-1.5 rounded-full bg-[hsl(40_80%_55%)]" />
-            <span className="h-1.5 w-1.5 rounded-full bg-[hsl(140_60%_50%)]" />
-            <div className="ml-1 flex h-3 flex-1 items-center rounded-sm bg-[hsl(224_30%_18%/0.7)] px-1.5 font-mono text-[8px] leading-3 text-[hsl(220_100%_88%)]">
-              novasafe.app/vault
-            </div>
-          </div>
-          <div className="h-7 rounded-md bg-[hsl(222_89%_55%/0.15)]" />
-        </div>
-      );
-    case "extension":
-      return (
-        <div className="space-y-1.5 p-2" style={previewBase}>
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-1 text-[9px] text-[hsl(218_22%_82%)]">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(152_85%_55%)] opacity-70" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[hsl(152_85%_55%)]" />
-              </span>
-              Autofill · github.com
-            </span>
-            <Check className="h-2.5 w-2.5 text-[hsl(152_85%_60%)]" />
-          </div>
-          <div className="space-y-0.5 rounded bg-[hsl(224_30%_14%/0.8)] px-1.5 py-1">
-            <div className="font-mono text-[8px] text-[hsl(218_22%_72%)]">user@novasafe.app</div>
-            <div className="font-mono text-[9px] tracking-[0.2em] text-[hsl(220_100%_94%)]">••••••••••••</div>
-          </div>
-          <div className="font-mono text-[8px] text-[hsl(218_22%_72%)]">passkey · ready</div>
-        </div>
-      );
-    case "mobile":
-      return (
-        <div className="flex items-center justify-between p-2" style={previewBase}>
-          <div className="relative">
-            <span className="absolute inset-0 -m-1 rounded-full bg-[hsl(152_85%_55%/0.18)] blur-sm" />
-            <Fingerprint className="relative h-6 w-6 text-[hsl(152_85%_70%)]" strokeWidth={1.5} />
-          </div>
-          <div className="space-y-0.5 text-right">
-            <div className="text-[9.5px] font-semibold text-[hsl(220_100%_96%)]">Face ID</div>
-            <div className="flex items-center justify-end gap-1 font-mono text-[8.5px] text-[hsl(152_85%_65%)]">
-              <span className="h-1 w-1 rounded-full bg-[hsl(152_85%_60%)]" />
-              authorized · 2s
-            </div>
-          </div>
-        </div>
-      );
-    case "desktop":
-      return (
-        <div className="space-y-1.5 p-2" style={previewBase}>
-          <div className="flex items-center justify-between">
-            <span className="text-[9.5px] text-[hsl(218_22%_84%)]">Local vault</span>
-            <span className="flex items-center gap-1 font-mono text-[8.5px] text-[hsl(152_85%_65%)]">
-              <span className="h-1 w-1 rounded-full bg-[hsl(152_85%_60%)]" /> offline ready
-            </span>
-          </div>
-          <div className="flex h-5 items-center justify-between rounded bg-[hsl(224_30%_12%/0.7)] px-1.5">
-            <span className="font-mono text-[9px] text-[hsl(220_100%_92%)]">42 items · sealed</span>
-            <Lock className="h-2.5 w-2.5 text-[hsl(220_100%_88%)]" strokeWidth={1.8} />
-          </div>
-        </div>
-      );
-    case "cli":
-      return (
-        <div className="space-y-0.5 p-2 font-mono text-[9.5px] leading-tight" style={previewBase}>
-          <div>
-            <span className="text-[hsl(152_85%_65%)]">$</span>{" "}
-            <span className="text-[hsl(220_100%_94%)]">novasafe</span>{" "}
-            <span className="text-[hsl(220_100%_85%)]">run</span>{" "}
-            <span className="text-[hsl(40_90%_70%)]">--env prod</span>
-          </div>
-          <div className="text-[hsl(218_22%_78%)]">↳ injected 12 secrets · 0 on disk</div>
-        </div>
-      );
-    case "api":
-      return (
-        <div className="space-y-0.5 p-2 font-mono text-[9.5px] leading-tight" style={previewBase}>
-          <div>
-            <span className="text-[hsl(40_90%_70%)]">POST</span>{" "}
-            <span className="text-[hsl(220_100%_92%)]">/v1/secrets/inject</span>
-          </div>
-          <div className="text-[hsl(152_85%_65%)]">200 · 38ms · ci/cd</div>
-        </div>
-      );
-    case "admin":
-      return (
-        <div className="space-y-1 p-2" style={previewBase}>
-          <div className="flex items-end gap-[3px]">
-            {[6, 10, 8, 14, 11, 16, 12, 9].map((h, i) => (
-              <span
-                key={i}
-                className="w-1.5 rounded-[2px]"
-                style={{
-                  height: h,
-                  background:
-                    "linear-gradient(180deg, hsl(220 100% 82%), hsl(222 89% 55%))",
-                  boxShadow: "0 0 6px hsl(222 89% 55% / 0.45)",
-                }}
-              />
-            ))}
-            <span className="ml-auto font-mono text-[9px] text-[hsl(152_85%_65%)]">142 ↑</span>
-          </div>
-          <div className="flex items-center gap-1 text-[9px] text-[hsl(218_22%_82%)]">
-            <ShieldCheck className="h-2.5 w-2.5 text-[hsl(220_100%_88%)]" strokeWidth={1.8} /> SSO · RBAC · audit
-          </div>
-        </div>
-      );
-    case "sync":
-      return (
-        <div className="flex items-center gap-2 p-2" style={previewBase}>
-          <Wifi className="h-4 w-4 text-[hsl(220_100%_88%)]" strokeWidth={1.5} />
-          <div className="flex-1">
-            <div className="text-[9px] font-semibold text-[hsl(220_100%_92%)]">Synced</div>
-            <div className="font-mono text-[8px] text-[hsl(152_85%_60%)]">just now · 4 devices</div>
-          </div>
-        </div>
-      );
-    default:
-      return null;
-  }
-};
-
-/* -------------------------------------------------------------------------- */
-/*                                 Pill helper                                */
-/* -------------------------------------------------------------------------- */
-
-const Pill = ({
-  children,
-  dot,
-}: {
-  children: React.ReactNode;
-  dot?: boolean;
-}) => (
+const Pill = ({ children, dot }: { children: React.ReactNode; dot?: boolean }) => (
   <span className="inline-flex items-center gap-2">
     {dot && (
       <span className="relative flex h-1.5 w-1.5">

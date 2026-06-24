@@ -6,12 +6,13 @@
   "packageManager": "pnpm@10.18.2",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/generate-seo.mjs",
+    "prebuild": "node scripts/generate-seo.mjs && node scripts/generate-journal-posts.mjs",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "seo:generate": "node scripts/generate-seo.mjs",
+    "journal:generate": "node scripts/generate-journal-posts.mjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -51,6 +52,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.41.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",

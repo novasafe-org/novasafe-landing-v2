@@ -75,7 +75,7 @@ export const SiteFooter = () => (
         <div className="flex flex-wrap items-center gap-3 text-[11.5px] text-muted-foreground">
           <Link to="/status" className="flex items-center gap-1.5 hover:text-ink">
             <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse-glow" />
-            All systems operational
+            Status
           </Link>
           <span className="text-border">·</span>
           <Link to="/sitemap" className="hover:text-ink">Sitemap</Link>

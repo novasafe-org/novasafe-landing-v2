@@ -38,6 +38,7 @@ import GettingStarted from "./pages/docs/GettingStarted";
 import Migration from "./pages/docs/Migration";
 
 import SitemapPage from "./pages/Sitemap";
+import DemoPage from "./pages/DemoPage";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/demo" element={<DemoPage />} />
 
           {/* Marketing */}
           <Route path="/pricing" element={<Pricing />} />

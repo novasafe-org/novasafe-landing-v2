@@ -22,3 +22,5 @@ export {
   type Routes,
   type BuildOptions,
 } from "./routes.config";
+
+export { PRODUCT_HUNT } from "./product-hunt.config";

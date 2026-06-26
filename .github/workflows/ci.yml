@@ -1,0 +1,23 @@
+# Gitleaks → Trivy → build → push → deploy (single pipeline)
+#
+# Env on VPS: /opt/novasafe-deployment/marketing/landing/.env
+
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+
+jobs:
+  pipeline:
+    uses: novasafe-org/novasafe-deployment/.github/workflows/docker-ci.yml@master
+    with:
+      app_title: NovaSafe Landing
+      repository_name: novasafe-landing-v2
+      deploy_service: landing
+    secrets: inherit

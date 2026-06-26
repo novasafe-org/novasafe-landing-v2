@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Logo } from "@/components/landing/Logo";
 import { Github, Twitter, Linkedin, Youtube } from "lucide-react";
+import { useBuildMetadata } from "@/hooks/useBuildMetadata";
 
 const cols: { t: string; l: { label: string; href: string }[] }[] = [
   {
@@ -32,7 +33,10 @@ const cols: { t: string; l: { label: string; href: string }[] }[] = [
   },
 ];
 
-export const SiteFooter = () => (
+export const SiteFooter = () => {
+  const build = useBuildMetadata();
+
+  return (
   <footer className="relative border-t border-border/70 bg-surface-1/60 pt-20 pb-10">
     <div className="container">
       <div className="grid gap-12 lg:grid-cols-[1.2fr_3.8fr]">
@@ -71,7 +75,15 @@ export const SiteFooter = () => (
       </div>
 
       <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-border/70 pt-6 sm:flex-row sm:items-center">
-        <div className="text-[12px] text-muted-foreground">© 2026 NovaSafe Technologies Pvt. Ltd. All rights reserved.</div>
+        <div className="text-[12px] text-muted-foreground">
+          <div>© 2026 NovaSafe Technologies Pvt. Ltd. All rights reserved.</div>
+          {build ? (
+            <div className="mt-1 font-mono text-[10.5px] text-muted-foreground/80">
+              Version {build.version}
+              {build.commit !== "unknown" ? ` · ${build.commit}` : ""}
+            </div>
+          ) : null}
+        </div>
         <div className="flex flex-wrap items-center gap-3 text-[11.5px] text-muted-foreground">
           <Link to="/status" className="flex items-center gap-1.5 hover:text-ink">
             <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse-glow" />
@@ -83,4 +95,5 @@ export const SiteFooter = () => (
       </div>
     </div>
   </footer>
-);
+  );
+};

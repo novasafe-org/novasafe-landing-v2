@@ -12,17 +12,29 @@
 # -----------------------------------------------------------------------------
 FROM node:22-alpine AS builder
 
+ARG APP_VERSION=1.0.0
+ARG BUILD_NUMBER=unknown
+ARG GIT_COMMIT=unknown
+ARG GIT_BRANCH=main
+ARG REPOSITORY=novasafe-landing-v2
+ARG RELEASED_AT
+
 RUN corepack enable && corepack prepare pnpm@10.18.2 --activate
 
 WORKDIR /app
 
-# Build-time defaults only — overridden at container start from server .env.
 ENV NODE_ENV=production \
+    APP_VERSION=$APP_VERSION \
+    BUILD_NUMBER=$BUILD_NUMBER \
+    GIT_COMMIT=$GIT_COMMIT \
+    GIT_BRANCH=$GIT_BRANCH \
+    REPOSITORY=$REPOSITORY \
+    RELEASED_AT=$RELEASED_AT \
     VITE_LANDING_URL=https://novasafe.io \
     VITE_AUTH_URL=https://start.novasafe.io \
     VITE_APP_URL=https://app.novasafe.io \
     VITE_API_URL=https://mobile-api.novasafe.io \
-    VITE_APP_VERSION=0.0.0
+    VITE_APP_VERSION=$APP_VERSION
 
 COPY package.json pnpm-lock.yaml .npmrc ./
 RUN --mount=type=cache,id=pnpm-store-landing,target=/root/.local/share/pnpm/store \

@@ -1,0 +1,8 @@
+title = "NovaSafe landing-v2"
+
+[allowlist]
+description = "Fictional demo vault data and API doc examples are not real secrets"
+paths = [
+  '''src/demo/data\.ts''',
+  '''src/pages/developers/Api\.tsx''',
+]

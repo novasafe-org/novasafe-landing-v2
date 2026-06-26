@@ -36,7 +36,7 @@ jobs:
           echo "──────────────────────────────────────────────────────────────"
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - id: version
         uses: novasafe-org/novasafe-deployment/.github/actions/resolve-version@master

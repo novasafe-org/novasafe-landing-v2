@@ -24,3 +24,14 @@ jobs:
       repository_name: novasafe-landing-v2
       deploy_service: landing
     secrets: inherit
+
+  github-release:
+    name: GitHub Release
+    needs: pipeline
+    if: github.event_name == 'push'
+    permissions:
+      contents: write
+    uses: novasafe-org/novasafe-deployment/.github/workflows/publish-github-release.yml@master
+    with:
+      package-json: package.json
+      changelog-path: CHANGELOG.md

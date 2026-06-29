@@ -4,6 +4,7 @@ import { Rss } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { GhostButton, PageHero, Section } from "@/components/site/primitives";
 import { fetchPublishedChangelog, type PublicChangelogRelease } from "@/lib/changelogApi";
+import { renderMarkdown } from "@/lib/renderMarkdown";
 import { cn } from "@/lib/utils";
 
 type Release = {
@@ -11,7 +12,9 @@ type Release = {
   date: string;
   displayDate: string;
   title: string;
+  summary: string;
   notes: string[];
+  contentMarkdown: string;
 };
 
 function toRelease(r: PublicChangelogRelease): Release {
@@ -25,7 +28,9 @@ function toRelease(r: PublicChangelogRelease): Release {
       year: "numeric",
     }),
     title: r.title,
+    summary: r.summary?.trim() || "",
     notes: r.notes.length ? r.notes : r.summary ? [r.summary] : [],
+    contentMarkdown: r.contentMarkdown?.trim() || "",
   };
 }
 
@@ -104,14 +109,18 @@ function TimelineRelease({ release }: { release: Release }) {
 
         <h2 className="mt-3 text-[24px] font-semibold leading-snug tracking-tight text-ink">{release.title}</h2>
 
-        <ul className="mt-5 space-y-2.5">
-          {release.notes.map((note) => (
-            <li key={note} className="flex gap-3 text-[16px] leading-relaxed text-ink-soft">
-              <span className="mt-[10px] size-1 shrink-0 rounded-full bg-ink/20" aria-hidden="true" />
-              <span>{note}</span>
-            </li>
-          ))}
-        </ul>
+        {release.contentMarkdown ? (
+          <div className="mt-5">{renderMarkdown(release.contentMarkdown)}</div>
+        ) : (
+          <ul className="mt-5 space-y-2.5">
+            {release.notes.map((note) => (
+              <li key={note} className="flex gap-3 text-[16px] leading-relaxed text-ink-soft">
+                <span className="mt-[10px] size-1 shrink-0 rounded-full bg-ink/20" aria-hidden="true" />
+                <span>{note}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </article>
   );

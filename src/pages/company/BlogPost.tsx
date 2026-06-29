@@ -3,30 +3,11 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { PageShell } from "@/components/site/PageShell";
 import { Section } from "@/components/site/primitives";
 import { fetchPostBySlug, recordPostView, type PublicPost } from "@/lib/blogApi";
+import { renderMarkdown } from "@/lib/renderMarkdown";
 
 function formatDate(iso: string | null) {
   if (!iso) return "";
   return new Date(iso).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
-}
-
-function renderMarkdown(md: string) {
-  return md
-    .split(/\n{2,}/)
-    .map((block) => block.trim())
-    .filter(Boolean)
-    .map((block, i) => {
-      if (block.startsWith("# ")) return <h2 key={i} className="text-2xl font-semibold mt-8 mb-3 text-ink">{block.slice(2)}</h2>;
-      if (block.startsWith("## ")) return <h3 key={i} className="text-xl font-semibold mt-6 mb-2 text-ink">{block.slice(3)}</h3>;
-      if (block.startsWith("![")) {
-        const m = block.match(/^!\[([^\]]*)\]\(([^)]+)\)/);
-        if (m) return <img key={i} src={m[2]} alt={m[1]} className="my-6 rounded-xl w-full" />;
-      }
-      return (
-        <p key={i} className="text-[16px] leading-relaxed text-ink-soft mb-4 whitespace-pre-wrap">
-          {block}
-        </p>
-      );
-    });
 }
 
 export default function BlogPostPage() {

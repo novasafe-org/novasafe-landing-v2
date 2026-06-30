@@ -53,20 +53,6 @@ export default function BlogPostPage() {
         <div className="container">
           {/* Single column — share rail floats in the left gutter without shifting content */}
           <div className="relative mx-auto max-w-3xl">
-            {post && shareUrl ? (
-              <aside
-                aria-label="Share this post"
-                className="pointer-events-none absolute inset-y-0 right-full mr-5 hidden w-10 lg:block xl:mr-8"
-              >
-                <BlogShareRail
-                  url={shareUrl}
-                  title={post.title}
-                  variant="rail"
-                  className="pointer-events-auto pt-10"
-                />
-              </aside>
-            ) : null}
-
             <Link
               to="/blog"
               className="inline-flex items-center text-sm font-medium text-ink-soft transition-colors hover:text-primary"
@@ -78,10 +64,24 @@ export default function BlogPostPage() {
             {error && <p className="mt-12 text-red-600">{error}</p>}
 
             {post && (
-              <article className="mt-8">
+              <article className="relative mt-8">
+                {shareUrl ? (
+                  <aside
+                    aria-label="Share this post"
+                    className="pointer-events-none absolute inset-y-0 right-full mr-10 hidden w-10 -translate-x-10 lg:block xl:-translate-x-14"
+                  >
+                    <BlogShareRail
+                      url={shareUrl}
+                      title={post.title}
+                      variant="rail"
+                      className="pointer-events-auto"
+                    />
+                  </aside>
+                ) : null}
+
                 <header className="mb-10">
                   {post.categoryName ? (
-                    <div className="text-[11px] font-semibold uppercase tracking-wider text-primary">
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-primary leading-none">
                       {post.categoryName}
                     </div>
                   ) : null}

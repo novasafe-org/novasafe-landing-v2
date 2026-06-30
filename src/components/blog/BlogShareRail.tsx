@@ -118,7 +118,7 @@ export function BlogShareRail({
         className,
       )}
     >
-      <div className="text-[11px] font-semibold uppercase tracking-wider text-ink-soft">Share</div>
+      <div className="text-[11px] font-semibold uppercase tracking-wider text-ink-soft leading-none">Share</div>
       <div className="mt-3 flex flex-col gap-2">
         {PLATFORMS.map((p) => (
           <ShareButton key={p.id} platform={p.id} label={p.label} url={url} title={title} />

@@ -91,11 +91,13 @@ export function BlogShareRail({
   url,
   title,
   variant = "rail",
+  sticky = true,
   className,
 }: {
   url: string;
   title: string;
   variant?: "rail" | "inline";
+  sticky?: boolean;
   className?: string;
 }) {
   if (variant === "inline") {
@@ -112,7 +114,7 @@ export function BlogShareRail({
   return (
     <aside
       className={cn(
-        "lg:sticky lg:top-28 lg:self-start",
+        sticky && "lg:sticky lg:top-28 lg:self-start",
         className,
       )}
     >

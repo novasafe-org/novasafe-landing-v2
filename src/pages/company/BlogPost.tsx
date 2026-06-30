@@ -49,36 +49,30 @@ export default function BlogPostPage() {
 
   return (
     <PageShell>
-      <section className="border-b border-border/60 pb-10 pt-4">
+      <section className="pb-28 pt-4">
         <div className="container">
-          <div className="mx-auto max-w-3xl">
+          {/* Single column — share rail floats in the left gutter without shifting content */}
+          <div className="relative mx-auto max-w-3xl">
+            {post && shareUrl ? (
+              <div className="pointer-events-none absolute right-full top-10 mr-5 hidden w-10 lg:block xl:mr-8">
+                <div className="pointer-events-auto sticky top-28">
+                  <BlogShareRail url={shareUrl} title={post.title} variant="rail" sticky={false} />
+                </div>
+              </div>
+            ) : null}
+
             <Link
               to="/blog"
               className="inline-flex items-center text-sm font-medium text-ink-soft transition-colors hover:text-primary"
             >
               ← All posts
             </Link>
-          </div>
-        </div>
-      </section>
 
-      <section className="pb-28 pt-10">
-        <div className="container">
-          {loading && <p className="mx-auto max-w-3xl text-ink-soft">Loading…</p>}
-          {error && <p className="mx-auto max-w-3xl text-red-600">{error}</p>}
+            {loading && <p className="mt-12 text-ink-soft">Loading…</p>}
+            {error && <p className="mt-12 text-red-600">{error}</p>}
 
-          {post && (
-            <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[56px_minmax(0,1fr)] lg:gap-12 xl:grid-cols-[72px_minmax(0,1fr)]">
-              {shareUrl ? (
-                <BlogShareRail
-                  url={shareUrl}
-                  title={post.title}
-                  variant="rail"
-                  className="hidden lg:block"
-                />
-              ) : null}
-
-              <article className="min-w-0 max-w-3xl">
+            {post && (
+              <article className="mt-8">
                 <header className="mb-10">
                   {post.categoryName ? (
                     <div className="text-[11px] font-semibold uppercase tracking-wider text-primary">
@@ -116,8 +110,8 @@ export default function BlogPostPage() {
 
                 <div className="prose-nova">{renderMarkdown(post.contentMarkdown || "")}</div>
               </article>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </section>
     </PageShell>

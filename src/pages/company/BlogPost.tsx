@@ -54,11 +54,17 @@ export default function BlogPostPage() {
           {/* Single column — share rail floats in the left gutter without shifting content */}
           <div className="relative mx-auto max-w-3xl">
             {post && shareUrl ? (
-              <div className="pointer-events-none absolute right-full top-10 mr-5 hidden w-10 lg:block xl:mr-8">
-                <div className="pointer-events-auto sticky top-28">
-                  <BlogShareRail url={shareUrl} title={post.title} variant="rail" sticky={false} />
-                </div>
-              </div>
+              <aside
+                aria-label="Share this post"
+                className="pointer-events-none absolute inset-y-0 right-full mr-5 hidden w-10 lg:block xl:mr-8"
+              >
+                <BlogShareRail
+                  url={shareUrl}
+                  title={post.title}
+                  variant="rail"
+                  className="pointer-events-auto pt-10"
+                />
+              </aside>
             ) : null}
 
             <Link

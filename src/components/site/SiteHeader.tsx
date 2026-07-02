@@ -5,6 +5,7 @@ import { Logo } from "@/components/landing/Logo";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { LANDING_ROUTES, buildLoginUrl } from "@/config";
+import { useFeatureFlag } from "@/lib/feature-flags";
 import { inkCtaButtonClass, InkCtaArrow } from "@/components/site/primitives";
 
 type ProductItem = {
@@ -85,6 +86,13 @@ function ProductDropdownItem({ item, onNavigate }: { item: ProductItem; onNaviga
 }
 
 export const SiteHeader = () => {
+  const teamsEnabled = useFeatureFlag("teams");
+  const enterpriseEnabled = useFeatureFlag("enterprise");
+  const flagNavLinks = [
+    ...(teamsEnabled ? [{ label: "Teams", href: "/teams" as const }] : []),
+    ...(enterpriseEnabled ? [{ label: "Enterprise", href: "/enterprise" as const }] : []),
+  ];
+  const topLinks = [...flagNavLinks, ...TOP_LINKS];
   const [scrolled, setScrolled] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
   const [mobile, setMobile] = useState(false);
@@ -183,7 +191,7 @@ export const SiteHeader = () => {
               )}
             </AnimatePresence>
           </li>
-          {TOP_LINKS.map((link) => (
+          {topLinks.map((link) => (
             <li key={link.href}>
               <NavLink to={link.href}>{link.label}</NavLink>
             </li>
@@ -257,7 +265,7 @@ export const SiteHeader = () => {
                 </AnimatePresence>
               </div>
 
-              {TOP_LINKS.map((link) => (
+              {topLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}

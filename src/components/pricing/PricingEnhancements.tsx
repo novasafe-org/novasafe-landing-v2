@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { CheckList, Eyebrow, Section, SectionHead } from "@/components/site/primitives";
+import { useFeatureFlag, useFeatureFlags, type FeatureFlagKey } from "@/lib/feature-flags";
 import { cn } from "@/lib/utils";
 
 const AUDIENCES = [
@@ -53,6 +54,9 @@ const AUDIENCES = [
 ] as const;
 
 export function WhoItsForSection() {
+  const teamsEnabled = useFeatureFlag("teams");
+  const audiences = AUDIENCES.filter((audience) => audience.title !== "Teams" || teamsEnabled);
+
   return (
     <Section className="!pb-12 !pt-0 sm:!pb-16">
       <SectionHead
@@ -65,7 +69,7 @@ export function WhoItsForSection() {
         lede="NovaSafe helps individuals securely manage passwords today, while laying the foundation for passkeys, authentication and broader identity security in future releases."
       />
       <div className="mx-auto grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {AUDIENCES.map((audience) => {
+        {audiences.map((audience) => {
           const Icon = audience.icon;
           return (
             <div
@@ -195,7 +199,19 @@ const ROADMAP: RoadmapItem[] = [
   },
 ];
 
+const ROADMAP_FLAG_KEYS: Record<string, FeatureFlagKey | null> = {
+  "Team Vaults": "teams",
+  "Business SSO": "sso",
+};
+
 export function RoadmapSection() {
+  const { flags } = useFeatureFlags();
+  const visibleRoadmap = ROADMAP.filter((item) => {
+    const flagKey = ROADMAP_FLAG_KEYS[item.title];
+    if (!flagKey) return true;
+    return flags[flagKey] === true;
+  });
+
   return (
     <Section className="!pt-0" id="roadmap">
       <SectionHead
@@ -208,7 +224,7 @@ export function RoadmapSection() {
         lede="NovaSafe starts with password management and is expanding into a complete digital identity security platform."
       />
       <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {ROADMAP.map((item) => {
+        {visibleRoadmap.map((item) => {
           const Icon = item.icon;
           return (
             <div

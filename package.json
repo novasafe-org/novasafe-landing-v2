@@ -5,6 +5,9 @@
   "type": "module",
   "packageManager": "pnpm@10.18.2",
   "scripts": {
+    "preinstall": "node scripts/sync-feature-flags-catalog.mjs",
+    "catalog:sync": "node scripts/sync-feature-flags-catalog.mjs",
+    "predev": "node scripts/sync-feature-flags-catalog.mjs",
     "dev": "vite",
     "prebuild": "node scripts/generate-seo.mjs && node scripts/generate-journal-posts.mjs && node scripts/versioning/generate-build-metadata.mjs --out public",
     "build": "vite build",
@@ -17,6 +20,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@novasafe/feature-flags": "file:./vendor/feature-flags",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",

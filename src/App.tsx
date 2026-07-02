@@ -3,9 +3,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { FeatureFlagsProvider } from "@/lib/feature-flags";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
+import Teams from "./pages/marketing/Teams";
+import Enterprise from "./pages/marketing/Enterprise";
 import Pricing from "./pages/marketing/Pricing";
 import Security from "./pages/marketing/Security";
 import FeaturesPage from "./pages/marketing/Features";
@@ -44,16 +47,19 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
+    <FeatureFlagsProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/demo" element={<DemoPage />} />
 
           {/* Marketing */}
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/enterprise" element={<Enterprise />} />
           <Route path="/security" element={<Security />} />
           <Route path="/features" element={<FeaturesPage />} />
 
@@ -95,7 +101,8 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </TooltipProvider>
+      </TooltipProvider>
+    </FeatureFlagsProvider>
   </QueryClientProvider>
 );
 

@@ -10,7 +10,7 @@
 # -----------------------------------------------------------------------------
 # Stage 1 — builder
 # -----------------------------------------------------------------------------
-FROM node:22-alpine AS builder
+FROM node:26-alpine AS builder
 
 ARG APP_VERSION=1.0.0
 ARG BUILD_NUMBER=unknown

@@ -30,8 +30,7 @@ if (existsSync(vendorDir)) {
 }
 
 const repo = process.env.NOVASAFE_BACKEND_REPO ?? "https://github.com/novasafe-org/novasafe-backend.git";
-// Catalog ships on the NS-55 epic branch until merged to master; override via NOVASAFE_BACKEND_REF.
-const ref = process.env.NOVASAFE_BACKEND_REF ?? "feature/NS-epic-feature-flags";
+const ref = process.env.NOVASAFE_BACKEND_REF ?? "master";
 const tmp = resolve(root, ".tmp-feature-flags-sync");
 
 const cloneArgs = [

@@ -4,11 +4,16 @@ import { buildProductionSafeDefaults, isFlagEnabled } from "@/lib/feature-flags/
 import { mergeFlagSnapshots, resolveBootstrapSnapshot } from "@/lib/feature-flags/resolve";
 
 describe("feature-flags defaults", () => {
-  it("parked product flags default false", () => {
+  it("parked product flags default false from shared catalog", () => {
     const defaults = buildProductionSafeDefaults();
     expect(defaults.teams).toBe(false);
     expect(defaults.enterprise).toBe(false);
     expect(defaults.sso).toBe(false);
+  });
+
+  it("released product flags default true in production snapshot", () => {
+    const defaults = buildProductionSafeDefaults();
+    expect(defaults.vault).toBe(true);
   });
 
   it("unknown flags resolve false", () => {

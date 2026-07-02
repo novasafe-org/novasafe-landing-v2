@@ -15,6 +15,7 @@ on:
 
 jobs:
   pipeline:
+    if: github.actor != 'dependabot[bot]'
     permissions:
       contents: read
       packages: write
@@ -24,6 +25,18 @@ jobs:
       repository_name: novasafe-landing-v2
       deploy_service: landing
     secrets: inherit
+
+  dependabot-check:
+    name: Dependabot (gitleaks only)
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: novasafe-org/novasafe-deployment/.github/actions/gitleaks-cli@master
 
   github-release:
     name: GitHub Release

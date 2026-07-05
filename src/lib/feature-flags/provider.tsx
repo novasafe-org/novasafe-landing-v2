@@ -8,12 +8,15 @@ import {
   type ReactNode,
 } from "react";
 
+import { fetchPublicFeatureFlags } from "./fetch-flags";
 import { isFlagEnabled, resolveBootstrapSnapshot } from "./resolve";
+import { writeCachedFeatureFlags } from "./storage";
 import type { FeatureFlagKey, FeatureFlagsContextValue } from "./types";
 
 const FeatureFlagsContext = createContext<FeatureFlagsContextValue | null>(null);
 
-/** Landing is unauthenticated — uses safe defaults, session cache, and dev overrides only. */
+const REFRESH_INTERVAL_MS = 60_000;
+
 export function FeatureFlagsProvider({ children }: { children: ReactNode }) {
   const [value, setValue] = useState<FeatureFlagsContextValue>(() => {
     const boot = resolveBootstrapSnapshot(null);
@@ -21,26 +24,58 @@ export function FeatureFlagsProvider({ children }: { children: ReactNode }) {
       version: boot.snapshot.version,
       flags: boot.snapshot.flags,
       source: boot.source,
-      loading: false,
+      loading: true,
       error: null,
       refresh: async () => {},
     };
   });
 
   const refresh = useCallback(async () => {
-    const boot = resolveBootstrapSnapshot(null);
-    setValue((prev) => ({
-      ...prev,
-      version: boot.snapshot.version,
-      flags: boot.snapshot.flags,
-      source: boot.source,
-      loading: false,
-      error: null,
-    }));
+    setValue((prev) => ({ ...prev, loading: true, error: null }));
+    try {
+      const remote = await fetchPublicFeatureFlags();
+      const boot = resolveBootstrapSnapshot(remote);
+      writeCachedFeatureFlags(boot.snapshot);
+      setValue((prev) => ({
+        ...prev,
+        version: boot.snapshot.version,
+        flags: boot.snapshot.flags,
+        source: boot.source,
+        loading: false,
+        error: null,
+      }));
+    } catch (err) {
+      const boot = resolveBootstrapSnapshot(null);
+      setValue((prev) => ({
+        ...prev,
+        version: boot.snapshot.version,
+        flags: boot.snapshot.flags,
+        source: boot.source,
+        loading: false,
+        error: err instanceof Error ? err.message : "Failed to load feature flags",
+      }));
+    }
   }, []);
 
   useEffect(() => {
     void refresh();
+  }, [refresh]);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      void refresh();
+    }, REFRESH_INTERVAL_MS);
+    return () => window.clearInterval(timer);
+  }, [refresh]);
+
+  useEffect(() => {
+    const onVisible = () => {
+      if (document.visibilityState === "visible") {
+        void refresh();
+      }
+    };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => document.removeEventListener("visibilitychange", onVisible);
   }, [refresh]);
 
   const contextValue = useMemo<FeatureFlagsContextValue>(

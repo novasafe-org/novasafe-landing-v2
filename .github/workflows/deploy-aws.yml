@@ -1,0 +1,51 @@
+# Deploy landing site to AWS (S3 + CloudFront)
+#
+# Parallel deployment path — does NOT replace Docker/Nginx production CI.
+# See docs/DEPLOY_AWS.md for configuration instructions.
+#
+# Prerequisites:
+#   1. LandingStack + GitHubOidcStack deployed via novasafe-deployment CDK
+#   2. Replace TODO placeholders below with stack outputs
+#   3. ACM certificate validated in Cloudflare
+
+name: Deploy AWS
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target AWS environment
+        required: true
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+        default: development
+
+  # TODO: Enable automatic AWS deploys on push to main after cutover is validated.
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  deploy:
+    name: Deploy to AWS (${{ inputs.environment }})
+    permissions:
+      id-token: write
+      contents: read
+    uses: novasafe-org/novasafe-deployment/.github/workflows/reusable/deploy-frontend-aws.yml@master
+    with:
+      application-name: novasafe-landing-v2
+      environment: ${{ inputs.environment }}
+      build-directory: dist
+      node-version: '22'
+      aws-region: eu-west-1
+      # TODO: Replace with LandingStack output `BucketName` after CDK deploy.
+      # Example: novasafe-dev-landing-111111111111
+      s3-bucket: TODO_LANDING_S3_BUCKET
+      # TODO: Replace with LandingStack output `DistributionId` after CDK deploy.
+      cloudfront-distribution-id: TODO_CLOUDFRONT_DISTRIBUTION_ID
+      # TODO: Replace with GitHubOidcStack output `GitHubActionsDeployRoleArn`.
+      # Example: arn:aws:iam::111111111111:role/novasafe-dev-github-deploy
+      aws-role-arn: TODO_AWS_DEPLOY_ROLE_ARN

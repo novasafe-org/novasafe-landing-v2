@@ -29,5 +29,6 @@ jobs:
       application-name: novasafe-landing-v2
       build-directory: dist
       node-version: '22'
+      package-manager: pnpm
       s3-bucket: novasafe-prod-bucket-landing-793239449172
       cloudfront-distribution-id: E3T09WYDY825ZE

@@ -6,7 +6,8 @@
 # Prerequisites:
 #   1. LandingStack deployed via novasafe-deployment CDK
 #   2. Repository Variables: AWS_ROLE_ARN, AWS_REGION (ap-south-1)
-#   3. ACM certificate validated; DNS pointed at CloudFront
+#   3. Environment "production" variables: VITE_LANDING_URL, VITE_AUTH_URL, VITE_APP_URL
+#   4. ACM certificate validated; DNS pointed at CloudFront
 
 name: Deploy AWS
 
@@ -31,5 +32,6 @@ jobs:
       node-version: '22'
       package-manager: pnpm
       preinstall-script: scripts/sync-feature-flags-catalog.mjs
+      github-environment: production
       s3-bucket: novasafe-prod-bucket-landing-793239449172
       cloudfront-distribution-id: E3T09WYDY825ZE

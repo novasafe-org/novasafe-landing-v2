@@ -30,5 +30,6 @@ jobs:
       build-directory: dist
       node-version: '22'
       package-manager: pnpm
+      preinstall-script: scripts/sync-feature-flags-catalog.mjs
       s3-bucket: novasafe-prod-bucket-landing-793239449172
       cloudfront-distribution-id: E3T09WYDY825ZE

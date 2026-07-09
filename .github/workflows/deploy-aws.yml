@@ -24,7 +24,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    uses: novasafe-org/novasafe-deployment/.github/workflows/reusable/deploy-frontend-aws.yml@master
+    uses: novasafe-org/novasafe-deployment/.github/workflows/deploy-frontend-aws.yml@master
     with:
       application-name: novasafe-landing-v2
       build-directory: dist

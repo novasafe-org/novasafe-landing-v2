@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.4
+
+### Changed
+
+Vendor feature-flags catalog before AWS deploy install
+
 ## v1.1.3
 
 ### Changed

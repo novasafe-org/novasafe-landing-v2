@@ -13,38 +13,53 @@ deploy-aws.yml (this repo)
   ↓
 novasafe-deployment/deploy-frontend-aws.yml
   ↓
-OIDC → S3 sync → CloudFront invalidation
+pnpm build (VITE_* from GitHub Environment) → OIDC → S3 sync → CloudFront invalidation
 ```
 
 ## Triggers
 
 | Trigger | Status |
 |---------|--------|
-| `workflow_dispatch` | **Enabled** — manual deploy with environment selection |
+| `workflow_dispatch` | **Enabled** — manual deploy |
 | `push` to `main` | **Disabled** — enable after AWS cutover is validated |
 
-## Configuration (TODO)
+## Configuration
 
-Replace placeholders in `deploy-aws.yml` with CDK stack outputs after infrastructure deploy:
+### Repository Variables
 
-| Placeholder | Source |
-|-------------|--------|
-| `TODO_LANDING_S3_BUCKET` | `LandingStack` output `BucketName` |
-| `TODO_CLOUDFRONT_DISTRIBUTION_ID` | `LandingStack` output `DistributionId` |
-| `TODO_AWS_DEPLOY_ROLE_ARN` | `GitHubOidcStack` output `GitHubActionsDeployRoleArn` |
+Settings → Secrets and variables → Actions → **Variables**
 
-Deploy the CDK stacks from `novasafe-org/novasafe-deployment`:
+| Variable | Example |
+|----------|---------|
+| `AWS_ROLE_ARN` | `arn:aws:iam::793239449172:role/NovaSafeGitHubDeployRole` |
+| `AWS_REGION` | `ap-south-1` |
 
-```bash
-cd infra-aws/cdk
-npm run synth -- -c env=development
-# cdk deploy novasafe-dev-landing novasafe-dev-github-oidc
-```
+### Environment Variables
+
+Settings → Environments → **production** → **Environment variables**
+
+| Variable | Example |
+|----------|---------|
+| `VITE_LANDING_URL` | `https://novasafe.io` |
+| `VITE_AUTH_URL` | `https://start.novasafe.io` |
+| `VITE_APP_URL` | `https://app.novasafe.io` |
+| `VITE_API_URL` | `https://mobile-api.novasafe.io` |
+| `VITE_APP_VERSION` | `1.1.5` (optional) |
+| `PUBLIC_SITE_URL` | `https://novasafe.io` (optional — sitemap origin override) |
+
+These are **public browser URLs** (same as `.env.example`). They are baked into the Vite build at deploy time.
+
+### Stack outputs (in `deploy-aws.yml`)
+
+| Field | Value |
+|-------|--------|
+| `s3-bucket` | `novasafe-prod-bucket-landing-793239449172` |
+| `cloudfront-distribution-id` | `E3T09WYDY825ZE` |
 
 ## Build
 
-- `npm ci`
-- `npm run build`
+- `pnpm install --frozen-lockfile`
+- `pnpm run build` with `VITE_*` from the `production` environment
 - Output: `dist/` (Vite)
 
 ## Existing deployment

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.5
+
+### Changed
+
+Fetch feature flags from mobile-api on the marketing site
+
 ## v1.1.4
 
 ### Changed

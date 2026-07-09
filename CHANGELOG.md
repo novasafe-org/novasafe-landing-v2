@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.2
+
+### Changed
+
+Configure production AWS deploy workflow with Landing stack outputs
+
 ## v1.1.1
 
 ### Changed

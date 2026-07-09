@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.3
+
+### Changed
+
+Use pnpm for AWS deploy workflow
+
 ## v1.1.2
 
 ### Changed

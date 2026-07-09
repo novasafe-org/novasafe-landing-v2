@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.6
+
+### Changed
+
+Use production GitHub Environment variables for AWS deploy build
+
 ## v1.1.5
 
 ### Changed

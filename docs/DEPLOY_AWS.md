@@ -11,7 +11,7 @@ GitHub
   ↓
 deploy-aws.yml (this repo)
   ↓
-novasafe-deployment/reusable/deploy-frontend-aws.yml
+novasafe-deployment/deploy-frontend-aws.yml
   ↓
 OIDC → S3 sync → CloudFront invalidation
 ```

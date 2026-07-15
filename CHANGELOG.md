@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.8
+
+### Changed
+
+docs: add release workflow notes (recover failed release)
+
 ## v1.1.7
 
 ### Changed

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.7
+
+### Changed
+
+Fix landing AWS deploy: runtime-config.js and CSP verification
+
 ## v1.1.6
 
 ### Changed

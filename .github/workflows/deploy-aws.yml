@@ -33,5 +33,31 @@ jobs:
       package-manager: pnpm
       preinstall-script: scripts/sync-feature-flags-catalog.mjs
       github-environment: production
+      generate-runtime-config: true
       s3-bucket: novasafe-prod-bucket-landing-793239449172
       cloudfront-distribution-id: E3T09WYDY825ZE
+
+  verify:
+    name: Verify production headers
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify CSP allows NovaSafe API
+        run: |
+          set -euo pipefail
+          CSP="$(curl -sSI https://www.novasafe.io/status | tr -d '\r' | awk -F': ' 'tolower($1)=="content-security-policy" {print substr($0,index($0,$2))}')"
+          echo "content-security-policy: ${CSP}"
+          echo "$CSP" | grep -q "connect-src 'self' https://\\*\\.novasafe\\.io" || {
+            echo "::error::CSP must allow connect-src to https://*.novasafe.io (redeploy Landing CDK stack, then invalidate CloudFront)"
+            exit 1
+          }
+
+      - name: Verify runtime-config.js is JavaScript
+        run: |
+          set -euo pipefail
+          TYPE="$(curl -sSI https://www.novasafe.io/runtime-config.js | tr -d '\r' | awk -F': ' 'tolower($1)=="content-type" {print substr($0,index($0,$2))}')"
+          echo "content-type: ${TYPE}"
+          echo "$TYPE" | grep -qi 'javascript' || {
+            echo "::error::runtime-config.js must be served as JavaScript (run Deploy AWS after generate-runtime-config is enabled)"
+            exit 1
+          }

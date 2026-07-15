@@ -13,7 +13,7 @@ deploy-aws.yml (this repo)
   ↓
 novasafe-deployment/deploy-frontend-aws.yml
   ↓
-pnpm build (VITE_* from GitHub Environment) → OIDC → S3 sync → CloudFront invalidation
+pnpm build (VITE_* from GitHub Environment) → runtime-config.js → OIDC → S3 sync → CloudFront invalidation
 ```
 
 ## Triggers
@@ -55,6 +55,13 @@ These are **public browser URLs** (same as `.env.example`). They are baked into 
 |-------|--------|
 | `s3-bucket` | `novasafe-prod-bucket-landing-793239449172` |
 | `cloudfront-distribution-id` | `E3T09WYDY825ZE` |
+| `generate-runtime-config` | `true` — writes `/runtime-config.js` for S3 (required for blog/status API URLs) |
+
+## CSP / API connectivity
+
+Blog and status pages call `https://mobile-api.novasafe.io`. CloudFront must allow that origin in `connect-src` (`https://*.novasafe.io` in `novasafe-deployment` `cloudfront-policies.ts`).
+
+If `/blog` or `/status` show **Failed to fetch** after an infra change, redeploy the **Landing** CDK stack from `novasafe-deployment` (Deploy Infrastructure → Landing), then run **Deploy AWS** here.
 
 ## Build
 

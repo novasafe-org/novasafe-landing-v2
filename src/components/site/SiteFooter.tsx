@@ -17,6 +17,7 @@ const cols: { t: string; l: { label: string; href: string }[] }[] = [
     l: [
       // { label: "Documentation", href: "/docs" },
       // { label: "Help Center", href: "/help" },
+      { label: "Password Generator", href: "/resources/password-generator" },
       { label: "Changelog", href: "/changelog" },
       { label: "Status", href: "/status" },
       { label: "Blog", href: "/blog" },

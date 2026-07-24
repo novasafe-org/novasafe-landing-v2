@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.9
+
+### Changed
+
+Add Resources dropdown with Password Generator page
+
 ## v1.1.8
 
 ### Changed

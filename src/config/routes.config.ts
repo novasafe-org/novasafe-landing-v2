@@ -69,6 +69,9 @@ export const LANDING_ROUTES = Object.freeze({
   changelog: "/changelog",
   demo: "/demo",
   blog: "/blog",
+  resources: Object.freeze({
+    passwordGenerator: "/resources/password-generator",
+  }),
   docs: "/docs",
   legal: Object.freeze({
     privacy: "/legal/privacy",

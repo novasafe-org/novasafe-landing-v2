@@ -8,14 +8,14 @@ import { LANDING_ROUTES, buildLoginUrl } from "@/config";
 import { useFeatureFlag } from "@/lib/feature-flags";
 import { inkCtaButtonClass, InkCtaArrow } from "@/components/site/primitives";
 
-type ProductItem = {
+type NavDropdownItem = {
   label: string;
   href: string;
   desc: string;
   badge?: string;
 };
 
-const PRODUCT_ITEMS: ProductItem[] = [
+const PRODUCT_ITEMS: NavDropdownItem[] = [
   {
     label: "Password Manager",
     href: "/features/password-manager",
@@ -31,6 +31,14 @@ const PRODUCT_ITEMS: ProductItem[] = [
     href: `${LANDING_ROUTES.pricing}#roadmap`,
     desc: "See upcoming features and product plans.",
     badge: "Coming soon",
+  },
+];
+
+const RESOURCES_ITEMS: NavDropdownItem[] = [
+  {
+    label: "Password Generator",
+    href: LANDING_ROUTES.resources.passwordGenerator,
+    desc: "Create strong, random passwords instantly in your browser.",
   },
 ];
 
@@ -65,7 +73,7 @@ function NavLink({
   );
 }
 
-function ProductDropdownItem({ item, onNavigate }: { item: ProductItem; onNavigate?: () => void }) {
+function NavDropdownItem({ item, onNavigate }: { item: NavDropdownItem; onNavigate?: () => void }) {
   return (
     <Link
       to={item.href}
@@ -95,9 +103,12 @@ export const SiteHeader = () => {
   const topLinks = [...flagNavLinks, ...TOP_LINKS];
   const [scrolled, setScrolled] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobile, setMobile] = useState(false);
   const [mobileProductOpen, setMobileProductOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const productMenuRef = useRef<HTMLLIElement>(null);
+  const resourcesMenuRef = useRef<HTMLLIElement>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -109,8 +120,10 @@ export const SiteHeader = () => {
 
   useEffect(() => {
     setProductOpen(false);
+    setResourcesOpen(false);
     setMobile(false);
     setMobileProductOpen(false);
+    setMobileResourcesOpen(false);
   }, [location.pathname, location.hash]);
 
   useEffect(() => {
@@ -124,9 +137,21 @@ export const SiteHeader = () => {
     return () => document.removeEventListener("pointerdown", onPointerDown);
   }, [productOpen]);
 
+  useEffect(() => {
+    if (!resourcesOpen) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!resourcesMenuRef.current?.contains(event.target as Node)) {
+        setResourcesOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [resourcesOpen]);
+
   const closeMobile = () => {
     setMobile(false);
     setMobileProductOpen(false);
+    setMobileResourcesOpen(false);
   };
 
   return (
@@ -134,7 +159,7 @@ export const SiteHeader = () => {
       <nav
         className={cn(
           "relative flex w-full max-w-6xl items-center justify-between gap-6 rounded-2xl px-4 py-2.5 transition-all duration-500",
-          scrolled || productOpen || mobile ? "glass-strong shadow-card border border-border/70" : "border border-transparent",
+          scrolled || productOpen || resourcesOpen || mobile ? "glass-strong shadow-card border border-border/70" : "border border-transparent",
         )}
       >
         <Link to="/" className="flex items-center">
@@ -179,10 +204,59 @@ export const SiteHeader = () => {
                   >
                     <div className="flex flex-col">
                       {PRODUCT_ITEMS.map((item) => (
-                        <ProductDropdownItem
+                        <NavDropdownItem
                           key={item.href}
                           item={item}
                           onNavigate={() => setProductOpen(false)}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </li>
+          <li
+            ref={resourcesMenuRef}
+            className="relative"
+            onMouseEnter={() => setResourcesOpen(true)}
+            onMouseLeave={() => setResourcesOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={() => setResourcesOpen((open) => !open)}
+              className={cn(
+                "flex items-center gap-1 rounded-lg px-3 py-1.5 text-[13.5px] font-medium transition-colors",
+                resourcesOpen ? "bg-secondary text-ink" : "text-ink-soft hover:bg-secondary hover:text-ink",
+              )}
+              aria-expanded={resourcesOpen}
+              aria-haspopup="true"
+            >
+              Resources
+              <ChevronDown
+                className={cn("h-3.5 w-3.5 opacity-60 transition-transform", resourcesOpen && "rotate-180")}
+              />
+            </button>
+
+            <AnimatePresence>
+              {resourcesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 6 }}
+                  transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute left-0 top-full z-50 pt-2"
+                >
+                  <div
+                    className="w-[360px] rounded-2xl border border-border bg-card p-2 shadow-elevated ring-1 ring-black/5 backdrop-blur-xl"
+                    style={{ backgroundColor: "hsl(var(--card))" }}
+                  >
+                    <div className="flex flex-col">
+                      {RESOURCES_ITEMS.map((item) => (
+                        <NavDropdownItem
+                          key={item.href}
+                          item={item}
+                          onNavigate={() => setResourcesOpen(false)}
                         />
                       ))}
                     </div>
@@ -257,7 +331,41 @@ export const SiteHeader = () => {
                     >
                       <div className="mt-1 space-y-1 pl-1">
                         {PRODUCT_ITEMS.map((item) => (
-                          <ProductDropdownItem key={item.href} item={item} onNavigate={closeMobile} />
+                          <NavDropdownItem key={item.href} item={item} onNavigate={closeMobile} />
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <div className="border-b border-border/60 pb-3">
+                <button
+                  type="button"
+                  onClick={() => setMobileResourcesOpen((v) => !v)}
+                  className="flex w-full items-center justify-between rounded-lg px-2 py-2 text-left text-[14px] font-semibold text-ink"
+                  aria-expanded={mobileResourcesOpen}
+                >
+                  Resources
+                  <ChevronDown
+                    className={cn(
+                      "h-4 w-4 text-ink-soft transition-transform",
+                      mobileResourcesOpen && "rotate-180",
+                    )}
+                  />
+                </button>
+                <AnimatePresence>
+                  {mobileResourcesOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="mt-1 space-y-1 pl-1">
+                        {RESOURCES_ITEMS.map((item) => (
+                          <NavDropdownItem key={item.href} item={item} onNavigate={closeMobile} />
                         ))}
                       </div>
                     </motion.div>

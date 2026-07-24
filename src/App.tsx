@@ -42,6 +42,7 @@ import Migration from "./pages/docs/Migration";
 
 import SitemapPage from "./pages/Sitemap";
 import DemoPage from "./pages/DemoPage";
+import PasswordGeneratorPage from "./pages/resources/PasswordGeneratorPage";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,9 @@ const App = () => (
           <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/demo" element={<DemoPage />} />
+
+          {/* Resources */}
+          <Route path="/resources/password-generator" element={<PasswordGeneratorPage />} />
 
           {/* Marketing */}
           <Route path="/pricing" element={<Pricing />} />

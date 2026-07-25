@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.10
+
+### Changed
+
+Move Product Hunt promo to top strip above header
+
 ## v1.1.9
 
 ### Changed

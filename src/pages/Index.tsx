@@ -1,4 +1,4 @@
-import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteChrome } from "@/components/site/SiteChrome";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Hero } from "@/components/landing/Hero";
 import { CapabilityShowcase } from "@/components/landing/CapabilityShowcase";
@@ -14,7 +14,7 @@ import { CTA } from "@/components/landing/CTA";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
+      <SiteChrome />
       <main>
         <Hero />
         <CapabilityShowcase />

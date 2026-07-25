@@ -9,7 +9,7 @@ export const PageShell = ({ children }: { children: ReactNode }) => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
-      <main className="pt-24">{children}</main>
+      <main className="pt-32">{children}</main>
       <SiteFooter />
     </div>
   );

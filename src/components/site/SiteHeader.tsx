@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Logo } from "@/components/landing/Logo";
+import { ProductHuntTopStrip } from "@/components/landing/ProductHuntBanner";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { LANDING_ROUTES, buildLoginUrl } from "@/config";
@@ -155,7 +156,9 @@ export const SiteHeader = () => {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
+    <header className="fixed inset-x-0 top-0 z-50">
+      <ProductHuntTopStrip />
+      <div className="flex justify-center px-4 pt-3">
       <nav
         className={cn(
           "relative flex w-full max-w-6xl items-center justify-between gap-6 rounded-2xl px-4 py-2.5 transition-all duration-500",
@@ -294,6 +297,7 @@ export const SiteHeader = () => {
           </button>
         </div>
       </nav>
+      </div>
 
       <AnimatePresence>
         {mobile && (
@@ -302,7 +306,7 @@ export const SiteHeader = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-x-4 top-20 lg:hidden"
+            className="absolute inset-x-4 top-[7.75rem] lg:hidden"
           >
             <div className="glass-strong max-h-[80vh] overflow-y-auto rounded-2xl border border-border/70 p-4 shadow-elevated">
               <div className="border-b border-border/60 pb-3">

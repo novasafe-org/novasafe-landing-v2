@@ -1,7 +1,6 @@
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Hero } from "@/components/landing/Hero";
-import { ProductHuntBanner } from "@/components/landing/ProductHuntBanner";
 import { CapabilityShowcase } from "@/components/landing/CapabilityShowcase";
 import { EncryptionFlow } from "@/components/landing/EncryptionFlow";
 import { Features } from "@/components/landing/Features";
@@ -18,7 +17,6 @@ const Index = () => {
       <SiteHeader />
       <main>
         <Hero />
-        <ProductHuntBanner />
         <CapabilityShowcase />
         <EncryptionFlow />
         <Features />

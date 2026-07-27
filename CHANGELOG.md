@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.11
+
+### Changed
+
+Make Product Hunt strip scrollable and slimmer
+
 ## v1.1.10
 
 ### Changed

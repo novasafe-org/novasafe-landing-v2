@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.12
+
+### Changed
+
+Generate static HTML pages for NovaSafe blogs
+
 ## v1.1.11
 
 ### Changed

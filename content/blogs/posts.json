@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "what-is-zero-knowledge-encryption",
+    "title": "What Is Zero-Knowledge Encryption?",
+    "markdownFile": "what-is-zero-knowledge-encryption.md",
+    "description": "Learn what zero-knowledge encryption means, how it protects your password vault, and why it matters for digital privacy.",
+    "featuredImage": null,
+    "tags": []
+  },
+  {
+    "slug": "why-most-password-managers-still-require-trust",
+    "title": "Why Most Password Managers Still Require Trust — And How NovaSafe Is Different",
+    "markdownFile": "why-most-password-managers-still-require-trust.md",
+    "description": "Explore the trust assumptions behind password managers and how NovaSafe approaches privacy, encryption, and modern authentication.",
+    "featuredImage": null,
+    "tags": []
+  }
+]

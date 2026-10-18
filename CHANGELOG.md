@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.18
+
+### Changed
+
+feat(blog): featured images via blog-images API
+
 ## v1.1.17
 
 ### Changed

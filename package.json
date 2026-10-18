@@ -10,7 +10,7 @@
     "predev": "node scripts/sync-feature-flags-catalog.mjs && node scripts/generate-runtime-config.mjs",
     "dev": "vite",
     "prebuild": "node scripts/generate-seo.mjs && node scripts/generate-journal-posts.mjs && node scripts/versioning/generate-build-metadata.mjs --out public && node scripts/generate-runtime-config.mjs",
-    "build": "vite build && node scripts/generate-static-blogs.mjs",
+    "build": "vite build && node scripts/generate-static-blogs.mjs && node scripts/generate-static-blog-index.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",

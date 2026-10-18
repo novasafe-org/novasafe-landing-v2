@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.17
+
+### Changed
+
+feat(blog): category-based listing and static category pages
+
 ## v1.1.16
 
 ### Changed

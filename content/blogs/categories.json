@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "privacy-encryption",
+    "label": "Privacy & Encryption",
+    "description": "Zero-knowledge architecture, encryption, and data ownership."
+  },
+  {
+    "slug": "password-security",
+    "label": "Password Security",
+    "description": "Password managers, trust models, and safer credential habits."
+  },
+  {
+    "slug": "engineering-research",
+    "label": "Engineering & Research",
+    "description": "How we build NovaSafe and what we are learning along the way."
+  }
+]

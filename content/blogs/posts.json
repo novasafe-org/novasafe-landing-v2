@@ -5,9 +5,11 @@
     "markdownFile": "what-is-zero-knowledge-encryption.md",
     "description": "Learn what zero-knowledge encryption means, how it protects your password vault, and why it matters for digital privacy.",
     "featuredImage": null,
-    "tags": [],
-    "category": "Security",
-    "author": "NovaSafe Team"
+    "tags": ["encryption", "privacy", "zero-knowledge"],
+    "categorySlug": "privacy-encryption",
+    "author": "NovaSafe Team",
+    "status": "published",
+    "featured": true
   },
   {
     "slug": "why-most-password-managers-still-require-trust",
@@ -15,8 +17,10 @@
     "markdownFile": "why-most-password-managers-still-require-trust.md",
     "description": "Explore the trust assumptions behind password managers and how NovaSafe approaches privacy, encryption, and modern authentication.",
     "featuredImage": null,
-    "tags": [],
-    "category": "Security",
-    "author": "NovaSafe Team"
+    "tags": ["password-managers", "trust", "security"],
+    "categorySlug": "password-security",
+    "author": "NovaSafe Team",
+    "status": "published",
+    "featured": true
   }
 ]

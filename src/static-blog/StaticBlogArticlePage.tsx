@@ -2,6 +2,7 @@ import React from "react";
 import { BlogShareRail } from "@/components/blog/BlogShareRail";
 import { PageShell } from "@/components/site/PageShell";
 import { renderMarkdown } from "@/lib/renderMarkdown";
+import { resolveCategoryLabel } from "./catalog";
 import { stripDuplicateMarkdownTitle } from "./markdown";
 import type { StaticBlogManifestPost } from "./types";
 
@@ -59,11 +60,9 @@ export function StaticBlogArticlePage({
               </aside>
 
               <header className="mb-10">
-                {post.category ? (
-                  <div className="text-[11px] font-semibold uppercase tracking-wider text-primary leading-none">
-                    {post.category}
-                  </div>
-                ) : null}
+                <div className="text-[11px] font-semibold uppercase tracking-wider text-primary leading-none">
+                  {resolveCategoryLabel(post)}
+                </div>
                 <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight text-ink">{post.title}</h1>
                 <div className="mt-4 flex gap-3 text-sm text-ink-soft">
                   <span>{post.author || "NovaSafe Team"}</span>

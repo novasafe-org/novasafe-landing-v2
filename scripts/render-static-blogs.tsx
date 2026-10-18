@@ -8,7 +8,9 @@ import { join, resolve } from "node:path";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
+import { buildCategorySections, categoryPagePath } from "../src/static-blog/catalog";
 import { StaticBlogArticlePage } from "../src/static-blog/StaticBlogArticlePage";
+import { StaticBlogCategoryPage } from "../src/static-blog/StaticBlogCategoryPage";
 import { StaticBlogIndexPage } from "../src/static-blog/StaticBlogIndexPage";
 import { StaticBlogSSR } from "../src/static-blog/StaticBlogSSR";
 import type { StaticBlogManifestPost } from "../src/static-blog/types";
@@ -151,11 +153,37 @@ export function runStaticBlogRender() {
   writeFileSync(join(blogOut, "index.html"), indexHtml, "utf8");
   console.log("[static-blog] wrote dist/blog/index.html");
 
-  for (const post of posts) {
+  for (const section of buildCategorySections(posts)) {
+    const categoryCanonical = `${origin}${categoryPagePath(section.config.slug)}`;
+    const categoryBody = renderBody(
+      categoryPagePath(section.config.slug),
+      <StaticBlogCategoryPage category={section.config} posts={section.posts} />,
+    );
+    const categoryHtml = buildDocument(
+      {
+        title: `${section.config.label} | NovaSafe Blog`,
+        description:
+          section.config.description ||
+          `Articles about ${section.config.label} from the NovaSafe team.`,
+        canonical: categoryCanonical,
+        ogType: "website",
+      },
+      categoryBody,
+      styles,
+    );
+    const categoryDir = resolve(blogOut, "category", section.config.slug);
+    mkdirSync(categoryDir, { recursive: true });
+    writeFileSync(join(categoryDir, "index.html"), categoryHtml, "utf8");
+    console.log(`[static-blog] wrote dist/blog/category/${section.config.slug}/index.html`);
+  }
+
+  const publishedPosts = posts.filter((p) => (p.status ?? "published") === "published");
+
+  for (const post of publishedPosts) {
     const markdown = readFileSync(resolve(sourceDir, post.markdownFile), "utf8");
     const canonical = `${origin}/blog/${post.slug}/`;
     const shareUrl = canonical;
-    const related = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
+    const related = publishedPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
     const description =
       post.description?.trim() ||
       markdown.replace(/[#>*_`[\]]/g, "").replace(/\s+/g, " ").trim().slice(0, 155);
@@ -204,7 +232,14 @@ export function runStaticBlogRender() {
   const sitemapPath = resolve(distDir, "sitemap.xml");
   let sitemap = readFileSync(sitemapPath, "utf8").replace(/\s*<\/urlset>\s*$/, "");
   const today = new Date().toISOString().slice(0, 10);
+  const categoryUrls = buildCategorySections(posts)
+    .map(
+      (section) =>
+        `  <url><loc>${esc(`${origin}${categoryPagePath(section.config.slug)}`)}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.55</priority></url>`,
+    )
+    .join("\n");
   const articleUrls = posts
+    .filter((p) => (p.status ?? "published") === "published")
     .map(
       (p) =>
         `  <url><loc>${esc(`${origin}/blog/${p.slug}/`)}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`,
@@ -213,7 +248,11 @@ export function runStaticBlogRender() {
   if (!sitemap.includes(`${origin}/blog/`)) {
     sitemap += `\n  <url><loc>${esc(`${origin}/blog/`)}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url>`;
   }
-  writeFileSync(sitemapPath, `${sitemap}\n${articleUrls}\n</urlset>\n`, "utf8");
+  writeFileSync(
+    sitemapPath,
+    `${sitemap}\n${categoryUrls}\n${articleUrls}\n</urlset>\n`,
+    "utf8",
+  );
   console.log(`[static-blog] updated dist/sitemap.xml (${posts.length} articles)`);
 }
 

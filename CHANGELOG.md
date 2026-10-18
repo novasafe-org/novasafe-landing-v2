@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.13
+
+### Changed
+
+Generate the blog index statically and remove runtime blog API calls
+
 ## v1.1.12
 
 ### Changed

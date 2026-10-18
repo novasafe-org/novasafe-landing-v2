@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.16
+
+### Changed
+
+fix(blog): production SSR bundle for static blog generation
+
 ## v1.1.15
 
 ### Changed

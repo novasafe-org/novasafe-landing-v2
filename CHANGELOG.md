@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.19
+
+### Changed
+
+feat(blog): featured images via by-slug API (no Drive id in JSON)
+
 ## v1.1.18
 
 ### Changed

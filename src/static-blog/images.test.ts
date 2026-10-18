@@ -1,16 +1,24 @@
 import { describe, expect, it } from "vitest";
 
-import { blogImageProxyUrl, resolveBlogFeaturedImageUrl } from "./images";
+import { blogFeaturedImageUrlForSlug, blogImageProxyUrl, resolveBlogFeaturedImageUrl } from "./images";
 import type { StaticBlogManifestPost } from "./types";
 
 describe("resolveBlogFeaturedImageUrl", () => {
   const basePost: StaticBlogManifestPost = {
-    slug: "sample",
+    slug: "what-is-zero-knowledge-encryption",
     title: "Sample",
     markdownFile: "sample.md",
   };
 
-  it("builds mobile-api proxy URLs from Drive file ids", () => {
+  it("uses slug-based API URL by default (no manifest fields)", () => {
+    process.env.VITE_API_URL = "https://mobile-api.novasafe.io";
+    const url = resolveBlogFeaturedImageUrl(basePost);
+    expect(url).toBe(
+      "https://mobile-api.novasafe.io/api/v1/blog-images/by-slug/what-is-zero-knowledge-encryption",
+    );
+  });
+
+  it("builds mobile-api proxy URLs from Drive file ids when set", () => {
     process.env.VITE_API_URL = "https://mobile-api.novasafe.io";
     const url = resolveBlogFeaturedImageUrl({
       ...basePost,
@@ -21,14 +29,13 @@ describe("resolveBlogFeaturedImageUrl", () => {
     );
   });
 
-  it("prefers Drive id over legacy featuredImage URL", () => {
+  it("prefers Drive id over slug URL", () => {
     process.env.VITE_API_URL = "https://mobile-api.novasafe.io";
     const url = resolveBlogFeaturedImageUrl({
       ...basePost,
-      featuredImage: "https://example.com/legacy.jpg",
       featuredImageDriveId: "abcdefghijklmnop",
     });
-    expect(url).toBe("https://mobile-api.novasafe.io/api/v1/blog-images/abcdefghijklmnop");
+    expect(url).toContain("/api/v1/blog-images/abcdefghijklmnop");
   });
 
   it("resolves relative featuredImage against landing origin", () => {
@@ -43,6 +50,12 @@ describe("resolveBlogFeaturedImageUrl", () => {
     expect(
       resolveBlogFeaturedImageUrl({ ...basePost, featuredImageDriveId: "bad" }),
     ).toBeNull();
+  });
+});
+
+describe("blogFeaturedImageUrlForSlug", () => {
+  it("returns null for invalid slugs", () => {
+    expect(blogFeaturedImageUrlForSlug("Bad Slug!")).toBeNull();
   });
 });
 

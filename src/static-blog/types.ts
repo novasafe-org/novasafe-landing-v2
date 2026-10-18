@@ -11,7 +11,7 @@ export type StaticBlogManifestPost = {
   description?: string;
   /** Absolute or site-relative image URL (legacy). */
   featuredImage?: string | null;
-  /** Google Drive file id — resolved at build time to the public blog-images API. */
+  /** Optional override — default is slug-based Drive file `{slug}.png` via /blog-images/by-slug/:slug. */
   featuredImageDriveId?: string | null;
   tags?: string[];
   /** Primary category slug — must match `content/blogs/categories.json` when set. */

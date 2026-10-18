@@ -4,8 +4,7 @@
  */
 import "./static-blog-env.ts";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join, resolve } from "node:path";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
@@ -14,7 +13,7 @@ import { StaticBlogIndexPage } from "../src/static-blog/StaticBlogIndexPage";
 import { StaticBlogSSR } from "../src/static-blog/StaticBlogSSR";
 import type { StaticBlogManifestPost } from "../src/static-blog/types";
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const root = process.cwd();
 const sourceDir = resolve(root, "content/blogs");
 const distDir = resolve(root, "dist");
 const blogOut = resolve(distDir, "blog");
@@ -217,4 +216,6 @@ export function runStaticBlogRender() {
   writeFileSync(sitemapPath, `${sitemap}\n${articleUrls}\n</urlset>\n`, "utf8");
   console.log(`[static-blog] updated dist/sitemap.xml (${posts.length} articles)`);
 }
+
+runStaticBlogRender();
 

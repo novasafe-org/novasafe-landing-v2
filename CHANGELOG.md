@@ -1,5 +1,23 @@
 # Changelog
 
+## v1.1.14
+
+### Changed
+
+Remove runtime blog API calls to verify static HTML delivery
+
+## v1.1.13
+
+### Changed
+
+Generate the blog index statically and remove runtime blog API calls
+
+## v1.1.12
+
+### Changed
+
+Generate static HTML pages for NovaSafe blogs
+
 ## v1.1.11
 
 ### Changed

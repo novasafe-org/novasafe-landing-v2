@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.14
+
+### Changed
+
+Remove runtime blog API calls to verify static HTML delivery
+
 ## v1.1.13
 
 ### Changed

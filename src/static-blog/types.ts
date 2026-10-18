@@ -9,7 +9,10 @@ export type StaticBlogManifestPost = {
   title: string;
   markdownFile: string;
   description?: string;
+  /** Absolute or site-relative image URL (legacy). */
   featuredImage?: string | null;
+  /** Google Drive file id — resolved at build time to the public blog-images API. */
+  featuredImageDriveId?: string | null;
   tags?: string[];
   /** Primary category slug — must match `content/blogs/categories.json` when set. */
   categorySlug?: string;

@@ -2,6 +2,7 @@ import React from "react";
 import { FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { resolveCategoryLabel } from "./catalog";
+import { resolveBlogFeaturedImageUrl } from "./images";
 import type { StaticBlogManifestPost } from "./types";
 
 function formatDate(iso: string | null | undefined) {
@@ -21,6 +22,7 @@ export function BlogArticleCard({
   const showFeatured = featured || Boolean(post.featured);
   const href = `/blog/${post.slug}/`;
   const categoryLabel = resolveCategoryLabel(post);
+  const featuredImage = resolveBlogFeaturedImageUrl(post);
 
   return (
     <a
@@ -31,9 +33,9 @@ export function BlogArticleCard({
       )}
     >
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-2">
-        {post.featuredImage ? (
+        {featuredImage ? (
           <img
-            src={post.featuredImage}
+            src={featuredImage}
             alt=""
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             loading="lazy"

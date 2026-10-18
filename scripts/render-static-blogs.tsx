@@ -13,6 +13,8 @@ import { StaticBlogArticlePage } from "../src/static-blog/StaticBlogArticlePage"
 import { StaticBlogCategoryPage } from "../src/static-blog/StaticBlogCategoryPage";
 import { StaticBlogIndexPage } from "../src/static-blog/StaticBlogIndexPage";
 import { StaticBlogSSR } from "../src/static-blog/StaticBlogSSR";
+import { resolveBlogFeaturedImageUrl } from "../src/static-blog/images";
+import { isBlogImageFileId } from "../src/static-blog/blog-image-file-id";
 import type { StaticBlogManifestPost } from "../src/static-blog/types";
 
 const root = process.cwd();
@@ -126,6 +128,10 @@ function validateManifest(posts: StaticBlogManifestPost[]) {
     if (!post.title || !post.markdownFile || post.markdownFile.includes("/") || post.markdownFile.includes("..")) {
       throw new Error(`Invalid metadata for blog ${post.slug}`);
     }
+    const driveId = post.featuredImageDriveId?.trim();
+    if (driveId && !isBlogImageFileId(driveId)) {
+      throw new Error(`Invalid featuredImageDriveId for blog ${post.slug}`);
+    }
   }
 }
 
@@ -195,7 +201,7 @@ export function runStaticBlogRender() {
 
     const published = post.publishedAt ? new Date(post.publishedAt).toISOString() : undefined;
     const modified = post.updatedAt ? new Date(post.updatedAt).toISOString() : published;
-    const ogImage = post.featuredImage ? new URL(post.featuredImage, origin).toString() : null;
+    const ogImage = resolveBlogFeaturedImageUrl(post, origin);
 
     const html = buildDocument(
       {

@@ -4,20 +4,12 @@ import { PageShell } from "@/components/site/PageShell";
 import { renderMarkdown } from "@/lib/renderMarkdown";
 import { resolveCategoryLabel } from "./catalog";
 import { stripDuplicateMarkdownTitle } from "./markdown";
+import { resolveBlogFeaturedImageUrl } from "./images";
 import type { StaticBlogManifestPost } from "./types";
 
 function formatDate(iso: string | null | undefined) {
   if (!iso) return "";
   return new Date(iso).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
-}
-
-function resolveFeaturedImage(origin: string, value: string | null | undefined): string | null {
-  if (!value?.trim()) return null;
-  try {
-    return new URL(value, origin).toString();
-  } catch {
-    return null;
-  }
 }
 
 export function StaticBlogArticlePage({
@@ -32,7 +24,7 @@ export function StaticBlogArticlePage({
   related: StaticBlogManifestPost[];
 }) {
   const body = stripDuplicateMarkdownTitle(markdown, post.title);
-  const featured = resolveFeaturedImage(new URL(shareUrl).origin, post.featuredImage);
+  const featured = resolveBlogFeaturedImageUrl(post, new URL(shareUrl).origin);
 
   return (
     <PageShell>

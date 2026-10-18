@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.15
+
+### Changed
+
+fix(blog): restore NovaSafe design for build-time static blog HTML
+
 ## v1.1.14
 
 ### Changed

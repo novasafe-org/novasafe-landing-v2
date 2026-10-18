@@ -10,7 +10,8 @@
     "predev": "node scripts/sync-feature-flags-catalog.mjs && node scripts/generate-runtime-config.mjs",
     "dev": "vite",
     "prebuild": "node scripts/generate-seo.mjs && node scripts/generate-journal-posts.mjs && node scripts/versioning/generate-build-metadata.mjs --out public && node scripts/generate-runtime-config.mjs",
-    "build": "vite build && node scripts/generate-static-blogs.mjs && node scripts/generate-static-blog-index.mjs",
+    "build": "vite build && node scripts/run-static-blog-ssr.mjs",
+    "static-blog:render": "node scripts/run-static-blog-ssr.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -20,8 +21,8 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@novasafe/feature-flags": "file:./vendor/feature-flags",
     "@hookform/resolvers": "^3.10.0",
+    "@novasafe/feature-flags": "file:./vendor/feature-flags",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
     "@radix-ui/react-aspect-ratio": "^1.1.7",

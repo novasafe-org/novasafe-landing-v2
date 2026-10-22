@@ -1,5 +1,19 @@
 [
   {
+    "slug": "the-cia-triad-in-real-world-systems",
+    "title": "The CIA Triad in Real-World Systems",
+    "markdownFile": "the-cia-triad-in-real-world-systems.md",
+    "description": "The CIA triad is a simple way to organize three core cybersecurity goals: keeping information private, keeping it accurate, and keeping systems usable. Those goals sound straightforward, but real-w…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-22T06:56:40.437Z",
+    "updatedAt": "2026-10-22T06:56:40.437Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cybersecurity-vs-information-security",
     "title": "Cybersecurity vs Information Security",
     "markdownFile": "cybersecurity-vs-information-security.md",

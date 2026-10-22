@@ -1,5 +1,19 @@
 [
   {
+    "slug": "security-by-default-vs-secure-by-design",
+    "title": "Security by Default vs Secure by Design",
+    "markdownFile": "security-by-default-vs-secure-by-design.md",
+    "description": "When evaluating software or planning a new system, it is easy to treat security settings and secure architecture as the same thing. They are related, but they answer different questions. Security b…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-22T23:31:26.582Z",
+    "updatedAt": "2026-10-22T23:31:26.582Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "security-by-design-principles",
     "title": "Security by Design Principles",
     "markdownFile": "security-by-design-principles.md",

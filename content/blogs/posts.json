@@ -1,5 +1,19 @@
 [
   {
+    "slug": "security-by-design-principles",
+    "title": "Security by Design Principles",
+    "markdownFile": "security-by-design-principles.md",
+    "description": "Security by design means considering security from the start of a system’s development and throughout its operation—not treating it as a final check before launch. Applying sound security design pr…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-22T19:31:26.461Z",
+    "updatedAt": "2026-10-22T19:31:26.461Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "defense-in-depth-architecture",
     "title": "Defense in Depth Architecture",
     "markdownFile": "defense-in-depth-architecture.md",

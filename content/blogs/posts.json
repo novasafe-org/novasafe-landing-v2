@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cybersecurity-vs-information-security",
+    "title": "Cybersecurity vs Information Security",
+    "markdownFile": "cybersecurity-vs-information-security.md",
+    "description": "Cybersecurity and information security are closely related, and people often use the terms interchangeably. Both aim to reduce the chance that important information will be exposed, changed, lost, …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-22T06:13:09.345Z",
+    "updatedAt": "2026-10-22T06:13:09.345Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "what-is-cybersecurity-and-how-does-it-work-2",
     "title": "What Is Cybersecurity and How Does It Work",
     "markdownFile": "what-is-cybersecurity-and-how-does-it-work-2.md",

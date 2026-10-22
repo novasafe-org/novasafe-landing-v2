@@ -1,5 +1,19 @@
 [
   {
+    "slug": "defense-in-depth-architecture",
+    "title": "Defense in Depth Architecture",
+    "markdownFile": "defense-in-depth-architecture.md",
+    "description": "A single security control can fail, be bypassed, or be configured incorrectly. Defense in depth reduces the impact of that failure by using multiple safeguards across a system, from user accounts a…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-22T13:01:25.681Z",
+    "updatedAt": "2026-10-22T13:01:25.681Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "attack-surface-mapping-for-small-organizations",
     "title": "Attack Surface Mapping for Small Organizations",
     "markdownFile": "attack-surface-mapping-for-small-organizations.md",

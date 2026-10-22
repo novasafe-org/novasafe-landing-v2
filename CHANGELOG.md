@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.20
+
+### Changed
+
+Sync CMS blog posts to static site (n8n → GitHub → deploy)
+
 ## v1.1.19
 
 ### Changed

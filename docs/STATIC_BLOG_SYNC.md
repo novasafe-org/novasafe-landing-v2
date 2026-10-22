@@ -33,7 +33,7 @@ What happens:
 
 1. GitHub Actions runs `scripts/sync-static-blogs-from-api.mjs`.
 2. If `content/blogs` changed, it commits to `main`.
-3. The same workflow runs **Deploy AWS** (S3 + CloudFront) when there were changes — so you do not rely on a second workflow trigger after the bot push.
+3. When content changed, the workflow starts **Deploy AWS** on `main` (so the build uses the new commit, not the pre-sync SHA).
 
 Typical delay: a few minutes for sync + build + deploy.
 

@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   sync:
@@ -54,21 +55,10 @@ jobs:
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-  deploy:
-    name: Deploy to AWS (production)
-    needs: sync
-    if: needs.sync.outputs.changed == 'true'
-    permissions:
-      id-token: write
-      contents: read
-    uses: novasafe-org/novasafe-deployment/.github/workflows/deploy-frontend-aws.yml@master
-    with:
-      application-name: novasafe-landing-v2
-      build-directory: dist
-      node-version: "22"
-      package-manager: pnpm
-      preinstall-script: scripts/sync-feature-flags-catalog.mjs
-      github-environment: production
-      generate-runtime-config: true
-      s3-bucket: novasafe-prod-bucket-landing-793239449172
-      cloudfront-distribution-id: E3T09WYDY825ZE
+      # Reusable deploy checked out the workflow's original SHA (before this commit).
+      # Start Deploy AWS on main so the build includes the synced content/blogs commit.
+      - name: Trigger Deploy AWS on main
+        if: steps.push.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy-aws.yml --repo "${{ github.repository }}" --ref main

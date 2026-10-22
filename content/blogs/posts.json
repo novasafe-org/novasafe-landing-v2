@@ -1,5 +1,19 @@
 [
   {
+    "slug": "threat-vs-vulnerability-vs-risk",
+    "title": "Threat vs Vulnerability vs Risk",
+    "markdownFile": "threat-vs-vulnerability-vs-risk.md",
+    "description": "A threat, a vulnerability, and a risk are related, but they are not interchangeable. Confusing them can lead a team to fixate on a list of weaknesses, overlook realistic attack scenarios, or spend …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-22T07:56:39.467Z",
+    "updatedAt": "2026-10-22T07:56:39.467Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "the-cia-triad-in-real-world-systems",
     "title": "The CIA Triad in Real-World Systems",
     "markdownFile": "the-cia-triad-in-real-world-systems.md",

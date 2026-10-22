@@ -13,5 +13,13 @@
     "slug": "engineering-research",
     "label": "Engineering & Research",
     "description": "How we build NovaSafe and what we are learning along the way."
+  },
+  {
+    "slug": "cybersecurity-fundamentals",
+    "label": "Cybersecurity Fundamentals"
+  },
+  {
+    "slug": "security",
+    "label": "Security"
   }
 ]

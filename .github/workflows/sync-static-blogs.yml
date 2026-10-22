@@ -1,0 +1,74 @@
+# Sync published CMS posts into content/blogs and push to main (triggers Deploy AWS).
+#
+# n8n (after "Post a Blog"):
+#   POST https://api.github.com/repos/novasafe-org/novasafe-landing-v2/dispatches
+#   Authorization: Bearer <PAT with repo + contents:write>
+#   Body: { "event_type": "sync-static-blog", "client_payload": { "slug": "<optional>" } }
+
+name: Sync static blogs
+
+on:
+  repository_dispatch:
+    types: [sync-static-blog]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: Optional note (e.g. n8n post slug)
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.push.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Sync content from blog API
+        run: node scripts/sync-static-blogs-from-api.mjs
+        env:
+          VITE_API_URL: https://mobile-api.novasafe.io
+
+      - name: Commit and push if changed
+        id: push
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- content/blogs; then
+            echo "No content changes — skip commit"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          SLUG="${{ github.event.client_payload.slug || github.event.inputs.reason || '' }}"
+          MSG="chore(blog): sync published posts from CMS"
+          if [ -n "$SLUG" ]; then MSG="$MSG ($SLUG)"; fi
+          git add content/blogs
+          git commit -m "$MSG"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    name: Deploy to AWS (production)
+    needs: sync
+    if: needs.sync.outputs.changed == 'true'
+    permissions:
+      id-token: write
+      contents: read
+    uses: novasafe-org/novasafe-deployment/.github/workflows/deploy-frontend-aws.yml@master
+    with:
+      application-name: novasafe-landing-v2
+      build-directory: dist
+      node-version: "22"
+      package-manager: pnpm
+      preinstall-script: scripts/sync-feature-flags-catalog.mjs
+      github-environment: production
+      generate-runtime-config: true
+      s3-bucket: novasafe-prod-bucket-landing-793239449172
+      cloudfront-distribution-id: E3T09WYDY825ZE

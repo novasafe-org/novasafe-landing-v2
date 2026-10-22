@@ -24,6 +24,7 @@ on:
       - 'package.json'
       - 'pnpm-lock.yaml'
       - 'scripts/**'
+      - 'content/blogs/**'
       - '.github/workflows/deploy-aws.yml'
 
 jobs:

@@ -1,26 +1,52 @@
 [
   {
+    "slug": "what-is-cybersecurity-and-how-does-it-work-2",
+    "title": "What Is Cybersecurity and How Does It Work",
+    "markdownFile": "what-is-cybersecurity-and-how-does-it-work-2.md",
+    "description": "Cybersecurity is the practice of protecting computers, accounts, networks, applications, and data from unauthorized access, disruption, theft, or damage. It combines technology with policies and hu…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-21T20:53:15.310Z",
+    "updatedAt": "2026-10-21T20:53:15.310Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "what-is-zero-knowledge-encryption",
     "title": "What Is Zero-Knowledge Encryption?",
     "markdownFile": "what-is-zero-knowledge-encryption.md",
-    "description": "Learn what zero-knowledge encryption means, how it protects your password vault, and why it matters for digital privacy.",
-    "featuredImage": null,
-    "tags": ["encryption", "privacy", "zero-knowledge"],
-    "categorySlug": "privacy-encryption",
-    "author": "NovaSafe Team",
-    "status": "published",
-    "featured": true
+    "description": "Learn what zero-knowledge encryption really means, how it protects your passwords, passkeys and sensitive data, and why NovaSafe is built so that only you—not even us—can access your vault.",
+    "featuredImage": "http://admin-api.novasafe.io/api/v1/media/22365873ffa6f1ae8a023563",
+    "tags": [
+      "encryption",
+      "privacy",
+      "zero-knowledge"
+    ],
+    "categorySlug": "security",
+    "author": "Pavankumar Tidke",
+    "publishedAt": "2026-06-30T20:02:59.422Z",
+    "updatedAt": "2026-06-30T20:02:59.500Z",
+    "featured": true,
+    "status": "published"
   },
   {
     "slug": "why-most-password-managers-still-require-trust",
     "title": "Why Most Password Managers Still Require Trust — And How NovaSafe Is Different",
     "markdownFile": "why-most-password-managers-still-require-trust.md",
-    "description": "Explore the trust assumptions behind password managers and how NovaSafe approaches privacy, encryption, and modern authentication.",
-    "featuredImage": null,
-    "tags": ["password-managers", "trust", "security"],
-    "categorySlug": "password-security",
-    "author": "NovaSafe Team",
-    "status": "published",
-    "featured": true
+    "description": "Most password managers promise security, but they still require users to trust the provider. Learn how NovaSafe approaches password management with privacy, encryption, and zero-knowledge principles at its core.",
+    "featuredImage": "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
+    "tags": [
+      "password-managers",
+      "trust",
+      "security"
+    ],
+    "categorySlug": "security",
+    "author": "Pavankumar Tidke",
+    "publishedAt": "2026-06-23T08:48:24.869Z",
+    "updatedAt": "2026-06-23T08:48:25.014Z",
+    "featured": true,
+    "status": "published"
   }
 ]

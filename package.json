@@ -17,6 +17,7 @@
     "preview": "vite preview",
     "seo:generate": "node scripts/generate-seo.mjs",
     "journal:generate": "node scripts/generate-journal-posts.mjs",
+    "static-blog:sync": "node scripts/sync-static-blogs-from-api.mjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },

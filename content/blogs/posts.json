@@ -1,5 +1,19 @@
 [
   {
+    "slug": "attack-surface-mapping-for-small-organizations",
+    "title": "Attack Surface Mapping for Small Organizations",
+    "markdownFile": "attack-surface-mapping-for-small-organizations.md",
+    "description": "A small organization can depend on dozens of connected services: a public website, email, cloud storage, payment tools, employee laptops, and accounts managed by outside providers. If the team does…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-22T12:23:34.333Z",
+    "updatedAt": "2026-10-22T12:23:34.333Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "threat-vs-vulnerability-vs-risk",
     "title": "Threat vs Vulnerability vs Risk",
     "markdownFile": "threat-vs-vulnerability-vs-risk.md",

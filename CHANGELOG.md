@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.21
+
+### Changed
+
+Fix blog sync deploy using stale git ref
+
 ## v1.1.20
 
 ### Changed

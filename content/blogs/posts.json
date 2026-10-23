@@ -1,5 +1,19 @@
 [
   {
+    "slug": "how-to-build-a-personal-cybersecurity-baseline",
+    "title": "How to Build a Personal Cybersecurity Baseline",
+    "markdownFile": "how-to-build-a-personal-cybersecurity-baseline.md",
+    "description": "A personal cybersecurity baseline is a practical set of security habits and settings you can rely on across your accounts, devices, and data. It is not a promise that you will never be hacked. It i…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-23T05:28:19.924Z",
+    "updatedAt": "2026-10-23T05:28:19.924Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cybersecurity-maturity-models-explained",
     "title": "Cybersecurity Maturity Models Explained",
     "markdownFile": "cybersecurity-maturity-models-explained.md",

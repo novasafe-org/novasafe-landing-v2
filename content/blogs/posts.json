@@ -1,5 +1,19 @@
 [
   {
+    "slug": "common-cybersecurity-misconceptions",
+    "title": "Common Cybersecurity Misconceptions",
+    "markdownFile": "common-cybersecurity-misconceptions.md",
+    "description": "Cybersecurity can seem complicated, but some of the most persistent risks come from simple misunderstandings. Believing that a strong password solves every problem, that only large companies are ta…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-23T07:31:26.005Z",
+    "updatedAt": "2026-10-23T07:31:26.005Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "how-to-build-a-personal-cybersecurity-baseline",
     "title": "How to Build a Personal Cybersecurity Baseline",
     "markdownFile": "how-to-build-a-personal-cybersecurity-baseline.md",

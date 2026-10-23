@@ -1,5 +1,19 @@
 [
   {
+    "slug": "understanding-security-boundaries-and-trust-zones",
+    "title": "Understanding Security Boundaries and Trust Zones",
+    "markdownFile": "understanding-security-boundaries-and-trust-zones.md",
+    "description": "Security boundaries and trust zones help organizations decide which systems can communicate, what they are allowed to do, and where to apply additional safeguards. These ideas are useful whether yo…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-23T11:31:30.588Z",
+    "updatedAt": "2026-10-23T11:31:30.588Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cybersecurity-controls-preventive-detective-and-corrective",
     "title": "Cybersecurity Controls: Preventive, Detective, and Corrective",
     "markdownFile": "cybersecurity-controls-preventive-detective-and-corrective.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "how-to-create-a-cybersecurity-glossary-for-teams",
+    "title": "How to Create a Cybersecurity Glossary for Teams",
+    "markdownFile": "how-to-create-a-cybersecurity-glossary-for-teams.md",
+    "description": "Cybersecurity conversations often move quickly, but people do not always use the same words to mean the same thing. One team may call an event a security incident; another may use the word for any …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-23T15:44:09.463Z",
+    "updatedAt": "2026-10-23T15:44:09.463Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "understanding-security-boundaries-and-trust-zones",
     "title": "Understanding Security Boundaries and Trust Zones",
     "markdownFile": "understanding-security-boundaries-and-trust-zones.md",

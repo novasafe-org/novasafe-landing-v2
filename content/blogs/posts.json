@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cybersecurity-controls-preventive-detective-and-corrective",
+    "title": "Cybersecurity Controls: Preventive, Detective, and Corrective",
+    "markdownFile": "cybersecurity-controls-preventive-detective-and-corrective.md",
+    "description": "Cybersecurity controls are the safeguards organizations use to reduce risk, spot problems, and limit damage. They can include technology, policies, processes, and physical measures. A strong securi…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-23T07:44:25.385Z",
+    "updatedAt": "2026-10-23T07:44:25.385Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "common-cybersecurity-misconceptions",
     "title": "Common Cybersecurity Misconceptions",
     "markdownFile": "common-cybersecurity-misconceptions.md",

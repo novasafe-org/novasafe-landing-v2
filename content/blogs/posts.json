@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cybersecurity-maturity-models-explained",
+    "title": "Cybersecurity Maturity Models Explained",
+    "markdownFile": "cybersecurity-maturity-models-explained.md",
+    "description": "A company can have security policies, tools, and training in place and still struggle to manage cyber risk consistently. Perhaps backups are tested only after an incident, access reviews happen irr…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-23T03:31:38.080Z",
+    "updatedAt": "2026-10-23T03:31:38.080Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "security-by-default-vs-secure-by-design",
     "title": "Security by Default vs Secure by Design",
     "markdownFile": "security-by-default-vs-secure-by-design.md",

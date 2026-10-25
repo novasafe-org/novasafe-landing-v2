@@ -1,5 +1,19 @@
 [
   {
+    "slug": "how-to-prioritize-security-work-with-limited-resources",
+    "title": "How to Prioritize Security Work With Limited Resources",
+    "markdownFile": "how-to-prioritize-security-work-with-limited-resources.md",
+    "description": "Security teams rarely have enough time, people, or budget to address every concern at once. A list of vulnerabilities, requested controls, and overdue maintenance can quickly become overwhelming. T…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-25T23:31:25.141Z",
+    "updatedAt": "2026-10-25T23:31:25.141Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cybersecurity-for-nontechnical-teams",
     "title": "Cybersecurity for Nontechnical Teams",
     "markdownFile": "cybersecurity-for-nontechnical-teams.md",

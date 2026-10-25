@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cybersecurity-for-nontechnical-teams",
+    "title": "Cybersecurity for Nontechnical Teams",
+    "markdownFile": "cybersecurity-for-nontechnical-teams.md",
+    "description": "Cybersecurity is not only an IT responsibility. Everyday choices—such as how you handle an unexpected email, share a document, or sign in to a work account—can affect the security of an entire orga…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-25T19:31:14.684Z",
+    "updatedAt": "2026-10-25T19:31:14.684Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "the-difference-between-safety-and-security-engineering",
     "title": "The Difference Between Safety and Security Engineering",
     "markdownFile": "the-difference-between-safety-and-security-engineering.md",

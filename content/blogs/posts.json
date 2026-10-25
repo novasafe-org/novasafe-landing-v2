@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cybersecurity-metrics-that-actually-matter",
+    "title": "Cybersecurity Metrics That Actually Matter",
+    "markdownFile": "cybersecurity-metrics-that-actually-matter.md",
+    "description": "Cybersecurity teams can collect plenty of numbers: alerts generated, patches installed, training completed, and incidents handled. But a large dashboard does not automatically show whether an organ…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-25T11:31:22.651Z",
+    "updatedAt": "2026-10-25T11:31:22.651Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "how-to-create-a-cybersecurity-glossary-for-teams",
     "title": "How to Create a Cybersecurity Glossary for Teams",
     "markdownFile": "how-to-create-a-cybersecurity-glossary-for-teams.md",

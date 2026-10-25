@@ -1,5 +1,19 @@
 [
   {
+    "slug": "the-difference-between-safety-and-security-engineering",
+    "title": "The Difference Between Safety and Security Engineering",
+    "markdownFile": "the-difference-between-safety-and-security-engineering.md",
+    "description": "Safety and security engineering both help protect people and systems, but they address different kinds of risk. Safety engineering focuses on preventing harm from accidents, failures, and unsafe co…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-25T15:31:17.187Z",
+    "updatedAt": "2026-10-25T15:31:17.187Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cybersecurity-metrics-that-actually-matter",
     "title": "Cybersecurity Metrics That Actually Matter",
     "markdownFile": "cybersecurity-metrics-that-actually-matter.md",

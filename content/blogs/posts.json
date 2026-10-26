@@ -1,5 +1,19 @@
 [
   {
+    "slug": "how-security-assumptions-fail-in-production",
+    "title": "How Security Assumptions Fail in Production",
+    "markdownFile": "how-security-assumptions-fail-in-production.md",
+    "description": "A security design can look sound in a diagram and still fail when real users, services, and failures enter the picture. A system might assume that only trusted employees can reach an internal netwo…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-26T15:31:27.971Z",
+    "updatedAt": "2026-10-26T15:31:27.971Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cybersecurity-risk-appetite-and-tolerance",
     "title": "Cybersecurity Risk Appetite and Tolerance",
     "markdownFile": "cybersecurity-risk-appetite-and-tolerance.md",

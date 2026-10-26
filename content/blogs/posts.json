@@ -1,5 +1,19 @@
 [
   {
+    "slug": "how-to-conduct-a-basic-security-review",
+    "title": "How to Conduct a Basic Security Review",
+    "markdownFile": "how-to-conduct-a-basic-security-review.md",
+    "description": "A security review does not have to begin with expensive tools or advanced expertise. A careful check of what you own, who can access it, how it is configured, and how it is maintained can reveal im…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-26T23:31:26.709Z",
+    "updatedAt": "2026-10-26T23:31:26.709Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "security-requirements-for-new-projects",
     "title": "Security Requirements for New Projects",
     "markdownFile": "security-requirements-for-new-projects.md",

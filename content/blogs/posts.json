@@ -1,5 +1,19 @@
 [
   {
+    "slug": "how-to-evaluate-cybersecurity-advice-online",
+    "title": "How to Evaluate Cybersecurity Advice Online",
+    "markdownFile": "how-to-evaluate-cybersecurity-advice-online.md",
+    "description": "Cybersecurity advice is easy to find online—and not all of it is safe, current, or appropriate for your situation. A recommendation that helps one person may disrupt another person’s device, expose…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-26T07:31:18.689Z",
+    "updatedAt": "2026-10-26T07:31:18.689Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "security-champions-programs-for-engineering-teams",
     "title": "Security Champions Programs for Engineering Teams",
     "markdownFile": "security-champions-programs-for-engineering-teams.md",

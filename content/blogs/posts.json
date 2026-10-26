@@ -1,5 +1,19 @@
 [
   {
+    "slug": "security-champions-programs-for-engineering-teams",
+    "title": "Security Champions Programs for Engineering Teams",
+    "markdownFile": "security-champions-programs-for-engineering-teams.md",
+    "description": "A security champions program gives engineering teams a practical way to bring security knowledge closer to everyday development. Instead of relying on a central security group to review every desig…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-26T03:31:06.487Z",
+    "updatedAt": "2026-10-26T03:31:06.487Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "how-to-prioritize-security-work-with-limited-resources",
     "title": "How to Prioritize Security Work With Limited Resources",
     "markdownFile": "how-to-prioritize-security-work-with-limited-resources.md",

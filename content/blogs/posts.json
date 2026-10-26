@@ -1,5 +1,19 @@
 [
   {
+    "slug": "security-requirements-for-new-projects",
+    "title": "Security Requirements for New Projects",
+    "markdownFile": "security-requirements-for-new-projects.md",
+    "description": "Security is easier to build into a project than to retrofit after launch. But it can be difficult to know where to start, especially when requirements are incomplete or a team has limited security …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-26T19:31:10.760Z",
+    "updatedAt": "2026-10-26T19:31:10.760Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "how-security-assumptions-fail-in-production",
     "title": "How Security Assumptions Fail in Production",
     "markdownFile": "how-security-assumptions-fail-in-production.md",

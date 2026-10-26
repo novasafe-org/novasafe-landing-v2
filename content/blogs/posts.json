@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cybersecurity-risk-appetite-and-tolerance",
+    "title": "Cybersecurity Risk Appetite and Tolerance",
+    "markdownFile": "cybersecurity-risk-appetite-and-tolerance.md",
+    "description": "Security teams make choices about uncertainty every day. A company might accept some downtime to keep a service available during maintenance, but reject the possibility of exposing sensitive custom…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-26T11:31:09.851Z",
+    "updatedAt": "2026-10-26T11:31:09.851Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "how-to-evaluate-cybersecurity-advice-online",
     "title": "How to Evaluate Cybersecurity Advice Online",
     "markdownFile": "how-to-evaluate-cybersecurity-advice-online.md",

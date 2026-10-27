@@ -1,5 +1,19 @@
 [
   {
+    "slug": "how-to-document-security-decisions",
+    "title": "How to Document Security Decisions",
+    "markdownFile": "how-to-document-security-decisions.md",
+    "description": "Security decisions shape how an organization protects its systems, data, and people. Teams make them when choosing how to handle a vulnerability, selecting an authentication method, setting access …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-27T23:31:20.078Z",
+    "updatedAt": "2026-10-27T23:31:20.078Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "common-sources-of-security-debt",
     "title": "Common Sources of Security Debt",
     "markdownFile": "common-sources-of-security-debt.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "common-sources-of-security-debt",
+    "title": "Common Sources of Security Debt",
+    "markdownFile": "common-sources-of-security-debt.md",
+    "description": "Security debt builds up when a team postpones security improvements, accepts a risky shortcut, or relies on controls that no longer fit the way a system is used. Like technical debt, it can make fu…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-27T19:31:06.530Z",
+    "updatedAt": "2026-10-27T19:31:06.530Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "how-to-build-a-security-culture-without-fear",
     "title": "How to Build a Security Culture Without Fear",
     "markdownFile": "how-to-build-a-security-culture-without-fear.md",

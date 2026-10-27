@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cybersecurity-responsibilities-in-shared-environments",
+    "title": "Cybersecurity Responsibilities in Shared Environments",
+    "markdownFile": "cybersecurity-responsibilities-in-shared-environments.md",
+    "description": "A shared environment can involve a cloud provider, a software vendor, a managed service provider, your organization, and sometimes several internal teams. Each party may operate part of the technol…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-27T11:31:24.636Z",
+    "updatedAt": "2026-10-27T11:31:24.636Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "security-architecture-principles-for-startups",
     "title": "Security Architecture Principles for Startups",
     "markdownFile": "security-architecture-principles-for-startups.md",

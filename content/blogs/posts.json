@@ -1,5 +1,19 @@
 [
   {
+    "slug": "security-architecture-principles-for-startups",
+    "title": "Security Architecture Principles for Startups",
+    "markdownFile": "security-architecture-principles-for-startups.md",
+    "description": "Security architecture is the way a product’s components, data flows, identities, and safeguards fit together. For a startup, it does not have to mean a large collection of diagrams or expensive too…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-27T07:31:17.065Z",
+    "updatedAt": "2026-10-27T07:31:17.065Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cybersecurity-lessons-from-everyday-technology",
     "title": "Cybersecurity Lessons From Everyday Technology",
     "markdownFile": "cybersecurity-lessons-from-everyday-technology.md",

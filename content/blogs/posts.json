@@ -1,5 +1,19 @@
 [
   {
+    "slug": "how-to-build-a-security-culture-without-fear",
+    "title": "How to Build a Security Culture Without Fear",
+    "markdownFile": "how-to-build-a-security-culture-without-fear.md",
+    "description": "A security culture is shaped by what people do when they encounter a risk—not just by the policies they read. If employees expect blame or embarrassment after reporting a mistake, they may stay qui…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-27T15:31:14.436Z",
+    "updatedAt": "2026-10-27T15:31:14.436Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cybersecurity-responsibilities-in-shared-environments",
     "title": "Cybersecurity Responsibilities in Shared Environments",
     "markdownFile": "cybersecurity-responsibilities-in-shared-environments.md",

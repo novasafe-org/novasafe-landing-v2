@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cybersecurity-lessons-from-everyday-technology",
+    "title": "Cybersecurity Lessons From Everyday Technology",
+    "markdownFile": "cybersecurity-lessons-from-everyday-technology.md",
+    "description": "Cybersecurity can seem like a concern reserved for specialists, but many security problems begin with ordinary tools: a shared tablet, a calendar invitation, a QR code, or a smart device connected …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "cybersecurity-fundamentals",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-27T03:31:18.484Z",
+    "updatedAt": "2026-10-27T03:31:18.484Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "how-to-conduct-a-basic-security-review",
     "title": "How to Conduct a Basic Security Review",
     "markdownFile": "how-to-conduct-a-basic-security-review.md",

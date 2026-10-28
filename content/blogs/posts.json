@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-sudoers-configuration-best-practices",
+    "title": "Linux sudoers Configuration Best Practices",
+    "markdownFile": "linux-sudoers-configuration-best-practices.md",
+    "description": "A carefully managed sudoers policy lets people and services perform specific administrative tasks without giving them unrestricted root access. A poorly designed policy can do the opposite: broad r…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-28T23:31:23.538Z",
+    "updatedAt": "2026-10-28T23:31:23.538Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-capabilities-vs-root-privileges",
     "title": "Linux Capabilities vs Root Privileges",
     "markdownFile": "linux-capabilities-vs-root-privileges.md",

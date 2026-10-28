@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-file-permissions-explained-with-practical-examples",
+    "title": "Linux File Permissions Explained With Practical Examples",
+    "markdownFile": "linux-file-permissions-explained-with-practical-examples.md",
+    "description": "Linux file permissions determine which users and groups can read, modify, or execute a file—and which can access a directory. Understanding them helps you troubleshoot access errors and reduce the …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-28T03:31:19.587Z",
+    "updatedAt": "2026-10-28T03:31:19.587Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "how-to-document-security-decisions",
     "title": "How to Document Security Decisions",
     "markdownFile": "how-to-document-security-decisions.md",

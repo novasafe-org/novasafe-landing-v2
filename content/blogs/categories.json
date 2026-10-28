@@ -21,5 +21,9 @@
   {
     "slug": "security",
     "label": "Security"
+  },
+  {
+    "slug": "linux-security",
+    "label": "Linux Security"
   }
 ]

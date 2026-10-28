@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-umask-and-secure-default-permissions",
+    "title": "Linux umask and Secure Default Permissions",
+    "markdownFile": "linux-umask-and-secure-default-permissions.md",
+    "description": "A newly created file or directory does not automatically receive one universal set of permissions. The creating application requests an initial mode, and Linux applies the process’s umask to remove…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-28T15:31:25.029Z",
+    "updatedAt": "2026-10-28T15:31:25.029Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "understanding-linux-acls",
     "title": "Understanding Linux ACLs",
     "markdownFile": "understanding-linux-acls.md",

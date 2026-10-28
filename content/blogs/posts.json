@@ -1,5 +1,19 @@
 [
   {
+    "slug": "understanding-linux-acls",
+    "title": "Understanding Linux ACLs",
+    "markdownFile": "understanding-linux-acls.md",
+    "description": "Linux access control lists ACLs let administrators grant file and directory permissions to specific users or groups without changing ownership or relying only on the traditional owner-group-other p…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-28T11:31:20.002Z",
+    "updatedAt": "2026-10-28T11:31:20.002Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-ownership-and-group-permissions",
     "title": "Linux Ownership and Group Permissions",
     "markdownFile": "linux-ownership-and-group-permissions.md",

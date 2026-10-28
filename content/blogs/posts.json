@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-capabilities-vs-root-privileges",
+    "title": "Linux Capabilities vs Root Privileges",
+    "markdownFile": "linux-capabilities-vs-root-privileges.md",
+    "description": "Linux services often need one privileged operation: bind to a low-numbered port, change a file owner, or inspect network settings. Granting a process full root privileges just to perform that opera…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-28T19:31:38.262Z",
+    "updatedAt": "2026-10-28T19:31:38.262Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-umask-and-secure-default-permissions",
     "title": "Linux umask and Secure Default Permissions",
     "markdownFile": "linux-umask-and-secure-default-permissions.md",

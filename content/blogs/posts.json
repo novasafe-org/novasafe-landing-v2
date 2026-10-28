@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-ownership-and-group-permissions",
+    "title": "Linux Ownership and Group Permissions",
+    "markdownFile": "linux-ownership-and-group-permissions.md",
+    "description": "Linux ownership and group permissions determine who can read, change, or execute files and directories. They are a core part of Linux security, but a permission string rarely tells the whole story:…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-28T07:31:26.679Z",
+    "updatedAt": "2026-10-28T07:31:26.679Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-file-permissions-explained-with-practical-examples",
     "title": "Linux File Permissions Explained With Practical Examples",
     "markdownFile": "linux-file-permissions-explained-with-practical-examples.md",

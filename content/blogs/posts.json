@@ -1,5 +1,19 @@
 [
   {
+    "slug": "how-linux-pam-authentication-works",
+    "title": "How Linux PAM Authentication Works",
+    "markdownFile": "how-linux-pam-authentication-works.md",
+    "description": "A Linux login is rarely a single password check. An application may need to verify credentials, decide whether an account is allowed to log in, update a password, and prepare the user’s session. Li…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-29T03:31:09.948Z",
+    "updatedAt": "2026-10-29T03:31:09.948Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-sudoers-configuration-best-practices",
     "title": "Linux sudoers Configuration Best Practices",
     "markdownFile": "linux-sudoers-configuration-best-practices.md",

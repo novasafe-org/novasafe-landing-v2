@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-audit-framework-with-auditd",
+    "title": "Linux Audit Framework With auditd",
+    "markdownFile": "linux-audit-framework-with-auditd.md",
+    "description": "The Linux Audit framework records security-relevant activity reported by the kernel, such as system calls, file access, and changes to user or privilege configuration. It can help administrators in…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-29T07:31:23.049Z",
+    "updatedAt": "2026-10-29T07:31:23.049Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "how-linux-pam-authentication-works",
     "title": "How Linux PAM Authentication Works",
     "markdownFile": "how-linux-pam-authentication-works.md",

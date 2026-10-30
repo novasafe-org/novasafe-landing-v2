@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-namespaces-and-security-isolation",
+    "title": "Linux Namespaces and Security Isolation",
+    "markdownFile": "linux-namespaces-and-security-isolation.md",
+    "description": "Linux namespaces provide building blocks for separating processes and the system resources they can see. They are central to containers, but a namespace is not a complete security boundary by itsel…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-30T11:31:34.254Z",
+    "updatedAt": "2026-10-30T11:31:34.254Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "selinux-modes-and-policy-troubleshooting",
     "title": "SELinux Modes and Policy Troubleshooting",
     "markdownFile": "selinux-modes-and-policy-troubleshooting.md",

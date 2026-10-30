@@ -1,5 +1,19 @@
 [
   {
+    "slug": "selinux-modes-and-policy-troubleshooting",
+    "title": "SELinux Modes and Policy Troubleshooting",
+    "markdownFile": "selinux-modes-and-policy-troubleshooting.md",
+    "description": "SELinux can block an application even when traditional Unix permissions appear correct. When that happens, switching SELinux off may seem like a quick fix—but it removes an important layer of Linux…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-30T07:31:45.184Z",
+    "updatedAt": "2026-10-30T07:31:45.184Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-apparmor-profiles-explained",
     "title": "Linux AppArmor Profiles Explained",
     "markdownFile": "linux-apparmor-profiles-explained.md",

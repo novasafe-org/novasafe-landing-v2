@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-seccomp-filters-explained",
+    "title": "Linux seccomp Filters Explained",
+    "markdownFile": "linux-seccomp-filters-explained.md",
+    "description": "A Linux process can interact with the kernel through system calls, or syscalls. A service that only needs to read files and write logs may not need the same syscall access as a general-purpose shel…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-30T19:31:25.098Z",
+    "updatedAt": "2026-10-30T19:31:25.098Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-cgroups-and-resource-abuse-prevention",
     "title": "Linux cgroups and Resource Abuse Prevention",
     "markdownFile": "linux-cgroups-and-resource-abuse-prevention.md",

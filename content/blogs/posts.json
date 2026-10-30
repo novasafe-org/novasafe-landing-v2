@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-cgroups-and-resource-abuse-prevention",
+    "title": "Linux cgroups and Resource Abuse Prevention",
+    "markdownFile": "linux-cgroups-and-resource-abuse-prevention.md",
+    "description": "A single process can consume far more CPU, memory, or process slots than a host can spare. A runaway workload, compromised service, or fork bomb can degrade other applications or make a system unre…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-30T15:31:22.174Z",
+    "updatedAt": "2026-10-30T15:31:22.174Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-namespaces-and-security-isolation",
     "title": "Linux Namespaces and Security Isolation",
     "markdownFile": "linux-namespaces-and-security-isolation.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-kernel-hardening-fundamentals",
+    "title": "Linux Kernel Hardening Fundamentals",
+    "markdownFile": "linux-kernel-hardening-fundamentals.md",
+    "description": "A hardened Linux kernel can reduce exposure to vulnerabilities and make exploitation more difficult, but there is no single setting that secures every host. The right configuration depends on the k…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-30T23:31:25.482Z",
+    "updatedAt": "2026-10-30T23:31:25.482Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-seccomp-filters-explained",
     "title": "Linux seccomp Filters Explained",
     "markdownFile": "linux-seccomp-filters-explained.md",

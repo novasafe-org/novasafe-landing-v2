@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-apparmor-profiles-explained",
+    "title": "Linux AppArmor Profiles Explained",
+    "markdownFile": "linux-apparmor-profiles-explained.md",
+    "description": "A web server, desktop application, or background service can be compromised even when the operating system is patched. Linux AppArmor helps limit what a process can do after it starts: a profile ca…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-30T05:23:51.323Z",
+    "updatedAt": "2026-10-30T05:23:51.323Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-audit-framework-with-auditd",
     "title": "Linux Audit Framework With auditd",
     "markdownFile": "linux-audit-framework-with-auditd.md",

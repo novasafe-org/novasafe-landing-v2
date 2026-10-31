@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-secrets-in-environment-variables",
+    "title": "Linux Secrets in Environment Variables",
+    "markdownFile": "linux-secrets-in-environment-variables.md",
+    "description": "Environment variables are a common way to configure Linux applications. They are easy to pass to a process, supported by most programming languages, and widely used in deployment pipelines. That co…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-31T19:31:29.756Z",
+    "updatedAt": "2026-10-31T19:31:29.756Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-systemd-service-hardening",
     "title": "Linux systemd Service Hardening",
     "markdownFile": "linux-systemd-service-hardening.md",

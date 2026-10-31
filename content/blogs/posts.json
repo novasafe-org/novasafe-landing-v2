@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-proc-and-sys-security-considerations",
+    "title": "Linux /proc and /sys Security Considerations",
+    "markdownFile": "linux-proc-and-sys-security-considerations.md",
+    "description": "Linux exposes information and controls through virtual filesystems, especially /proc and /sys. These paths are essential to system administration, monitoring, and application behavior, but they can…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-31T23:31:19.179Z",
+    "updatedAt": "2026-10-31T23:31:19.179Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-secrets-in-environment-variables",
     "title": "Linux Secrets in Environment Variables",
     "markdownFile": "linux-secrets-in-environment-variables.md",

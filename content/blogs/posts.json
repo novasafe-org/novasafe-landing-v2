@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-systemd-service-hardening",
+    "title": "Linux systemd Service Hardening",
+    "markdownFile": "linux-systemd-service-hardening.md",
+    "description": "A Linux service does not need unrestricted access to the host just because it runs in the background. systemd can limit a service’s privileges, filesystem access, kernel interfaces, and network add…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-31T15:31:25.708Z",
+    "updatedAt": "2026-10-31T15:31:25.708Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-file-integrity-monitoring-with-aide",
     "title": "Linux File Integrity Monitoring With AIDE",
     "markdownFile": "linux-file-integrity-monitoring-with-aide.md",

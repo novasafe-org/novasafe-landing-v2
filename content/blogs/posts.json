@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-secure-boot-and-kernel-module-signing",
+    "title": "Linux Secure Boot and Kernel Module Signing",
+    "markdownFile": "linux-secure-boot-and-kernel-module-signing.md",
+    "description": "Linux Secure Boot and kernel module signing help defend a system against unauthorized changes to its boot path and kernel code. They are related controls, but they do different jobs: Secure Boot ch…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-31T03:31:26.498Z",
+    "updatedAt": "2026-10-31T03:31:26.498Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-kernel-hardening-fundamentals",
     "title": "Linux Kernel Hardening Fundamentals",
     "markdownFile": "linux-kernel-hardening-fundamentals.md",

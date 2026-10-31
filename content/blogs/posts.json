@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-file-integrity-monitoring-with-aide",
+    "title": "Linux File Integrity Monitoring With AIDE",
+    "markdownFile": "linux-file-integrity-monitoring-with-aide.md",
+    "description": "Unexpected changes to system files can signal anything from a routine package update to a compromised host. Linux file integrity monitoring with AIDE gives administrators a way to detect those chan…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-31T11:31:27.076Z",
+    "updatedAt": "2026-10-31T11:31:27.076Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-ssh-hardening-checklist",
     "title": "Linux SSH Hardening Checklist",
     "markdownFile": "linux-ssh-hardening-checklist.md",

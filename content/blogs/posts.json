@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-ssh-hardening-checklist",
+    "title": "Linux SSH Hardening Checklist",
+    "markdownFile": "linux-ssh-hardening-checklist.md",
+    "description": "SSH is a common way to administer Linux systems remotely, which also makes it an important security boundary. A weak password, an exposed account, or a configuration change that locks out administr…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-10-31T07:31:20.043Z",
+    "updatedAt": "2026-10-31T07:31:20.043Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-secure-boot-and-kernel-module-signing",
     "title": "Linux Secure Boot and Kernel Module Signing",
     "markdownFile": "linux-secure-boot-and-kernel-module-signing.md",

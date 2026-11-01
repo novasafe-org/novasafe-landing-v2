@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-cron-job-security-risks",
+    "title": "Linux Cron Job Security Risks",
+    "markdownFile": "linux-cron-job-security-risks.md",
+    "description": "Cron is a familiar way to run recurring tasks on Linux, from rotating files to syncing data and running maintenance scripts. It is also easy to overlook: jobs may run for years with broad privilege…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-01T07:31:31.092Z",
+    "updatedAt": "2026-11-01T07:31:31.092Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-log-analysis-for-incident-response",
     "title": "Linux Log Analysis for Incident Response",
     "markdownFile": "linux-log-analysis-for-incident-response.md",

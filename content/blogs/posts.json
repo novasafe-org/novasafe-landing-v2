@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-disk-encryption-with-luks",
+    "title": "Linux Disk Encryption With LUKS",
+    "markdownFile": "linux-disk-encryption-with-luks.md",
+    "description": "LUKS Linux Unified Key Setup is the standard disk-encryption format used by many Linux distributions. It protects data at rest by encrypting a block device, such as a partition or disk, and requiri…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-01T19:31:29.802Z",
+    "updatedAt": "2026-11-01T19:31:29.802Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-sticky-bit-and-shared-directory-security",
     "title": "Linux Sticky Bit and Shared Directory Security",
     "markdownFile": "linux-sticky-bit-and-shared-directory-security.md",

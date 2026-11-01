@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-swap-encryption-and-sensitive-data",
+    "title": "Linux Swap Encryption and Sensitive Data",
+    "markdownFile": "linux-swap-encryption-and-sensitive-data.md",
+    "description": "Linux swap gives the kernel extra room to move memory pages out of RAM. That can help a system operate under memory pressure, but it also means data from processes may be written to storage. Depend…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-01T23:31:24.426Z",
+    "updatedAt": "2026-11-01T23:31:24.426Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-disk-encryption-with-luks",
     "title": "Linux Disk Encryption With LUKS",
     "markdownFile": "linux-disk-encryption-with-luks.md",

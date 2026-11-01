@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-sticky-bit-and-shared-directory-security",
+    "title": "Linux Sticky Bit and Shared Directory Security",
+    "markdownFile": "linux-sticky-bit-and-shared-directory-security.md",
+    "description": "Shared directories make collaboration easier, but they also let users affect files created by others. On Linux, the sticky bit can limit who may delete or rename entries in a directory. It is usefu…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-01T15:31:21.661Z",
+    "updatedAt": "2026-11-01T15:31:21.661Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-suid-and-sgid-file-auditing",
     "title": "Linux SUID and SGID File Auditing",
     "markdownFile": "linux-suid-and-sgid-file-auditing.md",

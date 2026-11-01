@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-log-analysis-for-incident-response",
+    "title": "Linux Log Analysis for Incident Response",
+    "markdownFile": "linux-log-analysis-for-incident-response.md",
+    "description": "Linux systems record activity across several sources, and no single log tells the whole story. During an incident, investigators may need to correlate authentication events, service activity, proce…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-01T03:31:32.220Z",
+    "updatedAt": "2026-11-01T03:31:32.220Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-proc-and-sys-security-considerations",
     "title": "Linux /proc and /sys Security Considerations",
     "markdownFile": "linux-proc-and-sys-security-considerations.md",

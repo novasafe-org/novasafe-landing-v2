@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-repository-trust-and-gpg-keys",
+    "title": "Linux Repository Trust and GPG Keys",
+    "markdownFile": "linux-repository-trust-and-gpg-keys.md",
+    "description": "Linux package managers do more than download software: they check that package data comes from a repository the system is configured to trust and has not been altered in transit. GPG keys are part …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-02T23:31:16.694Z",
+    "updatedAt": "2026-11-02T23:31:16.694Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-package-signature-verification",
     "title": "Linux Package Signature Verification",
     "markdownFile": "linux-package-signature-verification.md",

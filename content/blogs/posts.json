@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-package-signature-verification",
+    "title": "Linux Package Signature Verification",
+    "markdownFile": "linux-package-signature-verification.md",
+    "description": "Installing a package is a trust decision: you are allowing software and its scripts to run with access to your system. Linux package managers use cryptographic signatures and checksums to help conf…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-02T19:31:12.854Z",
+    "updatedAt": "2026-11-02T19:31:12.854Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-server-baseline-auditing",
     "title": "Linux Server Baseline Auditing",
     "markdownFile": "linux-server-baseline-auditing.md",

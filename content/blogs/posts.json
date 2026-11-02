@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-rootkit-detection-limitations",
+    "title": "Linux Rootkit Detection Limitations",
+    "markdownFile": "linux-rootkit-detection-limitations.md",
+    "description": "Linux rootkit detection tools can help identify suspicious files, altered system binaries, unexpected kernel modules, and other signs of compromise. They cannot, however, prove that a system is cle…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-02T11:31:18.564Z",
+    "updatedAt": "2026-11-02T11:31:18.564Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-iptables-vs-nftables",
     "title": "Linux iptables vs nftables",
     "markdownFile": "linux-iptables-vs-nftables.md",

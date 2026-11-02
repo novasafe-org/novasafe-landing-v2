@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-server-baseline-auditing",
+    "title": "Linux Server Baseline Auditing",
+    "markdownFile": "linux-server-baseline-auditing.md",
+    "description": "A server baseline is a documented set of security expectations for a system: which services should run, how access is controlled, what gets logged, and how the host is maintained. Linux server base…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-02T15:31:12.853Z",
+    "updatedAt": "2026-11-02T15:31:12.853Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-rootkit-detection-limitations",
     "title": "Linux Rootkit Detection Limitations",
     "markdownFile": "linux-rootkit-detection-limitations.md",

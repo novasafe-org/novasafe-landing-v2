@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-firewall-rules-with-nftables",
+    "title": "Linux Firewall Rules With nftables",
+    "markdownFile": "linux-firewall-rules-with-nftables.md",
+    "description": "A Linux firewall is only as useful as the rules that control it. nftables is the modern framework for defining and managing packet-filtering rules on Linux. It can handle IPv4 and IPv6, and its syn…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-02T03:31:28.679Z",
+    "updatedAt": "2026-11-02T03:31:28.679Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-swap-encryption-and-sensitive-data",
     "title": "Linux Swap Encryption and Sensitive Data",
     "markdownFile": "linux-swap-encryption-and-sensitive-data.md",

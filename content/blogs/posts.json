@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-iptables-vs-nftables",
+    "title": "Linux iptables vs nftables",
+    "markdownFile": "linux-iptables-vs-nftables.md",
+    "description": "Choosing between iptables and nftables is not just a matter of command syntax. The choice affects how firewall rules are organized, updated, persisted, and managed alongside other Linux services. I…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-02T07:31:24.113Z",
+    "updatedAt": "2026-11-02T07:31:24.113Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-firewall-rules-with-nftables",
     "title": "Linux Firewall Rules With nftables",
     "markdownFile": "linux-firewall-rules-with-nftables.md",

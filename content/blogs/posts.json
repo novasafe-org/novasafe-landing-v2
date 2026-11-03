@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-memory-protection-features",
+    "title": "Linux Memory Protection Features",
+    "markdownFile": "linux-memory-protection-features.md",
+    "description": "Linux memory protections make it harder for bugs such as buffer overflows and use-after-free errors to become successful attacks. They do not eliminate vulnerabilities, and no single setting proves…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-03T11:31:24.036Z",
+    "updatedAt": "2026-11-03T11:31:24.036Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-kernel-exploit-mitigations",
     "title": "Linux Kernel Exploit Mitigations",
     "markdownFile": "linux-kernel-exploit-mitigations.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-container-isolation-boundaries",
+    "title": "Linux Container Isolation Boundaries",
+    "markdownFile": "linux-container-isolation-boundaries.md",
+    "description": "Linux containers are often described as isolated environments, but they are not separate virtual machines. A container is a group of processes that uses the host's Linux kernel while relying on ker…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-03T03:31:12.914Z",
+    "updatedAt": "2026-11-03T03:31:12.914Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-repository-trust-and-gpg-keys",
     "title": "Linux Repository Trust and GPG Keys",
     "markdownFile": "linux-repository-trust-and-gpg-keys.md",

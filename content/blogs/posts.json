@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-symlink-race-conditions-explained",
+    "title": "Linux Symlink Race Conditions Explained",
+    "markdownFile": "linux-symlink-race-conditions-explained.md",
+    "description": "A program checks that a path points to a safe file, then opens that path moments later. If an attacker can change the path in between, the program may open something else—potentially a sensitive fi…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-03T19:31:21.089Z",
+    "updatedAt": "2026-11-03T19:31:21.089Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-file-descriptor-security",
     "title": "Linux File Descriptor Security",
     "markdownFile": "linux-file-descriptor-security.md",

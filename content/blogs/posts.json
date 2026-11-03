@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-file-descriptor-security",
+    "title": "Linux File Descriptor Security",
+    "markdownFile": "linux-file-descriptor-security.md",
+    "description": "A Linux process uses file descriptors FDs to refer to open resources: regular files, directories, sockets, pipes, terminals, and other kernel objects. Because an open descriptor can grant a process…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-03T15:31:21.682Z",
+    "updatedAt": "2026-11-03T15:31:21.682Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-memory-protection-features",
     "title": "Linux Memory Protection Features",
     "markdownFile": "linux-memory-protection-features.md",

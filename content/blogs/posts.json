@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-kernel-exploit-mitigations",
+    "title": "Linux Kernel Exploit Mitigations",
+    "markdownFile": "linux-kernel-exploit-mitigations.md",
+    "description": "The Linux kernel sits between applications and hardware, making it a high-value target: a vulnerability that allows an attacker to execute code in kernel context can undermine protections that norm…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-03T07:31:23.366Z",
+    "updatedAt": "2026-11-03T07:31:23.366Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-container-isolation-boundaries",
     "title": "Linux Container Isolation Boundaries",
     "markdownFile": "linux-container-isolation-boundaries.md",

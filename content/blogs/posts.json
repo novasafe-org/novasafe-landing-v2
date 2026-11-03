@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-mount-options-for-hardening",
+    "title": "Linux Mount Options for Hardening",
+    "markdownFile": "linux-mount-options-for-hardening.md",
+    "description": "Mount options can add useful security boundaries to a Linux system by limiting what can happen on selected filesystems. Options such as nodev, nosuid, noexec, and ro are straightforward to configur…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-03T23:31:13.095Z",
+    "updatedAt": "2026-11-03T23:31:13.095Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-symlink-race-conditions-explained",
     "title": "Linux Symlink Race Conditions Explained",
     "markdownFile": "linux-symlink-race-conditions-explained.md",

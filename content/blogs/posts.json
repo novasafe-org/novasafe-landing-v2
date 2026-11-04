@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-privilege-escalation-prevention",
+    "title": "Linux Privilege Escalation Prevention",
+    "markdownFile": "linux-privilege-escalation-prevention.md",
+    "description": "A Linux system can be well protected at its network boundary and still be at risk if an untrusted user or compromised service can gain more privileges than it needs. A local account with an overly …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-04T07:31:18.580Z",
+    "updatedAt": "2026-11-04T07:31:18.580Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-ssh-agent-forwarding-risks",
     "title": "Linux SSH Agent Forwarding Risks",
     "markdownFile": "linux-ssh-agent-forwarding-risks.md",

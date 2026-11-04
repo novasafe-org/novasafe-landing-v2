@@ -1,5 +1,19 @@
 [
   {
+    "slug": "linux-ssh-agent-forwarding-risks",
+    "title": "Linux SSH Agent Forwarding Risks",
+    "markdownFile": "linux-ssh-agent-forwarding-risks.md",
+    "description": "SSH agent forwarding is convenient when you connect through a bastion host or need to reach another system from a remote shell. It avoids copying a private key onto the remote machine. But forwardi…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "linux-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-04T03:31:21.230Z",
+    "updatedAt": "2026-11-04T03:31:21.230Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-mount-options-for-hardening",
     "title": "Linux Mount Options for Hardening",
     "markdownFile": "linux-mount-options-for-hardening.md",

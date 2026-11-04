@@ -1,5 +1,19 @@
 [
   {
+    "slug": "dns-security-extensions-explained",
+    "title": "DNS Security Extensions Explained",
+    "markdownFile": "dns-security-extensions-explained.md",
+    "description": "The Domain Name System DNS helps applications find the IP addresses and other records associated with a domain. Traditional DNS, however, does not provide a built-in way for a resolver to verify th…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-04T19:31:22.465Z",
+    "updatedAt": "2026-11-04T19:31:22.465Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "udp-security-and-abuse-scenarios",
     "title": "UDP Security and Abuse Scenarios",
     "markdownFile": "udp-security-and-abuse-scenarios.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "udp-security-and-abuse-scenarios",
+    "title": "UDP Security and Abuse Scenarios",
+    "markdownFile": "udp-security-and-abuse-scenarios.md",
+    "description": "User Datagram Protocol UDP is a transport protocol used by services such as DNS, NTP, DHCP, and voice and video applications. Its low overhead can make it a good fit for latency-sensitive traffic, …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-04T15:31:15.526Z",
+    "updatedAt": "2026-11-04T15:31:15.526Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "tcp-three-way-handshake-security-implications",
     "title": "TCP Three-Way Handshake Security Implications",
     "markdownFile": "tcp-three-way-handshake-security-implications.md",

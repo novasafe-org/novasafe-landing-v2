@@ -1,5 +1,19 @@
 [
   {
+    "slug": "tcp-three-way-handshake-security-implications",
+    "title": "TCP Three-Way Handshake Security Implications",
+    "markdownFile": "tcp-three-way-handshake-security-implications.md",
+    "description": "The TCP three-way handshake is the setup exchange that lets two hosts establish a reliable TCP connection. It synchronizes sequence numbers and negotiates some connection parameters, but it does no…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-04T11:31:19.429Z",
+    "updatedAt": "2026-11-04T11:31:19.429Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "linux-privilege-escalation-prevention",
     "title": "Linux Privilege Escalation Prevention",
     "markdownFile": "linux-privilege-escalation-prevention.md",

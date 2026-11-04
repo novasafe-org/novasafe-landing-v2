@@ -25,5 +25,9 @@
   {
     "slug": "linux-security",
     "label": "Linux Security"
+  },
+  {
+    "slug": "networking-security",
+    "label": "Networking Security"
   }
 ]

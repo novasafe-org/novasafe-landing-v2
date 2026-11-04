@@ -1,5 +1,19 @@
 [
   {
+    "slug": "dns-over-https-vs-dns-over-tls",
+    "title": "DNS over HTTPS vs DNS over TLS",
+    "markdownFile": "dns-over-https-vs-dns-over-tls.md",
+    "description": "DNS lookups help devices find the IP addresses behind domain names, but traditional DNS is usually sent without encryption. That can expose queries to parties who can observe the network path betwe…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-04T23:31:21.021Z",
+    "updatedAt": "2026-11-04T23:31:21.021Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "dns-security-extensions-explained",
     "title": "DNS Security Extensions Explained",
     "markdownFile": "dns-security-extensions-explained.md",

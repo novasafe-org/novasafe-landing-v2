@@ -1,5 +1,19 @@
 [
   {
+    "slug": "ipv6-security-misconfigurations",
+    "title": "IPv6 Security Misconfigurations",
+    "markdownFile": "ipv6-security-misconfigurations.md",
+    "description": "IPv6 can be present on a network even when teams believe they are operating IPv4-only. Operating systems may assign IPv6 addresses automatically, applications may publish AAAA records, and routers …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-05T15:31:29.609Z",
+    "updatedAt": "2026-11-05T15:31:29.609Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "arp-spoofing-on-local-networks",
     "title": "ARP Spoofing on Local Networks",
     "markdownFile": "arp-spoofing-on-local-networks.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "dns-cache-poisoning-and-prevention",
+    "title": "DNS Cache Poisoning and Prevention",
+    "markdownFile": "dns-cache-poisoning-and-prevention.md",
+    "description": "DNS is the system that helps devices find services by translating domain names into records such as IP addresses. To answer queries quickly, recursive DNS resolvers temporarily store— or cache—thos…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-05T03:31:19.770Z",
+    "updatedAt": "2026-11-05T03:31:19.770Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "dns-over-https-vs-dns-over-tls",
     "title": "DNS over HTTPS vs DNS over TLS",
     "markdownFile": "dns-over-https-vs-dns-over-tls.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "dns-tunneling-detection-fundamentals",
+    "title": "DNS Tunneling Detection Fundamentals",
+    "markdownFile": "dns-tunneling-detection-fundamentals.md",
+    "description": "DNS is essential to nearly every network connection, which makes it an attractive channel for abuse. In DNS tunneling, data is encoded in DNS queries or responses and carried through infrastructure…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-05T07:31:13.853Z",
+    "updatedAt": "2026-11-05T07:31:13.853Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "dns-cache-poisoning-and-prevention",
     "title": "DNS Cache Poisoning and Prevention",
     "markdownFile": "dns-cache-poisoning-and-prevention.md",

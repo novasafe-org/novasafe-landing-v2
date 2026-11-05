@@ -1,5 +1,19 @@
 [
   {
+    "slug": "bgp-route-hijacking-and-route-security",
+    "title": "BGP Route Hijacking and Route Security",
+    "markdownFile": "bgp-route-hijacking-and-route-security.md",
+    "description": "The Border Gateway Protocol BGP lets networks around the world exchange information about which IP address prefixes they can reach. That system depends on networks announcing routes and other netwo…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-05T23:31:09.559Z",
+    "updatedAt": "2026-11-05T23:31:09.559Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "ipv6-neighbor-discovery-security",
     "title": "IPv6 Neighbor Discovery Security",
     "markdownFile": "ipv6-neighbor-discovery-security.md",

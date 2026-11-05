@@ -1,5 +1,19 @@
 [
   {
+    "slug": "ipv6-neighbor-discovery-security",
+    "title": "IPv6 Neighbor Discovery Security",
+    "markdownFile": "ipv6-neighbor-discovery-security.md",
+    "description": "IPv6 Neighbor Discovery ND helps devices find each other on a local network, discover routers, and determine how to reach destinations. Because it performs several jobs that IPv4 networks often han…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-05T19:31:26.112Z",
+    "updatedAt": "2026-11-05T19:31:26.112Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "ipv6-security-misconfigurations",
     "title": "IPv6 Security Misconfigurations",
     "markdownFile": "ipv6-security-misconfigurations.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "network-segmentation-vs-microsegmentation",
+    "title": "Network Segmentation vs Microsegmentation",
+    "markdownFile": "network-segmentation-vs-microsegmentation.md",
+    "description": "Network segmentation and microsegmentation both limit how systems communicate, but they apply boundaries at different levels. Traditional network segmentation commonly separates broad groups—such a…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-06T03:31:17.032Z",
+    "updatedAt": "2026-11-06T03:31:17.032Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "bgp-route-hijacking-and-route-security",
     "title": "BGP Route Hijacking and Route Security",
     "markdownFile": "bgp-route-hijacking-and-route-security.md",

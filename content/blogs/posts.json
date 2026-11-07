@@ -1,5 +1,19 @@
 [
   {
+    "slug": "network-access-control-explained",
+    "title": "Network Access Control Explained",
+    "markdownFile": "network-access-control-explained.md",
+    "description": "Network access control NAC determines which users and devices can connect to a network, and what they can reach after connecting. It can help organizations apply consistent access rules across wire…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-07T23:31:12.887Z",
+    "updatedAt": "2026-11-07T23:31:12.887Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "next-generation-firewall-policy-design",
     "title": "Next-Generation Firewall Policy Design",
     "markdownFile": "next-generation-firewall-policy-design.md",

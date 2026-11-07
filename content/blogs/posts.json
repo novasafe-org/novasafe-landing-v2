@@ -1,5 +1,19 @@
 [
   {
+    "slug": "private-vlans-for-sensitive-workloads",
+    "title": "Private VLANs for Sensitive Workloads",
+    "markdownFile": "private-vlans-for-sensitive-workloads.md",
+    "description": "Sensitive workloads should not be able to reach every system that happens to share their network. Private VLANs PVLANs can reduce direct Layer 2 communication between devices while allowing them to…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-07T07:31:15.989Z",
+    "updatedAt": "2026-11-07T07:31:15.989Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "vlan-hopping-risks-and-defenses",
     "title": "VLAN Hopping Risks and Defenses",
     "markdownFile": "vlan-hopping-risks-and-defenses.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "next-generation-firewall-policy-design",
+    "title": "Next-Generation Firewall Policy Design",
+    "markdownFile": "next-generation-firewall-policy-design.md",
+    "description": "A next-generation firewall NGFW can make decisions using more than source and destination IP addresses and ports. Depending on the platform and configuration, it may also identify applications, use…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-07T15:31:10.177Z",
+    "updatedAt": "2026-11-07T15:31:10.177Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "firewall-stateful-vs-stateless-inspection",
     "title": "Firewall Stateful vs Stateless Inspection",
     "markdownFile": "firewall-stateful-vs-stateless-inspection.md",

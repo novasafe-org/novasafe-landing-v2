@@ -1,5 +1,19 @@
 [
   {
+    "slug": "firewall-stateful-vs-stateless-inspection",
+    "title": "Firewall Stateful vs Stateless Inspection",
+    "markdownFile": "firewall-stateful-vs-stateless-inspection.md",
+    "description": "Choosing between stateful and stateless inspection affects how a firewall evaluates traffic, how you write rules, and how you investigate connection failures. The distinction matters when comparing…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-07T11:31:32.223Z",
+    "updatedAt": "2026-11-07T11:31:32.223Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "private-vlans-for-sensitive-workloads",
     "title": "Private VLANs for Sensitive Workloads",
     "markdownFile": "private-vlans-for-sensitive-workloads.md",

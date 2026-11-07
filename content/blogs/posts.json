@@ -1,5 +1,19 @@
 [
   {
+    "slug": "vlan-hopping-risks-and-defenses",
+    "title": "VLAN Hopping Risks and Defenses",
+    "markdownFile": "vlan-hopping-risks-and-defenses.md",
+    "description": "VLANs divide a switched network into separate Layer 2 broadcast domains, but that separation depends on correct switch configuration and handling of tagged traffic. A misconfigured port or trunk ca…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-07T05:31:14.306Z",
+    "updatedAt": "2026-11-07T05:31:14.306Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "network-segmentation-vs-microsegmentation",
     "title": "Network Segmentation vs Microsegmentation",
     "markdownFile": "network-segmentation-vs-microsegmentation.md",

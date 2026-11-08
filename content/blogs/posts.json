@@ -1,5 +1,19 @@
 [
   {
+    "slug": "tls-handshake-packet-analysis",
+    "title": "TLS Handshake Packet Analysis",
+    "markdownFile": "tls-handshake-packet-analysis.md",
+    "description": "A TLS handshake establishes the security parameters a client and server will use to communicate. Analyzing that exchange in a packet capture can help troubleshoot connection failures, verify protoc…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-08T19:31:12.887Z",
+    "updatedAt": "2026-11-08T19:31:12.887Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "wireguard-vs-openvpn-security-tradeoffs",
     "title": "WireGuard vs OpenVPN Security Tradeoffs",
     "markdownFile": "wireguard-vs-openvpn-security-tradeoffs.md",

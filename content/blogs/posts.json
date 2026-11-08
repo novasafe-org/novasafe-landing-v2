@@ -1,5 +1,19 @@
 [
   {
+    "slug": "802-1x-authentication-for-enterprise-networks",
+    "title": "802.1X Authentication for Enterprise Networks",
+    "markdownFile": "802-1x-authentication-for-enterprise-networks.md",
+    "description": "A device plugged into an office switch or joining corporate Wi-Fi should not automatically receive the same access as a managed employee laptop. 802.1X authentication for enterprise networks provid…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-08T03:31:20.544Z",
+    "updatedAt": "2026-11-08T03:31:20.544Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "network-access-control-explained",
     "title": "Network Access Control Explained",
     "markdownFile": "network-access-control-explained.md",

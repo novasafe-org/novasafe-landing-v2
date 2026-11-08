@@ -1,5 +1,19 @@
 [
   {
+    "slug": "radius-vs-tacacs-for-network-access",
+    "title": "RADIUS vs TACACS+ for Network Access",
+    "markdownFile": "radius-vs-tacacs-for-network-access.md",
+    "description": "Choosing between RADIUS and TACACS+ affects how users connect to a network and how administrators control network devices. Both protocols support centralized authentication, authorization, and acco…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-08T07:31:11.707Z",
+    "updatedAt": "2026-11-08T07:31:11.707Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "802-1x-authentication-for-enterprise-networks",
     "title": "802.1X Authentication for Enterprise Networks",
     "markdownFile": "802-1x-authentication-for-enterprise-networks.md",

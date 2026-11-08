@@ -1,5 +1,19 @@
 [
   {
+    "slug": "ipsec-vpn-architecture-and-common-mistakes",
+    "title": "IPsec VPN Architecture and Common Mistakes",
+    "markdownFile": "ipsec-vpn-architecture-and-common-mistakes.md",
+    "description": "An IPsec VPN can securely connect offices, cloud networks, remote users, or other IP-enabled systems. But deploying IPsec is more than enabling encryption: the peers must agree on cryptographic set…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-08T11:31:21.617Z",
+    "updatedAt": "2026-11-08T11:31:21.617Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "radius-vs-tacacs-for-network-access",
     "title": "RADIUS vs TACACS+ for Network Access",
     "markdownFile": "radius-vs-tacacs-for-network-access.md",

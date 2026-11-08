@@ -1,5 +1,19 @@
 [
   {
+    "slug": "wireguard-vs-openvpn-security-tradeoffs",
+    "title": "WireGuard vs OpenVPN Security Tradeoffs",
+    "markdownFile": "wireguard-vs-openvpn-security-tradeoffs.md",
+    "description": "Choosing a VPN protocol is not a simple contest between newer and older technology. WireGuard and OpenVPN can both provide secure tunnels when they are correctly configured, maintained, and deploye…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-08T15:31:22.978Z",
+    "updatedAt": "2026-11-08T15:31:22.978Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "ipsec-vpn-architecture-and-common-mistakes",
     "title": "IPsec VPN Architecture and Common Mistakes",
     "markdownFile": "ipsec-vpn-architecture-and-common-mistakes.md",

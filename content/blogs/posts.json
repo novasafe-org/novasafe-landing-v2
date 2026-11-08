@@ -1,5 +1,19 @@
 [
   {
+    "slug": "certificate-validation-failures-in-https",
+    "title": "Certificate Validation Failures in HTTPS",
+    "markdownFile": "certificate-validation-failures-in-https.md",
+    "description": "HTTPS certificate validation failures can appear as browser warnings, failed API requests, or TLS errors in application logs. The message may point to an expired certificate, an untrusted issuer, a…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-08T23:31:13.794Z",
+    "updatedAt": "2026-11-08T23:31:13.794Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "tls-handshake-packet-analysis",
     "title": "TLS Handshake Packet Analysis",
     "markdownFile": "tls-handshake-packet-analysis.md",

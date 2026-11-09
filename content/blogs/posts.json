@@ -1,5 +1,19 @@
 [
   {
+    "slug": "quic-protocol-security-considerations",
+    "title": "QUIC Protocol Security Considerations",
+    "markdownFile": "quic-protocol-security-considerations.md",
+    "description": "QUIC is a transport protocol designed to provide secure, low-latency connections over UDP. It underpins HTTP/3 and combines transport functions with a TLS 1.3 handshake. That integration changes ho…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-09T15:31:18.767Z",
+    "updatedAt": "2026-11-09T15:31:18.767Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "websocket-security-design",
     "title": "WebSocket Security Design",
     "markdownFile": "websocket-security-design.md",

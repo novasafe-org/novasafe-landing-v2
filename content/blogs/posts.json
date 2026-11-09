@@ -1,5 +1,19 @@
 [
   {
+    "slug": "http-security-headers-explained",
+    "title": "HTTP Security Headers Explained",
+    "markdownFile": "http-security-headers-explained.md",
+    "description": "HTTP security headers are instructions that a web server sends with its responses. Browsers use them to decide how a page may load resources, whether it can be embedded, and how to handle connectio…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-09T07:31:21.532Z",
+    "updatedAt": "2026-11-09T07:31:21.532Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "http-request-smuggling-concepts-and-defenses",
     "title": "HTTP Request Smuggling Concepts and Defenses",
     "markdownFile": "http-request-smuggling-concepts-and-defenses.md",

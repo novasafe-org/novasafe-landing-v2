@@ -1,5 +1,19 @@
 [
   {
+    "slug": "network-time-protocol-security",
+    "title": "Network Time Protocol Security",
+    "markdownFile": "network-time-protocol-security.md",
+    "description": "Accurate time is a quiet dependency in many security controls. Certificates, Kerberos, log correlation, token validation, and incident timelines can all be affected when system clocks drift or are …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-09T23:31:20.231Z",
+    "updatedAt": "2026-11-09T23:31:20.231Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "nat-is-not-a-security-boundary",
     "title": "NAT Is Not a Security Boundary",
     "markdownFile": "nat-is-not-a-security-boundary.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "http-request-smuggling-concepts-and-defenses",
+    "title": "HTTP Request Smuggling Concepts and Defenses",
+    "markdownFile": "http-request-smuggling-concepts-and-defenses.md",
+    "description": "HTTP request smuggling is a class of desynchronization flaw that can occur when two HTTP components disagree about where one request ends and the next begins. A reverse proxy might interpret a byte…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-09T03:31:17.121Z",
+    "updatedAt": "2026-11-09T03:31:17.121Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "certificate-validation-failures-in-https",
     "title": "Certificate Validation Failures in HTTPS",
     "markdownFile": "certificate-validation-failures-in-https.md",

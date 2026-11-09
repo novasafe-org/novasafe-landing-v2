@@ -1,5 +1,19 @@
 [
   {
+    "slug": "websocket-security-design",
+    "title": "WebSocket Security Design",
+    "markdownFile": "websocket-security-design.md",
+    "description": "WebSockets enable two-way communication over a long-lived connection, making them useful for chat, collaboration, live dashboards, and other real-time features. That connection model also changes h…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-09T11:31:12.603Z",
+    "updatedAt": "2026-11-09T11:31:12.603Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "http-security-headers-explained",
     "title": "HTTP Security Headers Explained",
     "markdownFile": "http-security-headers-explained.md",

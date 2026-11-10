@@ -1,5 +1,19 @@
 [
   {
+    "slug": "network-flow-logs-for-threat-hunting",
+    "title": "Network Flow Logs for Threat Hunting",
+    "markdownFile": "network-flow-logs-for-threat-hunting.md",
+    "description": "Network flow logs offer a useful way to ask what communicated across your network, when, and how much data moved. They can help threat hunters spot unusual destinations, unexpected services, scanni…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-10T11:31:14.372Z",
+    "updatedAt": "2026-11-10T11:31:14.372Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "secure-network-management-planes",
     "title": "Secure Network Management Planes",
     "markdownFile": "secure-network-management-planes.md",

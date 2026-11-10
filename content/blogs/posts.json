@@ -1,5 +1,19 @@
 [
   {
+    "slug": "packet-capture-privacy-and-retention",
+    "title": "Packet Capture Privacy and Retention",
+    "markdownFile": "packet-capture-privacy-and-retention.md",
+    "description": "Packet captures are powerful troubleshooting and security tools: they record network traffic so teams can investigate connectivity problems, analyze suspicious activity, or validate a system change…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-10T15:31:17.604Z",
+    "updatedAt": "2026-11-10T15:31:17.604Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "network-flow-logs-for-threat-hunting",
     "title": "Network Flow Logs for Threat Hunting",
     "markdownFile": "network-flow-logs-for-threat-hunting.md",

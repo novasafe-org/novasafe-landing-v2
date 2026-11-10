@@ -1,5 +1,19 @@
 [
   {
+    "slug": "intrusion-detection-vs-intrusion-prevention",
+    "title": "Intrusion Detection vs Intrusion Prevention",
+    "markdownFile": "intrusion-detection-vs-intrusion-prevention.md",
+    "description": "Intrusion detection and intrusion prevention systems both help identify malicious activity, but they take different actions when they find it. An intrusion detection system IDS monitors activity an…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-10T19:31:25.328Z",
+    "updatedAt": "2026-11-10T19:31:25.328Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "packet-capture-privacy-and-retention",
     "title": "Packet Capture Privacy and Retention",
     "markdownFile": "packet-capture-privacy-and-retention.md",

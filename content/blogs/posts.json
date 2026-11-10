@@ -1,5 +1,19 @@
 [
   {
+    "slug": "snmpv3-hardening-for-infrastructure",
+    "title": "SNMPv3 Hardening for Infrastructure",
+    "markdownFile": "snmpv3-hardening-for-infrastructure.md",
+    "description": "SNMP helps monitoring systems collect information about routers, switches, servers, firewalls, and other infrastructure. If it is exposed or configured with weak credentials and broad permissions, …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-10T03:31:06.799Z",
+    "updatedAt": "2026-11-10T03:31:06.799Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "network-time-protocol-security",
     "title": "Network Time Protocol Security",
     "markdownFile": "network-time-protocol-security.md",

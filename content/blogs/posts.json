@@ -1,5 +1,19 @@
 [
   {
+    "slug": "network-detection-and-response-fundamentals",
+    "title": "Network Detection and Response Fundamentals",
+    "markdownFile": "network-detection-and-response-fundamentals.md",
+    "description": "Network detection and response NDR helps security teams identify suspicious activity by observing network communications and investigating signals that may indicate compromise. It can reveal behavi…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-10T23:31:10.705Z",
+    "updatedAt": "2026-11-10T23:31:10.705Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "intrusion-detection-vs-intrusion-prevention",
     "title": "Intrusion Detection vs Intrusion Prevention",
     "markdownFile": "intrusion-detection-vs-intrusion-prevention.md",

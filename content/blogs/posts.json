@@ -1,5 +1,19 @@
 [
   {
+    "slug": "secure-network-management-planes",
+    "title": "Secure Network Management Planes",
+    "markdownFile": "secure-network-management-planes.md",
+    "description": "A network can forward traffic correctly and still be exposed through the interfaces used to configure, monitor, and troubleshoot it. A compromised management interface may let an attacker change ro…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-10T07:31:38.587Z",
+    "updatedAt": "2026-11-10T07:31:38.587Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "snmpv3-hardening-for-infrastructure",
     "title": "SNMPv3 Hardening for Infrastructure",
     "markdownFile": "snmpv3-hardening-for-infrastructure.md",

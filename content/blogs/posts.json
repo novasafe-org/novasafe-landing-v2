@@ -1,5 +1,19 @@
 [
   {
+    "slug": "egress-filtering-for-data-exfiltration-prevention",
+    "title": "Egress Filtering for Data Exfiltration Prevention",
+    "markdownFile": "egress-filtering-for-data-exfiltration-prevention.md",
+    "description": "Data exfiltration often depends on a system being able to send information somewhere it should not go. Egress filtering reduces that opportunity by controlling outbound network traffic from endpoin…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-11T07:31:20.269Z",
+    "updatedAt": "2026-11-11T07:31:20.269Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "east-west-traffic-monitoring",
     "title": "East-West Traffic Monitoring",
     "markdownFile": "east-west-traffic-monitoring.md",

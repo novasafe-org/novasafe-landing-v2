@@ -1,5 +1,19 @@
 [
   {
+    "slug": "sd-wan-security-architecture",
+    "title": "SD-WAN Security Architecture",
+    "markdownFile": "sd-wan-security-architecture.md",
+    "description": "Software-defined wide area networking SD-WAN can simplify how organizations connect branches, data centers, cloud services, and remote users. It can also change where security decisions are made an…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-11T19:31:21.148Z",
+    "updatedAt": "2026-11-11T19:31:21.148Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "remote-access-security-for-hybrid-work",
     "title": "Remote Access Security for Hybrid Work",
     "markdownFile": "remote-access-security-for-hybrid-work.md",

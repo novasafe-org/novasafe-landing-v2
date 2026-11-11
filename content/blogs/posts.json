@@ -1,5 +1,19 @@
 [
   {
+    "slug": "remote-access-security-for-hybrid-work",
+    "title": "Remote Access Security for Hybrid Work",
+    "markdownFile": "remote-access-security-for-hybrid-work.md",
+    "description": "Hybrid work gives employees flexibility, but it also spreads access across home networks, offices, mobile devices, cloud services, and shared workspaces. That makes remote access security more than…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-11T11:31:09.232Z",
+    "updatedAt": "2026-11-11T11:31:09.232Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "egress-filtering-for-data-exfiltration-prevention",
     "title": "Egress Filtering for Data Exfiltration Prevention",
     "markdownFile": "egress-filtering-for-data-exfiltration-prevention.md",

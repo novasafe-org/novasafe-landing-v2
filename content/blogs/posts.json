@@ -1,5 +1,19 @@
 [
   {
+    "slug": "sase-vs-sse-explained",
+    "title": "SASE vs SSE Explained",
+    "markdownFile": "sase-vs-sse-explained.md",
+    "description": "SASE and SSE are closely related approaches to securing access to applications, users, and data across distributed environments. Both can bring security controls closer to users and reduce reliance…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-11T23:31:15.712Z",
+    "updatedAt": "2026-11-11T23:31:15.712Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "sd-wan-security-architecture",
     "title": "SD-WAN Security Architecture",
     "markdownFile": "sd-wan-security-architecture.md",

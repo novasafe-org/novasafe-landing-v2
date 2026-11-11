@@ -1,5 +1,19 @@
 [
   {
+    "slug": "east-west-traffic-monitoring",
+    "title": "East-West Traffic Monitoring",
+    "markdownFile": "east-west-traffic-monitoring.md",
+    "description": "A network can have strong defenses at its internet boundary and still leave important activity unseen. Once an attacker or misconfigured service is inside, communication between internal systems ca…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-11T03:31:20.042Z",
+    "updatedAt": "2026-11-11T03:31:20.042Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "network-detection-and-response-fundamentals",
     "title": "Network Detection and Response Fundamentals",
     "markdownFile": "network-detection-and-response-fundamentals.md",

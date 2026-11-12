@@ -1,5 +1,19 @@
 [
   {
+    "slug": "stored-vs-reflected-vs-dom-based-xss",
+    "title": "Stored vs Reflected vs DOM-Based XSS",
+    "markdownFile": "stored-vs-reflected-vs-dom-based-xss.md",
+    "description": "Cross-site scripting XSS is not a single injection pattern. The terms stored, reflected, and DOM-based describe different aspects of how attacker-controlled data reaches an executable context in a …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-12T11:31:23.920Z",
+    "updatedAt": "2026-11-12T11:31:23.920Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "sql-injection-root-causes-and-prevention",
     "title": "SQL Injection Root Causes and Prevention",
     "markdownFile": "sql-injection-root-causes-and-prevention.md",

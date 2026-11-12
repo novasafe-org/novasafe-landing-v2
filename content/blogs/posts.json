@@ -1,5 +1,19 @@
 [
   {
+    "slug": "path-traversal-vulnerabilities-in-web-apps",
+    "title": "Path Traversal Vulnerabilities in Web Apps",
+    "markdownFile": "path-traversal-vulnerabilities-in-web-apps.md",
+    "description": "A web app may let users download a report, view an image, or select a file from a workspace. If the app uses a user-supplied filename to build a filesystem path without enforcing the intended bound…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-12T23:31:11.281Z",
+    "updatedAt": "2026-11-12T23:31:11.281Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "server-side-request-forgery-prevention",
     "title": "Server-Side Request Forgery Prevention",
     "markdownFile": "server-side-request-forgery-prevention.md",

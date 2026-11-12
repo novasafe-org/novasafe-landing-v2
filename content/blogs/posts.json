@@ -1,5 +1,19 @@
 [
   {
+    "slug": "network-tap-vs-span-port-for-monitoring",
+    "title": "Network Tap vs SPAN Port for Monitoring",
+    "markdownFile": "network-tap-vs-span-port-for-monitoring.md",
+    "description": "Choosing how to feed network traffic to an IDS, packet analyzer, or troubleshooting tool affects what your team can see—and what it might miss. Two common options are a network tap and a switch’s S…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "networking-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-12T03:31:25.058Z",
+    "updatedAt": "2026-11-12T03:31:25.058Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "sase-vs-sse-explained",
     "title": "SASE vs SSE Explained",
     "markdownFile": "sase-vs-sse-explained.md",

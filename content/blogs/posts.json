@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cross-site-request-forgery-defenses",
+    "title": "Cross-Site Request Forgery Defenses",
+    "markdownFile": "cross-site-request-forgery-defenses.md",
+    "description": "Cross-site request forgery CSRF tricks a user's browser into sending an unwanted request to a site where that user is already authenticated. Because browsers can attach credentials automatically, a…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-12T15:31:12.115Z",
+    "updatedAt": "2026-11-12T15:31:12.115Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "stored-vs-reflected-vs-dom-based-xss",
     "title": "Stored vs Reflected vs DOM-Based XSS",
     "markdownFile": "stored-vs-reflected-vs-dom-based-xss.md",

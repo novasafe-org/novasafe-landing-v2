@@ -29,5 +29,9 @@
   {
     "slug": "networking-security",
     "label": "Networking Security"
+  },
+  {
+    "slug": "web-application-security",
+    "label": "Web Application Security"
   }
 ]

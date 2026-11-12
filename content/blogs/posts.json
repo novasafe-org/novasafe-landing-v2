@@ -1,5 +1,19 @@
 [
   {
+    "slug": "sql-injection-root-causes-and-prevention",
+    "title": "SQL Injection Root Causes and Prevention",
+    "markdownFile": "sql-injection-root-causes-and-prevention.md",
+    "description": "SQL injection happens when an application builds a database query in a way that lets untrusted input change the query’s meaning. A value intended to be data can instead be interpreted as SQL syntax…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-12T07:31:09.077Z",
+    "updatedAt": "2026-11-12T07:31:09.077Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "network-tap-vs-span-port-for-monitoring",
     "title": "Network Tap vs SPAN Port for Monitoring",
     "markdownFile": "network-tap-vs-span-port-for-monitoring.md",

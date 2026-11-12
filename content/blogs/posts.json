@@ -1,5 +1,19 @@
 [
   {
+    "slug": "server-side-request-forgery-prevention",
+    "title": "Server-Side Request Forgery Prevention",
+    "markdownFile": "server-side-request-forgery-prevention.md",
+    "description": "Server-side request forgery SSRF happens when an application makes a network request based on input an attacker can influence. A feature that fetches an image, checks a webhook, imports a document,…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-12T19:31:26.975Z",
+    "updatedAt": "2026-11-12T19:31:26.975Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cross-site-request-forgery-defenses",
     "title": "Cross-Site Request Forgery Defenses",
     "markdownFile": "cross-site-request-forgery-defenses.md",

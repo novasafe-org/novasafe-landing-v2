@@ -1,5 +1,19 @@
 [
   {
+    "slug": "clickjacking-and-frame-ancestors",
+    "title": "Clickjacking and Frame-Ancestors",
+    "markdownFile": "clickjacking-and-frame-ancestors.md",
+    "description": "Clickjacking tricks people into interacting with a website element they cannot see or do not expect. An attacker may place a legitimate page inside a transparent or disguised frame, then position i…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-13T19:31:19.263Z",
+    "updatedAt": "2026-11-13T19:31:19.263Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "open-redirect-vulnerabilities-and-safe-redirects",
     "title": "Open Redirect Vulnerabilities and Safe Redirects",
     "markdownFile": "open-redirect-vulnerabilities-and-safe-redirects.md",

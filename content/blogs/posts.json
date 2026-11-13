@@ -1,5 +1,19 @@
 [
   {
+    "slug": "insecure-direct-object-reference-explained",
+    "title": "Insecure Direct Object Reference Explained",
+    "markdownFile": "insecure-direct-object-reference-explained.md",
+    "description": "A user opens an invoice in a web application at /invoices/1042. If changing 1042 to 1043 lets that user view someone else’s invoice, the application has an access-control problem—not merely a guess…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-13T03:31:11.896Z",
+    "updatedAt": "2026-11-13T03:31:11.896Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "path-traversal-vulnerabilities-in-web-apps",
     "title": "Path Traversal Vulnerabilities in Web Apps",
     "markdownFile": "path-traversal-vulnerabilities-in-web-apps.md",

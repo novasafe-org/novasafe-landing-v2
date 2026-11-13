@@ -1,5 +1,19 @@
 [
   {
+    "slug": "open-redirect-vulnerabilities-and-safe-redirects",
+    "title": "Open Redirect Vulnerabilities and Safe Redirects",
+    "markdownFile": "open-redirect-vulnerabilities-and-safe-redirects.md",
+    "description": "Redirects are a routine part of web applications: they send users to a dashboard after login, return them to a page they requested, or hand off to an external service. They become a security concer…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-13T15:31:22.201Z",
+    "updatedAt": "2026-11-13T15:31:22.201Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "broken-access-control-testing",
     "title": "Broken Access Control Testing",
     "markdownFile": "broken-access-control-testing.md",

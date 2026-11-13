@@ -1,5 +1,19 @@
 [
   {
+    "slug": "http-host-header-injection-risks",
+    "title": "HTTP Host Header Injection Risks",
+    "markdownFile": "http-host-header-injection-risks.md",
+    "description": "The Host header tells an HTTP server which hostname a client is trying to reach. That value often comes directly from the client, so it should not automatically be treated as a trusted description …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-13T23:31:26.696Z",
+    "updatedAt": "2026-11-13T23:31:26.696Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "clickjacking-and-frame-ancestors",
     "title": "Clickjacking and Frame-Ancestors",
     "markdownFile": "clickjacking-and-frame-ancestors.md",

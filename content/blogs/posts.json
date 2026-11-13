@@ -1,5 +1,19 @@
 [
   {
+    "slug": "broken-access-control-testing",
+    "title": "Broken Access Control Testing",
+    "markdownFile": "broken-access-control-testing.md",
+    "description": "Broken access control occurs when an application lets a user perform an action or access data beyond the permissions they should have. A user might view another customer’s invoice by changing an ID…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-13T07:31:13.555Z",
+    "updatedAt": "2026-11-13T07:31:13.555Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "insecure-direct-object-reference-explained",
     "title": "Insecure Direct Object Reference Explained",
     "markdownFile": "insecure-direct-object-reference-explained.md",

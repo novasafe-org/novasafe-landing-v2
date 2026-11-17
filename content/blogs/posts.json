@@ -1,5 +1,19 @@
 [
   {
+    "slug": "file-upload-validation-and-storage-security",
+    "title": "File Upload Validation and Storage Security",
+    "markdownFile": "file-upload-validation-and-storage-security.md",
+    "description": "File uploads give users a convenient way to share images, documents, and other content. They also let untrusted data enter your application and, in some cases, reach systems that parse or serve it.…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-17T23:32:56.551Z",
+    "updatedAt": "2026-11-17T23:32:56.551Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "template-injection-risks-in-server-rendering",
     "title": "Template Injection Risks in Server Rendering",
     "markdownFile": "template-injection-risks-in-server-rendering.md",

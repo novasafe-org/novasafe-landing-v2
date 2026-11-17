@@ -1,5 +1,19 @@
 [
   {
+    "slug": "insecure-deserialization-explained",
+    "title": "Insecure Deserialization Explained",
+    "markdownFile": "insecure-deserialization-explained.md",
+    "description": "Applications often need to turn data into objects and later reconstruct those objects. That process is called deserialization. It becomes a security concern when an application accepts serialized d…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-17T15:31:22.439Z",
+    "updatedAt": "2026-11-17T15:31:22.439Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "race-conditions-in-web-applications",
     "title": "Race Conditions in Web Applications",
     "markdownFile": "race-conditions-in-web-applications.md",

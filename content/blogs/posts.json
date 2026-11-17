@@ -1,5 +1,19 @@
 [
   {
+    "slug": "race-conditions-in-web-applications",
+    "title": "Race Conditions in Web Applications",
+    "markdownFile": "race-conditions-in-web-applications.md",
+    "description": "A request can be correct on its own and still cause a security or data-integrity problem when it overlaps with another request. For example, two customers may try to buy the last item at the same t…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-17T11:31:26.323Z",
+    "updatedAt": "2026-11-17T11:31:26.323Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "http-host-header-injection-risks",
     "title": "HTTP Host Header Injection Risks",
     "markdownFile": "http-host-header-injection-risks.md",

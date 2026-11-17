@@ -1,5 +1,19 @@
 [
   {
+    "slug": "template-injection-risks-in-server-rendering",
+    "title": "Template Injection Risks in Server Rendering",
+    "markdownFile": "template-injection-risks-in-server-rendering.md",
+    "description": "Server-rendered pages often combine templates with data supplied by users, databases, or other services. That is normal. The risk begins when untrusted data is treated as template source and interp…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-17T19:31:19.036Z",
+    "updatedAt": "2026-11-17T19:31:19.036Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "insecure-deserialization-explained",
     "title": "Insecure Deserialization Explained",
     "markdownFile": "insecure-deserialization-explained.md",

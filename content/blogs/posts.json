@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cache-poisoning-in-web-applications",
+    "title": "Cache Poisoning in Web Applications",
+    "markdownFile": "cache-poisoning-in-web-applications.md",
+    "description": "A shared cache can make a web application faster and more resilient by serving a saved response instead of contacting the origin for every request. But if the cache and the application disagree abo…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-18T23:31:21.396Z",
+    "updatedAt": "2026-11-18T23:31:21.396Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cookie-security-httponly-secure-and-samesite",
     "title": "Cookie Security: HttpOnly, Secure, and SameSite",
     "markdownFile": "cookie-security-httponly-secure-and-samesite.md",

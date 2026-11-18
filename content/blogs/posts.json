@@ -1,5 +1,19 @@
 [
   {
+    "slug": "session-fixation-and-session-rotation",
+    "title": "Session Fixation and Session Rotation",
+    "markdownFile": "session-fixation-and-session-rotation.md",
+    "description": "A session identifier lets a web application associate requests with a user’s state. If an attacker can make a victim use an identifier the attacker already knows, and the application keeps that ide…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-18T11:31:18.870Z",
+    "updatedAt": "2026-11-18T11:31:18.870Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "unrestricted-file-type-uploads",
     "title": "Unrestricted File Type Uploads",
     "markdownFile": "unrestricted-file-type-uploads.md",

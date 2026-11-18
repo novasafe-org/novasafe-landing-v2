@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cookie-security-httponly-secure-and-samesite",
+    "title": "Cookie Security: HttpOnly, Secure, and SameSite",
+    "markdownFile": "cookie-security-httponly-secure-and-samesite.md",
+    "description": "Cookies often carry session identifiers or other sensitive state. If those cookies are exposed to scripts, sent over an unencrypted connection, or included in cross-site requests unexpectedly, an a…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-18T19:31:14.302Z",
+    "updatedAt": "2026-11-18T19:31:14.302Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "session-fixation-and-session-rotation",
     "title": "Session Fixation and Session Rotation",
     "markdownFile": "session-fixation-and-session-rotation.md",

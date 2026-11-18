@@ -1,5 +1,19 @@
 [
   {
+    "slug": "unrestricted-file-type-uploads",
+    "title": "Unrestricted File Type Uploads",
+    "markdownFile": "unrestricted-file-type-uploads.md",
+    "description": "File uploads are a routine feature in web applications, but accepting arbitrary file types can turn a convenience into a security risk. An uploaded file may contain executable code, exploit a vulne…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-18T03:31:30.189Z",
+    "updatedAt": "2026-11-18T03:31:30.189Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "file-upload-validation-and-storage-security",
     "title": "File Upload Validation and Storage Security",
     "markdownFile": "file-upload-validation-and-storage-security.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "password-reset-flow-security-review",
+    "title": "Password Reset Flow Security Review",
+    "markdownFile": "password-reset-flow-security-review.md",
+    "description": "A password reset flow is an account recovery mechanism—and, in practice, another way to authenticate. If an attacker can abuse it, they may take over an account without knowing its current password…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-19T19:31:17.710Z",
+    "updatedAt": "2026-11-19T19:31:17.710Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "subresource-integrity-for-third-party-scripts",
     "title": "Subresource Integrity for Third-Party Scripts",
     "markdownFile": "subresource-integrity-for-third-party-scripts.md",

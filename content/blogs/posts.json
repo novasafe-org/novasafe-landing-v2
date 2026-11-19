@@ -1,5 +1,19 @@
 [
   {
+    "slug": "cors-misconfiguration-troubleshooting",
+    "title": "CORS Misconfiguration Troubleshooting",
+    "markdownFile": "cors-misconfiguration-troubleshooting.md",
+    "description": "Cross-Origin Resource Sharing CORS errors can be confusing: an API may work in a terminal or server-side test but fail when a browser-based frontend calls it. The cause is often a mismatch between …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-19T07:31:22.637Z",
+    "updatedAt": "2026-11-19T07:31:22.637Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "web-cache-deception-explained",
     "title": "Web Cache Deception Explained",
     "markdownFile": "web-cache-deception-explained.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "account-enumeration-prevention",
+    "title": "Account Enumeration Prevention",
+    "markdownFile": "account-enumeration-prevention.md",
+    "description": "Account enumeration happens when someone can determine whether a particular username, email address, or other identifier is registered with an application. Attackers can use that information to tar…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-19T23:31:11.166Z",
+    "updatedAt": "2026-11-19T23:31:11.166Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "password-reset-flow-security-review",
     "title": "Password Reset Flow Security Review",
     "markdownFile": "password-reset-flow-security-review.md",

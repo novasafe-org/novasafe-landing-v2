@@ -1,5 +1,19 @@
 [
   {
+    "slug": "content-security-policy-deployment-guide",
+    "title": "Content Security Policy Deployment Guide",
+    "markdownFile": "content-security-policy-deployment-guide.md",
+    "description": "A Content Security Policy CSP is a browser-enforced set of rules that controls which resources a web page can load and where scripts, styles, images, and other content may come from. A carefully de…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-19T11:31:21.485Z",
+    "updatedAt": "2026-11-19T11:31:21.485Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cors-misconfiguration-troubleshooting",
     "title": "CORS Misconfiguration Troubleshooting",
     "markdownFile": "cors-misconfiguration-troubleshooting.md",

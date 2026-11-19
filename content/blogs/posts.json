@@ -1,5 +1,19 @@
 [
   {
+    "slug": "web-cache-deception-explained",
+    "title": "Web Cache Deception Explained",
+    "markdownFile": "web-cache-deception-explained.md",
+    "description": "Web caches help websites deliver reusable content quickly, but a mismatch between a cache and an application can create a security problem. In a web cache deception attack, an attacker may trick a …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-19T03:31:26.839Z",
+    "updatedAt": "2026-11-19T03:31:26.839Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "cache-poisoning-in-web-applications",
     "title": "Cache Poisoning in Web Applications",
     "markdownFile": "cache-poisoning-in-web-applications.md",

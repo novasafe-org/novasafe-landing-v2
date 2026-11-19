@@ -1,5 +1,19 @@
 [
   {
+    "slug": "subresource-integrity-for-third-party-scripts",
+    "title": "Subresource Integrity for Third-Party Scripts",
+    "markdownFile": "subresource-integrity-for-third-party-scripts.md",
+    "description": "Third-party JavaScript can add useful features to a web application, but it also creates a trust dependency. A script loaded from a content delivery network CDN or another external host can execute…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-19T15:31:32.704Z",
+    "updatedAt": "2026-11-19T15:31:32.704Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "content-security-policy-deployment-guide",
     "title": "Content Security Policy Deployment Guide",
     "markdownFile": "content-security-policy-deployment-guide.md",

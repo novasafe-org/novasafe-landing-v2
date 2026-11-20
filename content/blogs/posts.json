@@ -1,5 +1,19 @@
 [
   {
+    "slug": "secure-multi-tenant-web-application-design",
+    "title": "Secure Multi-Tenant Web Application Design",
+    "markdownFile": "secure-multi-tenant-web-application-design.md",
+    "description": "A multi-tenant application serves multiple organizations or customers from shared infrastructure. That can reduce operating costs and simplify deployment, but it also makes isolation a core securit…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-20T03:31:16.004Z",
+    "updatedAt": "2026-11-20T03:31:16.004Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "account-enumeration-prevention",
     "title": "Account Enumeration Prevention",
     "markdownFile": "account-enumeration-prevention.md",

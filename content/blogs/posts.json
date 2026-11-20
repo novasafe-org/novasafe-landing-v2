@@ -1,5 +1,19 @@
 [
   {
+    "slug": "graphql-authorization-pitfalls",
+    "title": "GraphQL Authorization Pitfalls",
+    "markdownFile": "graphql-authorization-pitfalls.md",
+    "description": "GraphQL lets clients request exactly the data they need, including nested objects and multiple operations in a single request. That flexibility can make authorization harder to reason about: a chec…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-20T07:31:24.418Z",
+    "updatedAt": "2026-11-20T07:31:24.418Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "secure-multi-tenant-web-application-design",
     "title": "Secure Multi-Tenant Web Application Design",
     "markdownFile": "secure-multi-tenant-web-application-design.md",

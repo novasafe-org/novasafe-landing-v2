@@ -1,5 +1,19 @@
 [
   {
+    "slug": "api-pagination-and-data-exposure-risks",
+    "title": "API Pagination and Data Exposure Risks",
+    "markdownFile": "api-pagination-and-data-exposure-risks.md",
+    "description": "Pagination divides a large collection into smaller responses. It can improve performance and make an API easier to use, but it also creates security decisions: which records may a caller page throu…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-20T19:31:09.581Z",
+    "updatedAt": "2026-11-20T19:31:09.581Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "webhooks-signature-verification-and-replay-defense",
     "title": "Webhooks: Signature Verification and Replay Defense",
     "markdownFile": "webhooks-signature-verification-and-replay-defense.md",

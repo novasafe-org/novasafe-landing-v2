@@ -1,5 +1,19 @@
 [
   {
+    "slug": "graphql-query-complexity-protection",
+    "title": "GraphQL Query Complexity Protection",
+    "markdownFile": "graphql-query-complexity-protection.md",
+    "description": "GraphQL lets clients request exactly the fields they need, but that flexibility can make server costs hard to predict. A short query may trigger deeply nested lookups, expensive calculations, or la…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-20T11:31:16.920Z",
+    "updatedAt": "2026-11-20T11:31:16.920Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "graphql-authorization-pitfalls",
     "title": "GraphQL Authorization Pitfalls",
     "markdownFile": "graphql-authorization-pitfalls.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "webhooks-signature-verification-and-replay-defense",
+    "title": "Webhooks: Signature Verification and Replay Defense",
+    "markdownFile": "webhooks-signature-verification-and-replay-defense.md",
+    "description": "Webhooks let one service notify another when an event occurs. They are convenient, but an exposed endpoint can also receive forged, altered, or repeated requests. A secure implementation must check…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-20T15:31:26.793Z",
+    "updatedAt": "2026-11-20T15:31:26.793Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "graphql-query-complexity-protection",
     "title": "GraphQL Query Complexity Protection",
     "markdownFile": "graphql-query-complexity-protection.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "business-logic-vulnerabilities-in-checkout-flows",
+    "title": "Business Logic Vulnerabilities in Checkout Flows",
+    "markdownFile": "business-logic-vulnerabilities-in-checkout-flows.md",
+    "description": "A checkout can use strong encryption, secure sessions, and carefully validated input—and still let a customer pay the wrong amount or obtain an item without paying. These failures often come from b…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-20T23:31:10.814Z",
+    "updatedAt": "2026-11-20T23:31:10.814Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "api-pagination-and-data-exposure-risks",
     "title": "API Pagination and Data Exposure Risks",
     "markdownFile": "api-pagination-and-data-exposure-risks.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "ssrf-in-pdf-and-image-processing-services",
+    "title": "SSRF in PDF and Image Processing Services",
+    "markdownFile": "ssrf-in-pdf-and-image-processing-services.md",
+    "description": "PDF conversion and image-processing features often look like ordinary file-handling tasks. But if a service accepts a URL, renders HTML, or follows external resources referenced by a document, it m…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-21T19:31:18.573Z",
+    "updatedAt": "2026-11-21T19:31:18.573Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "file-path-canonicalization-security",
     "title": "File Path Canonicalization Security",
     "markdownFile": "file-path-canonicalization-security.md",

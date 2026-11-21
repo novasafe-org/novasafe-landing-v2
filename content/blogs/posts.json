@@ -1,5 +1,19 @@
 [
   {
+    "slug": "desynchronization-bugs-in-http-stacks",
+    "title": "Desynchronization Bugs in HTTP Stacks",
+    "markdownFile": "desynchronization-bugs-in-http-stacks.md",
+    "description": "HTTP requests often pass through several components before reaching an application: a CDN, load balancer, reverse proxy, web server, and framework. Each component must agree on where one message en…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-21T11:31:11.468Z",
+    "updatedAt": "2026-11-21T11:31:11.468Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "regular-expression-denial-of-service",
     "title": "Regular Expression Denial of Service",
     "markdownFile": "regular-expression-denial-of-service.md",

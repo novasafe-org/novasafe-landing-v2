@@ -1,5 +1,19 @@
 [
   {
+    "slug": "prototype-pollution-in-javascript-applications",
+    "title": "Prototype Pollution in JavaScript Applications",
+    "markdownFile": "prototype-pollution-in-javascript-applications.md",
+    "description": "Prototype pollution is a class of vulnerability in which attacker-controlled input changes properties on an object’s prototype. Because JavaScript objects can inherit properties, that change may in…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-21T03:31:15.503Z",
+    "updatedAt": "2026-11-21T03:31:15.503Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "business-logic-vulnerabilities-in-checkout-flows",
     "title": "Business Logic Vulnerabilities in Checkout Flows",
     "markdownFile": "business-logic-vulnerabilities-in-checkout-flows.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "oauth-callback-url-validation",
+    "title": "OAuth Callback URL Validation",
+    "markdownFile": "oauth-callback-url-validation.md",
+    "description": "An OAuth callback URL is where an authorization server sends a user after they approve or deny an application’s request. That redirect is a critical security boundary: if an attacker can influence …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-21T23:31:17.200Z",
+    "updatedAt": "2026-11-21T23:31:17.200Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "ssrf-in-pdf-and-image-processing-services",
     "title": "SSRF in PDF and Image Processing Services",
     "markdownFile": "ssrf-in-pdf-and-image-processing-services.md",

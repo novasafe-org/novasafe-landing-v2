@@ -1,5 +1,19 @@
 [
   {
+    "slug": "regular-expression-denial-of-service",
+    "title": "Regular Expression Denial of Service",
+    "markdownFile": "regular-expression-denial-of-service.md",
+    "description": "Regular expressions are useful for validating input, extracting data, and searching text. But some patterns can take an unexpectedly long time to match particular inputs. If an attacker can supply …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-21T07:31:03.755Z",
+    "updatedAt": "2026-11-21T07:31:03.755Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "prototype-pollution-in-javascript-applications",
     "title": "Prototype Pollution in JavaScript Applications",
     "markdownFile": "prototype-pollution-in-javascript-applications.md",

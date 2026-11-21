@@ -1,5 +1,19 @@
 [
   {
+    "slug": "file-path-canonicalization-security",
+    "title": "File Path Canonicalization Security",
+    "markdownFile": "file-path-canonicalization-security.md",
+    "description": "An application that accepts a filename or path from a request must decide which file that input refers to. That decision can become a security problem when the application checks one representation…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-21T15:31:22.555Z",
+    "updatedAt": "2026-11-21T15:31:22.555Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "desynchronization-bugs-in-http-stacks",
     "title": "Desynchronization Bugs in HTTP Stacks",
     "markdownFile": "desynchronization-bugs-in-http-stacks.md",

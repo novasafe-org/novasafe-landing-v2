@@ -1,5 +1,19 @@
 [
   {
+    "slug": "web-application-firewall-limitations",
+    "title": "Web Application Firewall Limitations",
+    "markdownFile": "web-application-firewall-limitations.md",
+    "description": "A web application firewall WAF can help block suspicious HTTP traffic before it reaches an application. It may detect known attack patterns, enforce request rules, and provide a useful layer of def…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-22T15:31:17.095Z",
+    "updatedAt": "2026-11-22T15:31:17.095Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "browser-storage-risks-in-web-applications",
     "title": "Browser Storage Risks in Web Applications",
     "markdownFile": "browser-storage-risks-in-web-applications.md",

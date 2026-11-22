@@ -1,5 +1,19 @@
 [
   {
+    "slug": "secure-error-handling-without-information-leaks",
+    "title": "Secure Error Handling Without Information Leaks",
+    "markdownFile": "secure-error-handling-without-information-leaks.md",
+    "description": "Errors are an ordinary part of running a web application. A database may become unavailable, a user may submit invalid input, or a request may target a resource that does not exist. The security qu…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-22T03:31:20.245Z",
+    "updatedAt": "2026-11-22T03:31:20.245Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "oauth-callback-url-validation",
     "title": "OAuth Callback URL Validation",
     "markdownFile": "oauth-callback-url-validation.md",

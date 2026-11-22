@@ -1,5 +1,19 @@
 [
   {
+    "slug": "browser-storage-risks-in-web-applications",
+    "title": "Browser Storage Risks in Web Applications",
+    "markdownFile": "browser-storage-risks-in-web-applications.md",
+    "description": "Browser storage makes it easy for web applications to remember preferences, keep drafts, cache content, and maintain a user session. That convenience comes with a security trade-off: data stored in…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-22T11:31:15.535Z",
+    "updatedAt": "2026-11-22T11:31:15.535Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "security-testing-for-single-page-applications",
     "title": "Security Testing for Single-Page Applications",
     "markdownFile": "security-testing-for-single-page-applications.md",

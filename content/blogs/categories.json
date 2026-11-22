@@ -33,5 +33,9 @@
   {
     "slug": "web-application-security",
     "label": "Web Application Security"
+  },
+  {
+    "slug": "api-security",
+    "label": "API Security"
   }
 ]

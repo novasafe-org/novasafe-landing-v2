@@ -1,5 +1,19 @@
 [
   {
+    "slug": "rest-api-authentication-design",
+    "title": "REST API Authentication Design",
+    "markdownFile": "rest-api-authentication-design.md",
+    "description": "A sound REST API authentication design does more than check whether a request includes a credential. It defines how clients obtain and present credentials, how the server validates them, how access…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "api-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-22T19:31:15.890Z",
+    "updatedAt": "2026-11-22T19:31:15.890Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "web-application-firewall-limitations",
     "title": "Web Application Firewall Limitations",
     "markdownFile": "web-application-firewall-limitations.md",

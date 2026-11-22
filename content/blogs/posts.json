@@ -1,5 +1,19 @@
 [
   {
+    "slug": "api-authorization-vs-authentication",
+    "title": "API Authorization vs Authentication",
+    "markdownFile": "api-authorization-vs-authentication.md",
+    "description": "Authentication and authorization are closely related, but they answer different questions. Authentication establishes who or what is making an API request. Authorization decides what that identity …",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "api-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-22T23:31:06.307Z",
+    "updatedAt": "2026-11-22T23:31:06.307Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "rest-api-authentication-design",
     "title": "REST API Authentication Design",
     "markdownFile": "rest-api-authentication-design.md",

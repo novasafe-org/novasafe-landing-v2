@@ -1,5 +1,19 @@
 [
   {
+    "slug": "security-testing-for-single-page-applications",
+    "title": "Security Testing for Single-Page Applications",
+    "markdownFile": "security-testing-for-single-page-applications.md",
+    "description": "Single-page applications SPAs can make web experiences responsive and interactive, but their architecture changes where security risks appear. A browser downloads and runs much of an SPA’s code, wh…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "web-application-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-22T07:31:14.878Z",
+    "updatedAt": "2026-11-22T07:31:14.878Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "secure-error-handling-without-information-leaks",
     "title": "Secure Error Handling Without Information Leaks",
     "markdownFile": "secure-error-handling-without-information-leaks.md",

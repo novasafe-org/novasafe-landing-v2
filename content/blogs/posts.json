@@ -1,5 +1,19 @@
 [
   {
+    "slug": "broken-function-level-authorization",
+    "title": "Broken Function Level Authorization",
+    "markdownFile": "broken-function-level-authorization.md",
+    "description": "An API can correctly identify a user and still let that user perform actions they should not be allowed to perform. For example, a regular account might be able to call an administrative endpoint s…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "api-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-23T15:31:08.114Z",
+    "updatedAt": "2026-11-23T15:31:08.114Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "broken-object-level-authorization-testing",
     "title": "Broken Object Level Authorization Testing",
     "markdownFile": "broken-object-level-authorization-testing.md",

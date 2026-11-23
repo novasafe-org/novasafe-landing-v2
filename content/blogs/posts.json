@@ -1,5 +1,19 @@
 [
   {
+    "slug": "broken-object-level-authorization-testing",
+    "title": "Broken Object Level Authorization Testing",
+    "markdownFile": "broken-object-level-authorization-testing.md",
+    "description": "An API can authenticate a user correctly and still expose another person’s data. This happens when the server accepts a request for an object—such as an invoice, project, or profile—without checkin…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "api-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-23T11:31:13.261Z",
+    "updatedAt": "2026-11-23T11:31:13.261Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "owasp-api-security-risks-explained",
     "title": "OWASP API Security Risks Explained",
     "markdownFile": "owasp-api-security-risks-explained.md",

@@ -1,5 +1,19 @@
 [
   {
+    "slug": "owasp-api-security-risks-explained",
+    "title": "OWASP API Security Risks Explained",
+    "markdownFile": "owasp-api-security-risks-explained.md",
+    "description": "APIs connect applications, services, and data—but they also expose functionality that attackers can probe and abuse. A valid login does not guarantee that a caller can access the right records, per…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "api-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-23T03:31:13.211Z",
+    "updatedAt": "2026-11-23T03:31:13.211Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "api-authorization-vs-authentication",
     "title": "API Authorization vs Authentication",
     "markdownFile": "api-authorization-vs-authentication.md",

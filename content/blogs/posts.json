@@ -1,5 +1,19 @@
 [
   {
+    "slug": "jwt-validation-mistakes-to-avoid",
+    "title": "JWT Validation Mistakes to Avoid",
+    "markdownFile": "jwt-validation-mistakes-to-avoid.md",
+    "description": "A JSON Web Token JWT can carry identity and authorization data between an application and an API. But a token is not trustworthy just because it is well-formed—or because it was issued by a familia…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "api-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-24T07:31:11.582Z",
+    "updatedAt": "2026-11-24T07:31:11.582Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "api-key-rotation-and-lifecycle-management",
     "title": "API Key Rotation and Lifecycle Management",
     "markdownFile": "api-key-rotation-and-lifecycle-management.md",

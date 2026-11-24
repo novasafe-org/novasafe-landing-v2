@@ -1,5 +1,19 @@
 [
   {
+    "slug": "api-key-rotation-and-lifecycle-management",
+    "title": "API Key Rotation and Lifecycle Management",
+    "markdownFile": "api-key-rotation-and-lifecycle-management.md",
+    "description": "API keys are simple to issue and easy to overlook. A key embedded in an old deployment, shared across services, or left active after an employee or vendor relationship ends can remain a route to se…",
+    "featuredImage": null,
+    "tags": [],
+    "categorySlug": "api-security",
+    "author": "NovaSafe Team",
+    "publishedAt": "2026-11-24T03:31:13.545Z",
+    "updatedAt": "2026-11-24T03:31:13.545Z",
+    "featured": false,
+    "status": "published"
+  },
+  {
     "slug": "api-rate-limiting-strategies",
     "title": "API Rate Limiting Strategies",
     "markdownFile": "api-rate-limiting-strategies.md",

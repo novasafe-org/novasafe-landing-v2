@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.22
+
+### Changed
+
+Add account deletion page for Play Store Data Safety requirement.
+
 ## v1.1.21
 
 ### Changed

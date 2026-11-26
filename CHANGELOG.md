@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.23
+
+### Changed
+
+Clarify account deletion warning wording.
+
 ## v1.1.22
 
 ### Changed

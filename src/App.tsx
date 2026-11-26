@@ -36,6 +36,7 @@ import BlogPostPage from "./pages/company/BlogPost";
 
 import Help from "./pages/support/Help";
 import AccountDeletion from "./pages/support/AccountDeletion";
+import AccountDeletionConfirm from "./pages/support/AccountDeletionConfirm";
 
 import DocsIndex from "./pages/docs/Index";
 import GettingStarted from "./pages/docs/GettingStarted";
@@ -96,6 +97,7 @@ const App = () => (
           {/* Support */}
           <Route path="/help" element={<Help />} />
           <Route path="/account/deletion" element={<AccountDeletion />} />
+          <Route path="/account/deletion/confirm" element={<AccountDeletionConfirm />} />
           <Route path="/account-deletion" element={<AccountDeletion />} />
 
           {/* Docs */}

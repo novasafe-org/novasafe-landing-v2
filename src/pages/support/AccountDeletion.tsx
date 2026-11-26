@@ -5,7 +5,7 @@ import { ArrowLeft, Check, Loader2 } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { inkCtaButtonClass, InkCtaArrow } from "@/components/site/primitives";
 import { Input } from "@/components/ui/input";
-import { submitContactForm } from "@/lib/contactApi";
+import { requestAccountDeletion } from "@/lib/accountDeletionApi";
 import { cn } from "@/lib/utils";
 
 const fieldClass = cn(
@@ -25,13 +25,7 @@ export default function AccountDeletion() {
 
     setStatus("loading");
     try {
-      await submitContactForm({
-        name: "Account deletion request",
-        email: trimmed,
-        category: "Technical Support",
-        message:
-          "Please delete my NovaSafe account and all associated data. Submitted via /account/deletion.",
-      });
+      await requestAccountDeletion(trimmed);
       setStatus("success");
     } catch {
       setStatus("error");
@@ -60,6 +54,15 @@ export default function AccountDeletion() {
               Submit the form below and we&apos;ll start deleting your account.
             </p>
 
+            <p
+              className="mt-6 rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3 text-[14px] leading-relaxed text-ink"
+              role="note"
+            >
+              This permanently deletes your account and everything in it, including
+              secrets, vault items, folders, documents, and any other data tied to
+              the account. It can&apos;t be undone.
+            </p>
+
             {status === "success" ? (
               <div className="mt-10 rounded-2xl border border-border/70 bg-card/90 p-8 text-center shadow-sm">
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10">
@@ -69,7 +72,7 @@ export default function AccountDeletion() {
                   Request received
                 </h2>
                 <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
-                  We&apos;ll process the deletion and confirm by email within a few business days.
+                  Check your inbox for a confirmation link. Open it to finish deleting the account.
                 </p>
               </div>
             ) : (
@@ -122,7 +125,7 @@ export default function AccountDeletion() {
                 )}
 
                 <p className="text-[13px] leading-relaxed text-muted-foreground">
-                  Deletion will be processed and confirmed by email within a few business days.
+                  We&apos;ll email you a confirmation link. Deletion only runs after you confirm.
                 </p>
               </form>
             )}

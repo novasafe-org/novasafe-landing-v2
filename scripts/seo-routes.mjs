@@ -46,6 +46,7 @@ export const seoRoutes = Object.freeze([
 
   // ---- Support ---------------------------------------------------------
   { path: "/help",                             priority: 0.5, changefreq: "monthly" },
+  { path: "/account/deletion",                 priority: 0.3, changefreq: "yearly"  },
 
   // ---- Docs ------------------------------------------------------------
   { path: "/docs",                             priority: 0.6, changefreq: "monthly" },

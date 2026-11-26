@@ -23,6 +23,7 @@ const groups: { t: string; l: { label: string; href: string }[] }[] = [
   ]},
   { t: "Resources", l: [
     { label: "Help Center", href: "/help" },
+    { label: "Account deletion", href: "/account/deletion" },
     { label: "Blog", href: "/blog" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
